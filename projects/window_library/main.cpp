@@ -11,7 +11,15 @@
 // ==========================================================================
 
 #include "hwlib.hpp"
-
+#include "Scene.hpp"
+#include "array"
+void my_test_code(hwlib::glcd_oled& window)  {
+   //std::array<hwlib::xy, 3> my_array = {hwlib::xy(1, 1), hwlib::xy(1,10)};
+   
+   GraphicsObjectSquare GOS(window);
+   GOS.setSquareData(hwlib::xy(15, 15), 10, 10, 75);
+   GOS.draw();
+}
 int main( void ){
        
    namespace target = hwlib::target;
@@ -33,14 +41,28 @@ int main( void ){
    auto font2         = hwlib::font_default_16x16();
    auto console2      = hwlib::terminal_from( w2, font2 );
    
+   oled.flush();
+   oled.clear();
+   auto line = hwlib::line( 
+      hwlib::xy{  5,  5 },
+      hwlib::xy{ 10, 5 }, 
+      oled.foreground 
+   );
+   line.draw(oled);
+   oled.flush(); 
+   hwlib::wait_ms( 1000 );      
+     
+   my_test_code(oled);
+
+
    console1
-      << "\f" << "Hello worlddd!!" 
-      << "\n" << "second line..."
+      << "\f" << "Test world!!" 
+      << "\n" << "Hiya world"
       << hwlib::flush;     
       
    console2
-      << "\f" << "Ho Ho Ho "
+      << "\f" << "Ey Ey Ey"
       << "\n" << "said"
-      << "\n" << "Santa"
+      << "\n" << "Let me tell you a story..."
       << hwlib::flush;     
 }

@@ -34,13 +34,13 @@ int main( void ){
    auto console2      = hwlib::terminal_from( w2, font2 );
    
    console1
-      << "\f" << "Hello worlddd!!" 
-      << "\n" << "second line..."
+      << "\f" << "Test world!!" 
+      << "\n" << "Hiya world"
       << hwlib::flush;     
       
    console2
-      << "\f" << "Ho Ho Ho "
+      << "\f" << "Ey Ey Ey"
       << "\n" << "said"
-      << "\n" << "Santa"
+      << "\n" << "Let me tell you a story..."
       << hwlib::flush;     
 }
