@@ -16,9 +16,12 @@
 void my_test_code(hwlib::glcd_oled& window)  {
    //std::array<hwlib::xy, 3> my_array = {hwlib::xy(1, 1), hwlib::xy(1,10)};
    
-   GraphicsObjectSquare GOS(window);
+   /*GraphicsObjectSquare GOS(window);
    GOS.setSquareData(hwlib::xy(15, 15), 10, 10, 75);
-   GOS.draw();
+   GOS.draw();*/
+
+   GraphScene GS(window, hwlib::xy(1, 1), 30, 30);
+   GS.draw();
 }
 int main( void ){
        
