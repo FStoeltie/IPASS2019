@@ -148,7 +148,8 @@ extern "C" {
 #define BMP280_E_DOUBLE_COMP_PRESS           INT8_C(-18)
 
 /*! @name Chip IDs for samples and mass production parts */
-#define BMP280_CHIP_ID1                      UINT8_C(0x56)
+#define BMP280_CHIP_ID1                      UINT8_C(0x60)
+//#define BMP280_CHIP_ID1                      UINT8_C(0x56)
 #define BMP280_CHIP_ID2                      UINT8_C(0x57)
 #define BMP280_CHIP_ID3                      UINT8_C(0x58)
 

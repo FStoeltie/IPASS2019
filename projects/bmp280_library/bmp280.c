@@ -45,7 +45,7 @@
  *
  */
 
-#include "bmp280.hpp"
+#include "bmp280.h"
 
 /********************** Static function declarations ************************/
 

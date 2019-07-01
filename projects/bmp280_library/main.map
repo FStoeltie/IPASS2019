@@ -1,17 +1,17 @@
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubdf3.o)
-                              main.o (__aeabi_dsub)
+                              bmp280.o (__aeabi_dsub)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivdf3.o)
-                              main.o (__aeabi_dmul)
+                              bmp280.o (__aeabi_dmul)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_cmpdf2.o)
-                              main.o (__aeabi_dcmpeq)
+                              bmp280.o (__aeabi_dcmpeq)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_unorddf2.o)
-                              main.o (__aeabi_dcmpun)
+                              bmp280.o (__aeabi_dcmpun)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixdfsi.o)
-                              main.o (__aeabi_d2iz)
+                              bmp280.o (__aeabi_d2iz)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunsdfsi.o)
-                              main.o (__aeabi_d2uiz)
+                              bmp280.o (__aeabi_d2uiz)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
                               main.o (__aeabi_ui2f)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
@@ -23,15 +23,15 @@ c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
                               main.o (__aeabi_f2uiz)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o)
-                              main.o (__aeabi_ldivmod)
+                              bmp280.o (__aeabi_ldivmod)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
-                              hwlib.o (__aeabi_uldivmod)
+                              bmp280lib.o (__aeabi_uldivmod)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
                               c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o) (__udivmoddi4)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
                               c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o) (__aeabi_ldiv0)
 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
-                              main.o (memset)
+                              bmp280.o (memset)
 
 Allocating common symbols
 Common symbol       size              file
@@ -40,6 +40,50 @@ __dso_handle        0x4               bmptk_cortex.o
 
 Discarded input sections
 
+ .text          0x00000000        0x0 bmp280.o
+ .data          0x00000000        0x0 bmp280.o
+ .bss           0x00000000        0x0 bmp280.o
+ .text.bmp280_get_status
+                0x00000000       0x36 bmp280.o
+ .text.bmp280_get_power_mode
+                0x00000000       0x30 bmp280.o
+ .text.bmp280_get_comp_pres_32bit
+                0x00000000       0xf0 bmp280.o
+ .text.bmp280_get_comp_pres_64bit
+                0x00000000      0x224 bmp280.o
+ .text.bmp280_get_comp_pres_double
+                0x00000000      0x250 bmp280.o
+ .text.bmp280_compute_meas_time
+                0x00000000       0x4a bmp280.o
+ .text.bmp280_selftest
+                0x00000000      0x16a bmp280.o
+ .group         0x00000000        0x8 bmp280lib.o
+ .group         0x00000000        0xc bmp280lib.o
+ .group         0x00000000        0xc bmp280lib.o
+ .group         0x00000000        0xc bmp280lib.o
+ .group         0x00000000        0xc bmp280lib.o
+ .group         0x00000000        0xc bmp280lib.o
+ .group         0x00000000        0x8 bmp280lib.o
+ .group         0x00000000        0x8 bmp280lib.o
+ .text          0x00000000        0x0 bmp280lib.o
+ .data          0x00000000        0x0 bmp280lib.o
+ .bss           0x00000000        0x0 bmp280lib.o
+ .text._ZN3due11ad_pin_infoENS_7ad_pinsE
+                0x00000000       0x1c bmp280lib.o
+ .text._ZN3due11ad_seq_infoEm
+                0x00000000       0x20 bmp280lib.o
+ .text._ZN5hwlib19uart_char_availableEv
+                0x00000000        0x4 bmp280lib.o
+ .text._ZN5hwlib9uart_getcEv
+                0x00000000        0x4 bmp280lib.o
+ .text._Z13spi_reg_writehhPht
+                0x00000000        0x6 bmp280lib.o
+ .text._Z12spi_reg_readhhPht
+                0x00000000        0x6 bmp280lib.o
+ .rodata._ZZN3due11ad_pin_infoENS_7ad_pinsEE17ad_pin_info_array
+                0x00000000        0xc bmp280lib.o
+ .rodata._ZZN3due11ad_seq_infoEmE12ad_seq_array
+                0x00000000       0x70 bmp280lib.o
  .group         0x00000000        0x8 hwlib.o
  .group         0x00000000        0x8 hwlib.o
  .group         0x00000000        0x8 hwlib.o
@@ -751,6 +795,12 @@ Discarded input sections
                 0x00000000        0xc hwlib.o
  .text._ZN5hwlib6directERNS_7port_ocE
                 0x00000000        0xc hwlib.o
+ .text._ZN5hwlib7ostreamlsEc
+                0x00000000        0xe hwlib.o
+ .text._ZN5hwliblsERNS_7ostreamEPKc
+                0x00000000       0x60 hwlib.o
+ .text._ZN5hwliblsERNS_7ostreamEi
+                0x00000000       0xce hwlib.o
  .text._ZN5hwliblsERNS_7ostreamENS_2xyE
                 0x00000000       0x38 hwlib.o
  .text._ZN5hwlib3allENS_2xyE
@@ -773,14 +823,26 @@ Discarded input sections
                 0x00000000       0x20 hwlib.o
  .text._ZN5hwlib15random_in_rangeEjj
                 0x00000000       0x1a hwlib.o
+ .text._ZN6sam3xa10SystemInitEv
+                0x00000000       0x7c hwlib.o
+ .text._ZN3due8pin_infoENS_4pinsE
+                0x00000000       0x20 hwlib.o
  .text._ZN3due11ad_pin_infoENS_7ad_pinsE
                 0x00000000       0x1c hwlib.o
  .text._ZN3due11ad_seq_infoEm
                 0x00000000       0x20 hwlib.o
+ .text._ZN3due14port_registersEm
+                0x00000000       0x3c hwlib.o
+ .text._ZN3due12ticks_per_usEv
+                0x00000000        0x6 hwlib.o
+ .text._ZN3due9now_ticksEv
+                0x00000000       0x7c hwlib.o
  .text._ZN3due19uart_char_availableEv
                 0x00000000       0x18 hwlib.o
  .text._ZN3due9uart_getcEv
                 0x00000000       0x18 hwlib.o
+ .text._ZN5hwlib9uart_putcEc
+                0x00000000        0x4 hwlib.o
  .text._ZN5hwlib19uart_char_availableEv
                 0x00000000        0x4 hwlib.o
  .text._ZN5hwlib19cin_using_uart_getc14char_availableEv
@@ -941,6 +1003,12 @@ Discarded input sections
                 0x00000000        0x4 hwlib.o
  .bss._ZN5hwlib21_equal_failures_countE
                 0x00000000        0x4 hwlib.o
+ .bss._ZZN3due9now_ticksEvE4high
+                0x00000000        0x8 hwlib.o
+ .bss._ZZN3due9now_ticksEvE8last_low
+                0x00000000        0x4 hwlib.o
+ .bss._ZZN3due9now_ticksEvE9init_done
+                0x00000000        0x1 hwlib.o
  .bss._ZZN5hwlib4randEvE1n
                 0x00000000        0x4 hwlib.o
  .data._ZN5hwlib12pin_in_dummyE
@@ -953,6 +1021,12 @@ Discarded input sections
                 0x00000000        0x4 hwlib.o
  .data._ZN5hwlib3cinE
                 0x00000000        0x4 hwlib.o
+ .data._ZN6sam3xa15SystemCoreClockE
+                0x00000000        0x4 hwlib.o
+ .rodata.CSWTCH.224
+                0x00000000       0x10 hwlib.o
+ .rodata._ZN3due8pin_infoENS_4pinsE.str1.1
+                0x00000000       0x35 hwlib.o
  .rodata._ZN5hwlib15font_16x16_dataE
                 0x00000000      0xbe4 hwlib.o
  .rodata._ZN5hwlib16font_default_8x86imagesE
@@ -971,6 +1045,8 @@ Discarded input sections
                 0x00000000        0xc hwlib.o
  .rodata._ZZN3due11ad_seq_infoEmE12ad_seq_array
                 0x00000000       0x70 hwlib.o
+ .rodata._ZZN3due8pin_infoENS_4pinsEE14pin_info_array
+                0x00000000       0xa4 hwlib.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
@@ -997,8 +1073,8 @@ Discarded input sections
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
  .group         0x00000000        0xc main.o
- .group         0x00000000        0xc main.o
- .group         0x00000000        0xc main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -1009,7 +1085,7 @@ Discarded input sections
  .text._ZN5hwliblsERNS_7ostreamEPKc
                 0x00000000       0x4e main.o
  .text._ZN5hwliblsERNS_7ostreamEi
-                0x00000000       0x92 main.o
+                0x00000000       0xce main.o
  .text._ZN6sam3xa10SystemInitEv
                 0x00000000       0x7c main.o
  .text._ZN3due8pin_infoENS_4pinsE
@@ -1034,28 +1110,15 @@ Discarded input sections
                 0x00000000       0xce main.o
  .text._ZN10GraphScene4drawEv
                 0x00000000      0x110 main.o
- .text._Z17bmp280_get_statusP13bmp280_statusPK10bmp280_dev
-                0x00000000       0x36 main.o
- .text._Z21bmp280_get_power_modePhPK10bmp280_dev
-                0x00000000       0x30 main.o
- .text._Z26bmp280_get_comp_pres_32bitPmlPK10bmp280_dev
-                0x00000000       0xf0 main.o
- .text._Z26bmp280_get_comp_pres_64bitPmlPK10bmp280_dev
-                0x00000000      0x224 main.o
- .text._Z27bmp280_get_comp_pres_doublePdlPK10bmp280_dev
-                0x00000000      0x250 main.o
- .text._Z24bmp280_compute_meas_timePK10bmp280_dev
-                0x00000000       0x4a main.o
- .text._Z15bmp280_selftestP10bmp280_dev
-                0x00000000      0x16a main.o
  .text._Z12my_test_codeRN5hwlib29glcd_oled_i2c_128x64_bufferedE
                 0x00000000       0x70 main.o
- .text._Z13spi_reg_writehhPht
-                0x00000000        0x6 main.o
- .text._Z12spi_reg_readhhPht
-                0x00000000        0x6 main.o
  .rodata._ZTVN5hwlib4lineE
                 0x00000000        0xc main.o
+ .bss._ZGVZN6bmp28011getInstanceEaE8instance
+                0x00000000        0x4 main.o
+ .bss._ZZN6bmp28011getInstanceEaE8instance
+                0x00000000       0x4c main.o
+ .rodata        0x00000000       0x28 main.o
  .bss._ZZN3due9now_ticksEvE4high
                 0x00000000        0x8 main.o
  .bss._ZZN3due9now_ticksEvE8last_low
@@ -1064,7 +1127,7 @@ Discarded input sections
                 0x00000000        0x1 main.o
  .data._ZN6sam3xa15SystemCoreClockE
                 0x00000000        0x4 main.o
- .rodata.CSWTCH.154
+ .rodata.CSWTCH.122
                 0x00000000       0x10 main.o
  .rodata._ZN3due8pin_infoENS_4pinsE.str1.1
                 0x00000000       0x35 main.o
@@ -1153,6 +1216,8 @@ nul              0x20018000         0x00000000         xrw
 Linker script and memory map
 
 LOAD c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a
+LOAD bmp280.o
+LOAD bmp280lib.o
 LOAD hwlib.o
 LOAD main.o
 LOAD bmptk_cortex.o
@@ -1174,7 +1239,7 @@ LOAD c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gc
                 [!provide]                PROVIDE (__ram_size = __ram_size)
                 [!provide]                PROVIDE (__ram_end = __ram_end)
 
-.text           0x00000000     0x20f0
+.text           0x00000000     0x2108
                 0x00000000                . = ALIGN (0x4)
                 0x00000000                __text_start = .
                 [!provide]                PROVIDE (__text_start = __text_start)
@@ -1184,292 +1249,298 @@ LOAD c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gc
                 0x00000000                __vectors
                 0x00000020                . = ALIGN (0x4)
  *(.text .text.* .gnu.linkonce.t.*)
- .text._ZN5hwlib20cout_using_uart_putc5flushEv
-                0x00000020        0x2 hwlib.o
-                0x00000020                hwlib::cout_using_uart_putc::flush()
- .text._ZN5hwlib5panicEPKcj
-                0x00000022        0x2 hwlib.o
-                0x00000022                hwlib::panic(char const*, unsigned int)
- .text._ZN5hwlib7ostreamlsEc
-                0x00000024        0xe hwlib.o
-                0x00000024                hwlib::ostream::operator<<(char)
- .text._ZN5hwliblsERNS_7ostreamEPKc
-                0x00000032       0x60 hwlib.o
-                0x00000032                hwlib::operator<<(hwlib::ostream&, char const*)
- .text._ZN5hwliblsERNS_7ostreamEi
-                0x00000092       0xce hwlib.o
-                0x00000092                hwlib::operator<<(hwlib::ostream&, int)
- .text._ZN6sam3xa10SystemInitEv
-                0x00000160       0x7c hwlib.o
-                0x00000160                sam3xa::SystemInit()
- .text._ZN3due8pin_infoENS_4pinsE
-                0x000001dc       0x20 hwlib.o
-                0x000001dc                due::pin_info(due::pins)
- .text._ZN3due14port_registersEm
-                0x000001fc       0x3c hwlib.o
-                0x000001fc                due::port_registers(unsigned long)
- .text._ZN3due12ticks_per_usEv
-                0x00000238        0x6 hwlib.o
-                0x00000238                due::ticks_per_us()
- *fill*         0x0000023e        0x2 
- .text._ZN3due9now_ticksEv
-                0x00000240       0x7c hwlib.o
-                0x00000240                due::now_ticks()
- .text._ZN3due9uart_initEv
-                0x000002bc       0x60 hwlib.o
-                0x000002bc                due::uart_init()
- .text._ZN3due9uart_putcEc
-                0x0000031c       0x1c hwlib.o
-                0x0000031c                due::uart_putc(char)
- .text._ZN5hwlib9uart_putcEc
-                0x00000338        0x4 hwlib.o
-                0x00000338                hwlib::uart_putc(char)
- .text._ZN5hwlib20cout_using_uart_putc4putcEc
-                0x0000033c        0xa hwlib.o
-                0x0000033c                hwlib::cout_using_uart_putc::putc(char)
- .text._ZN5hwlib6now_usEv
-                0x00000346       0x1c hwlib.o
-                0x00000346                hwlib::now_us()
- .text._ZN5hwlib12wait_us_busyEi
-                0x00000362       0x1c hwlib.o
-                0x00000362                hwlib::wait_us_busy(int)
- .text._ZN5hwlib7wait_usEi
-                0x0000037e        0x8 hwlib.o
-                0x0000037e                hwlib::wait_us(int)
- .text._ZN5hwlib12wait_ms_busyEi
-                0x00000386       0x16 hwlib.o
-                0x00000386                hwlib::wait_ms_busy(int)
- .text._ZN5hwlib7wait_msEi
-                0x0000039c        0x8 hwlib.o
-                0x0000039c                hwlib::wait_ms(int)
- .text._ZN5hwlib14i2c_primitives8read_ackEv
-                0x000003a4       0x10 main.o
-                0x000003a4                hwlib::i2c_primitives::read_ack()
- .text._ZN5hwlib14i2c_primitives9write_ackEv
-                0x000003b4        0x8 main.o
-                0x000003b4                hwlib::i2c_primitives::write_ack()
- .text._ZN5hwlib14i2c_primitives10write_nackEv
-                0x000003bc        0x8 main.o
-                0x000003bc                hwlib::i2c_primitives::write_nack()
- .text._ZN5hwlib14i2c_primitives5writeEh
-                0x000003c4       0x1c main.o
-                0x000003c4                hwlib::i2c_primitives::write(unsigned char)
- .text._ZN5hwlib14i2c_primitives5writeEPKhj
-                0x000003e0       0x24 main.o
-                0x000003e0                hwlib::i2c_primitives::write(unsigned char const*, unsigned int)
- .text._ZN5hwlib14i2c_primitives9read_byteEv
-                0x00000404       0x20 main.o
-                0x00000404                hwlib::i2c_primitives::read_byte()
- .text._ZN5hwlib14i2c_primitives4readEbPhj
-                0x00000424       0x36 main.o
-                0x00000424                hwlib::i2c_primitives::read(bool, unsigned char*, unsigned int)
- .text._ZN3due6pin_oc4readEv
-                0x0000045a       0x10 main.o
-                0x0000045a                due::pin_oc::read()
- .text._ZN3due6pin_oc5writeEb
-                0x0000046a       0x10 main.o
-                0x0000046a                due::pin_oc::write(bool)
- .text._ZN3due6pin_oc5flushEv
-                0x0000047a        0x2 main.o
-                0x0000047a                due::pin_oc::flush()
- .text._ZN3due6pin_oc7refreshEv
-                0x0000047c        0x2 main.o
-                0x0000047c                due::pin_oc::refresh()
- .text._ZL14null_ptr_checkPK10bmp280_dev
-                0x0000047e       0x1c main.o
+ .text.null_ptr_check
+                0x00000020       0x1c bmp280.o
+ .text.bmp280_get_regs
+                0x0000003c       0x34 bmp280.o
+                0x0000003c                bmp280_get_regs
+ .text.bmp280_set_regs
+                0x00000070       0x9e bmp280.o
+                0x00000070                bmp280_set_regs
+ .text.bmp280_soft_reset
+                0x0000010e       0x36 bmp280.o
+                0x0000010e                bmp280_soft_reset
+ .text.conf_sensor
+                0x00000144       0xdc bmp280.o
+ .text.bmp280_init
+                0x00000220       0x86 bmp280.o
+                0x00000220                bmp280_init
+ .text.bmp280_get_config
+                0x000002a6       0x5e bmp280.o
+                0x000002a6                bmp280_get_config
+ .text.bmp280_set_config
+                0x00000304        0xa bmp280.o
+                0x00000304                bmp280_set_config
+ .text.bmp280_set_power_mode
+                0x0000030e       0x1c bmp280.o
+                0x0000030e                bmp280_set_power_mode
+ *fill*         0x0000032a        0x2 
+ .text.bmp280_get_uncomp_data
+                0x0000032c       0x88 bmp280.o
+                0x0000032c                bmp280_get_uncomp_data
+ .text.bmp280_get_comp_temp_32bit
+                0x000003b4       0x6e bmp280.o
+                0x000003b4                bmp280_get_comp_temp_32bit
+ *fill*         0x00000422        0x2 
+ .text.bmp280_get_comp_temp_double
+                0x00000424      0x110 bmp280.o
+                0x00000424                bmp280_get_comp_temp_double
  .text._Z8delay_msm
-                0x0000049a        0x4 main.o
-                0x0000049a                delay_ms(unsigned long)
+                0x00000534        0x4 bmp280lib.o
+                0x00000534                delay_ms(unsigned long)
  .text._ZN5hwlib7ostream7reverse10add_prefixERKS0_.part.1
-                0x0000049e       0x4c main.o
+                0x00000538       0x4c bmp280lib.o
  .text._ZN5hwliblsERNS_7ostreamENS_6_flushE.isra.2
-                0x000004ea        0xe main.o
- .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda16wait_half_periodEv.isra.14
-                0x000004f8        0x6 main.o
- .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda11write_startEv
-                0x000004fe       0x34 main.o
-                0x000004fe                hwlib::i2c_bus_bit_banged_scl_sda::write_start()
- .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda10write_stopEv
-                0x00000532       0x60 main.o
-                0x00000532                hwlib::i2c_bus_bit_banged_scl_sda::write_stop()
- .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda9write_bitEb
-                0x00000592       0x52 main.o
-                0x00000592                hwlib::i2c_bus_bit_banged_scl_sda::write_bit(bool)
- .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda8read_bitEv
-                0x000005e4       0x68 main.o
-                0x000005e4                hwlib::i2c_bus_bit_banged_scl_sda::read_bit()
+                0x00000584        0xe bmp280lib.o
+ *fill*         0x00000592        0x2 
+ .text._ZN6bmp28011getInstanceEa.isra.16
+                0x00000594       0x38 bmp280lib.o
+ .text._ZN5hwlib7ostream6fillerEi
+                0x000005cc       0x1a bmp280lib.o
+                0x000005cc                hwlib::ostream::filler(int)
+ .text._ZN5hwliblsERNS_7ostreamEPKc
+                0x000005e6       0x4e bmp280lib.o
+                0x000005e6                hwlib::operator<<(hwlib::ostream&, char const*)
+ .text._ZN5hwliblsERNS_7ostreamEi
+                0x00000634       0x92 bmp280lib.o
+                0x00000634                hwlib::operator<<(hwlib::ostream&, int)
  .text._ZN5hwliblsERNS_7ostreamEx
-                0x0000064c       0xc4 main.o
-                0x0000064c                hwlib::operator<<(hwlib::ostream&, long long)
+                0x000006c6       0xc4 bmp280lib.o
+                0x000006c6                hwlib::operator<<(hwlib::ostream&, long long)
+ *fill*         0x0000078a        0x2 
  .text._Z13i2c_reg_writehhPht
-                0x00000710       0xf8 main.o
-                0x00000710                i2c_reg_write(unsigned char, unsigned char, unsigned char*, unsigned short)
- .text._ZN5hwlib27i2c_read_transaction_bmp28018read_from_registerEjPht
-                0x00000808       0xec main.o
-                0x00000808                hwlib::i2c_read_transaction_bmp280::read_from_register(unsigned int, unsigned char*, unsigned short)
+                0x0000078c       0xf4 bmp280lib.o
+                0x0000078c                i2c_reg_write(unsigned char, unsigned char, unsigned char*, unsigned short)
+ .text._ZN5hwlib27i2c_read_transaction_bmp28018read_from_registerEPht
+                0x00000880       0xf8 bmp280lib.o
+                0x00000880                hwlib::i2c_read_transaction_bmp280::read_from_register(unsigned char*, unsigned short)
  .text._Z12i2c_reg_readhhPht
-                0x000008f4       0x78 main.o
-                0x000008f4                i2c_reg_read(unsigned char, unsigned char, unsigned char*, unsigned short)
- .text._ZN3due6pin_ocC2ENS_4pinsE
-                0x0000096c       0x34 main.o
-                0x0000096c                due::pin_oc::pin_oc(due::pins)
-                0x0000096c                due::pin_oc::pin_oc(due::pins)
- .text._Z15bmp280_get_regshPhhPK10bmp280_dev
-                0x000009a0       0x50 main.o
-                0x000009a0                bmp280_get_regs(unsigned char, unsigned char*, unsigned char, bmp280_dev const*)
- .text._Z15bmp280_set_regsPhPKhhPK10bmp280_dev
-                0x000009f0       0x9e main.o
-                0x000009f0                bmp280_set_regs(unsigned char*, unsigned char const*, unsigned char, bmp280_dev const*)
- .text._Z17bmp280_soft_resetPK10bmp280_dev
-                0x00000a8e       0x36 main.o
-                0x00000a8e                bmp280_soft_reset(bmp280_dev const*)
- .text._ZL11conf_sensorhPK13bmp280_configP10bmp280_dev
-                0x00000ac4       0xdc main.o
- .text._Z11bmp280_initP10bmp280_dev
-                0x00000ba0       0xb0 main.o
-                0x00000ba0                bmp280_init(bmp280_dev*)
- .text._Z17bmp280_get_configP13bmp280_configP10bmp280_dev
-                0x00000c50       0x5e main.o
-                0x00000c50                bmp280_get_config(bmp280_config*, bmp280_dev*)
- .text._Z17bmp280_set_configPK13bmp280_configP10bmp280_dev
-                0x00000cae        0xa main.o
-                0x00000cae                bmp280_set_config(bmp280_config const*, bmp280_dev*)
- .text._Z21bmp280_set_power_modehP10bmp280_dev
-                0x00000cb8       0x1c main.o
-                0x00000cb8                bmp280_set_power_mode(unsigned char, bmp280_dev*)
- .text._Z22bmp280_get_uncomp_dataP18bmp280_uncomp_dataPK10bmp280_dev
-                0x00000cd4       0x88 main.o
-                0x00000cd4                bmp280_get_uncomp_data(bmp280_uncomp_data*, bmp280_dev const*)
- .text._Z26bmp280_get_comp_temp_32bitPllP10bmp280_dev
-                0x00000d5c       0x6e main.o
-                0x00000d5c                bmp280_get_comp_temp_32bit(long*, long, bmp280_dev*)
- *fill*         0x00000dca        0x2 
- .text._Z27bmp280_get_comp_temp_doublePdlP10bmp280_dev
-                0x00000dcc      0x110 main.o
-                0x00000dcc                bmp280_get_comp_temp_double(double*, long, bmp280_dev*)
+                0x00000978       0xa8 bmp280lib.o
+                0x00000978                i2c_reg_read(unsigned char, unsigned char, unsigned char*, unsigned short)
+ .text._ZN6sam3xa10SystemInitEv
+                0x00000a20       0x7c bmp280lib.o
+                0x00000a20                sam3xa::SystemInit()
+ .text._ZN3due8pin_infoENS_4pinsE
+                0x00000a9c       0x20 bmp280lib.o
+                0x00000a9c                due::pin_info(due::pins)
+ .text._ZN3due14port_registersEm
+                0x00000abc       0x3c bmp280lib.o
+                0x00000abc                due::port_registers(unsigned long)
+ .text._ZN3due12ticks_per_usEv
+                0x00000af8        0x6 bmp280lib.o
+                0x00000af8                due::ticks_per_us()
+ *fill*         0x00000afe        0x2 
+ .text._ZN3due9now_ticksEv
+                0x00000b00       0x7c bmp280lib.o
+                0x00000b00                due::now_ticks()
+ .text._ZN5hwlib9uart_putcEc
+                0x00000b7c        0x4 bmp280lib.o
+                0x00000b7c                hwlib::uart_putc(char)
  .text._Z10print_rsltPKca
-                0x00000edc       0xa4 main.o
-                0x00000edc                print_rslt(char const*, signed char)
+                0x00000b80       0xa4 bmp280lib.o
+                0x00000b80                print_rslt(char const*, signed char)
+ .text._ZN5hwlib20cout_using_uart_putc5flushEv
+                0x00000c24        0x2 hwlib.o
+                0x00000c24                hwlib::cout_using_uart_putc::flush()
+ .text._ZN5hwlib5panicEPKcj
+                0x00000c26        0x2 hwlib.o
+                0x00000c26                hwlib::panic(char const*, unsigned int)
+ .text._ZN3due9uart_initEv
+                0x00000c28       0x60 hwlib.o
+                0x00000c28                due::uart_init()
+ .text._ZN3due9uart_putcEc
+                0x00000c88       0x1c hwlib.o
+                0x00000c88                due::uart_putc(char)
+ .text._ZN5hwlib20cout_using_uart_putc4putcEc
+                0x00000ca4        0xa hwlib.o
+                0x00000ca4                hwlib::cout_using_uart_putc::putc(char)
+ .text._ZN5hwlib6now_usEv
+                0x00000cae       0x1c hwlib.o
+                0x00000cae                hwlib::now_us()
+ .text._ZN5hwlib12wait_us_busyEi
+                0x00000cca       0x1c hwlib.o
+                0x00000cca                hwlib::wait_us_busy(int)
+ .text._ZN5hwlib7wait_usEi
+                0x00000ce6        0x8 hwlib.o
+                0x00000ce6                hwlib::wait_us(int)
+ .text._ZN5hwlib12wait_ms_busyEi
+                0x00000cee       0x16 hwlib.o
+                0x00000cee                hwlib::wait_ms_busy(int)
+ .text._ZN5hwlib7wait_msEi
+                0x00000d04        0x8 hwlib.o
+                0x00000d04                hwlib::wait_ms(int)
+ .text._ZN5hwlib14i2c_primitives8read_ackEv
+                0x00000d0c       0x10 main.o
+                0x00000d0c                hwlib::i2c_primitives::read_ack()
+ .text._ZN5hwlib14i2c_primitives9write_ackEv
+                0x00000d1c        0x8 main.o
+                0x00000d1c                hwlib::i2c_primitives::write_ack()
+ .text._ZN5hwlib14i2c_primitives10write_nackEv
+                0x00000d24        0x8 main.o
+                0x00000d24                hwlib::i2c_primitives::write_nack()
+ .text._ZN5hwlib14i2c_primitives5writeEh
+                0x00000d2c       0x1c main.o
+                0x00000d2c                hwlib::i2c_primitives::write(unsigned char)
+ .text._ZN5hwlib14i2c_primitives5writeEPKhj
+                0x00000d48       0x24 main.o
+                0x00000d48                hwlib::i2c_primitives::write(unsigned char const*, unsigned int)
+ .text._ZN5hwlib14i2c_primitives9read_byteEv
+                0x00000d6c       0x20 main.o
+                0x00000d6c                hwlib::i2c_primitives::read_byte()
+ .text._ZN5hwlib14i2c_primitives4readEbPhj
+                0x00000d8c       0x36 main.o
+                0x00000d8c                hwlib::i2c_primitives::read(bool, unsigned char*, unsigned int)
+ .text._ZN3due6pin_oc4readEv
+                0x00000dc2       0x10 main.o
+                0x00000dc2                due::pin_oc::read()
+ .text._ZN3due6pin_oc5writeEb
+                0x00000dd2       0x10 main.o
+                0x00000dd2                due::pin_oc::write(bool)
+ .text._ZN3due6pin_oc5flushEv
+                0x00000de2        0x2 main.o
+                0x00000de2                due::pin_oc::flush()
+ .text._ZN3due6pin_oc7refreshEv
+                0x00000de4        0x2 main.o
+                0x00000de4                due::pin_oc::refresh()
+ .text._ZN5hwliblsERNS_7ostreamENS_6_flushE.isra.2
+                0x00000de6        0xe main.o
+ .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda16wait_half_periodEv.isra.12
+                0x00000df4        0x6 main.o
+ .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda11write_startEv
+                0x00000dfa       0x34 main.o
+                0x00000dfa                hwlib::i2c_bus_bit_banged_scl_sda::write_start()
+ .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda9write_bitEb
+                0x00000e2e       0x52 main.o
+                0x00000e2e                hwlib::i2c_bus_bit_banged_scl_sda::write_bit(bool)
+ .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda8read_bitEv
+                0x00000e80       0x68 main.o
+                0x00000e80                hwlib::i2c_bus_bit_banged_scl_sda::read_bit()
+ .text._ZN5hwlib26i2c_bus_bit_banged_scl_sda10write_stopEv
+                0x00000ee8       0x60 main.o
+                0x00000ee8                hwlib::i2c_bus_bit_banged_scl_sda::write_stop()
+ .text._ZN6bmp28011getInstanceEa.isra.17
+                0x00000f48       0x38 main.o
+ .text._ZN3due6pin_ocC2ENS_4pinsE
+                0x00000f80       0x34 main.o
+                0x00000f80                due::pin_oc::pin_oc(due::pins)
+                0x00000f80                due::pin_oc::pin_oc(due::pins)
  .text.startup.main
-                0x00000f80      0x158 main.o
-                0x00000f80                main
+                0x00000fb4      0x170 main.o
+                0x00000fb4                main
  .text.__startup
-                0x000010d8       0x40 bmptk_cortex.o
-                0x000010d8                __startup
- .text          0x00001118      0x378 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubdf3.o)
-                0x00001118                __aeabi_drsub
-                0x00001120                __aeabi_dsub
-                0x00001120                __subdf3
-                0x00001124                __aeabi_dadd
-                0x00001124                __adddf3
-                0x0000139c                __floatunsidf
-                0x0000139c                __aeabi_ui2d
-                0x000013bc                __floatsidf
-                0x000013bc                __aeabi_i2d
-                0x000013e0                __aeabi_f2d
-                0x000013e0                __extendsfdf2
-                0x00001424                __floatundidf
-                0x00001424                __aeabi_ul2d
-                0x00001434                __floatdidf
-                0x00001434                __aeabi_l2d
- .text          0x00001490      0x424 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivdf3.o)
-                0x00001490                __aeabi_dmul
-                0x00001490                __muldf3
-                0x000016e4                __divdf3
-                0x000016e4                __aeabi_ddiv
- .text          0x000018b4       0x50 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixdfsi.o)
-                0x000018b4                __aeabi_d2iz
-                0x000018b4                __fixdfsi
- .text          0x00001904       0xa0 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o)
-                0x00001904                __aeabi_ldivmod
- .text          0x000019a4       0x30 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
-                0x000019a4                __aeabi_uldivmod
- .text          0x000019d4      0x2d0 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
-                0x000019d4                __udivmoddi4
- .text          0x00001ca4        0x4 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
-                0x00001ca4                __aeabi_ldiv0
- .text.memset   0x00001ca8       0xa0 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
-                0x00001ca8                memset
-                0x00001d48                . = ALIGN (0x4)
+                0x00001124       0x40 bmptk_cortex.o
+                0x00001124                __startup
+ .text          0x00001164      0x378 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubdf3.o)
+                0x00001164                __aeabi_drsub
+                0x0000116c                __aeabi_dsub
+                0x0000116c                __subdf3
+                0x00001170                __aeabi_dadd
+                0x00001170                __adddf3
+                0x000013e8                __floatunsidf
+                0x000013e8                __aeabi_ui2d
+                0x00001408                __floatsidf
+                0x00001408                __aeabi_i2d
+                0x0000142c                __aeabi_f2d
+                0x0000142c                __extendsfdf2
+                0x00001470                __floatundidf
+                0x00001470                __aeabi_ul2d
+                0x00001480                __floatdidf
+                0x00001480                __aeabi_l2d
+ .text          0x000014dc      0x424 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivdf3.o)
+                0x000014dc                __aeabi_dmul
+                0x000014dc                __muldf3
+                0x00001730                __divdf3
+                0x00001730                __aeabi_ddiv
+ .text          0x00001900       0x50 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixdfsi.o)
+                0x00001900                __aeabi_d2iz
+                0x00001900                __fixdfsi
+ .text          0x00001950       0xa0 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o)
+                0x00001950                __aeabi_ldivmod
+ .text          0x000019f0       0x30 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+                0x000019f0                __aeabi_uldivmod
+ .text          0x00001a20      0x2d0 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+                0x00001a20                __udivmoddi4
+ .text          0x00001cf0        0x4 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x00001cf0                __aeabi_ldiv0
+ .text.memset   0x00001cf4       0xa0 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
+                0x00001cf4                memset
+                0x00001d94                . = ALIGN (0x4)
  *(.glue_7t .glue_7)
- .glue_7        0x00001d48        0x0 linker stubs
- .glue_7t       0x00001d48        0x0 linker stubs
-                0x00001d48                . = ALIGN (0x4)
+ .glue_7        0x00001d94        0x0 linker stubs
+ .glue_7t       0x00001d94        0x0 linker stubs
+                0x00001d94                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata._ZTVN5hwlib20cout_using_uart_putcE
-                0x00001d48       0x10 hwlib.o
-                0x00001d48                vtable for hwlib::cout_using_uart_putc
- .rodata.CSWTCH.224
-                0x00001d58       0x10 hwlib.o
- .rodata._ZN3due8pin_infoENS_4pinsE.str1.1
-                0x00001d68       0x35 hwlib.o
- .rodata._ZZN3due8pin_infoENS_4pinsEE14pin_info_array
-                0x00001d9d       0xa4 hwlib.o
- *fill*         0x00001e41        0x3 
- .rodata._ZTVN5hwlib26i2c_bus_bit_banged_scl_sdaE
-                0x00001e44       0x34 main.o
-                0x00001e44                vtable for hwlib::i2c_bus_bit_banged_scl_sda
- .rodata._ZTVN3due6pin_ocE
-                0x00001e78       0x18 main.o
-                0x00001e78                vtable for due::pin_oc
- .rodata        0x00001e90       0x2c main.o
+ .rodata        0x00001d94        0x2 bmp280.o
+ *fill*         0x00001d96        0x2 
+ .rodata.CSWTCH.121
+                0x00001d98       0x10 bmp280lib.o
  .rodata._Z10print_rsltPKca.str1.1
-                0x00001ebc       0x97 main.o
- .rodata._Z11bmp280_initP10bmp280_dev.str1.1
-                0x00001f53       0x22 main.o
+                0x00001da8       0x97 bmp280lib.o
  .rodata._Z12i2c_reg_readhhPht.str1.1
-                0x00001f75       0x25 main.o
+                0x00001e3f       0x30 bmp280lib.o
  .rodata._Z13i2c_reg_writehhPht.str1.1
-                0x00001f9a       0x55 main.o
+                0x00001e6f       0x55 bmp280lib.o
                                  0x57 (size before relaxing)
- .rodata._Z15bmp280_get_regshPhhPK10bmp280_dev.str1.1
-                0x00001fef        0xd main.o
- .rodata._ZN5hwlib27i2c_read_transaction_bmp28018read_from_registerEjPht.str1.1
-                0x00001ffc       0x4f main.o
+ .rodata._ZN3due8pin_infoENS_4pinsE.str1.1
+                0x00001ec4       0x35 bmp280lib.o
+ .rodata._ZN5hwlib27i2c_read_transaction_bmp28018read_from_registerEPht.str1.1
+                0x00001ef9       0x4f bmp280lib.o
+ .rodata._ZZN3due8pin_infoENS_4pinsEE14pin_info_array
+                0x00001f48       0xa4 bmp280lib.o
+ .rodata._ZTVN5hwlib20cout_using_uart_putcE
+                0x00001fec       0x10 hwlib.o
+                0x00001fec                vtable for hwlib::cout_using_uart_putc
+ .rodata._ZTVN5hwlib26i2c_bus_bit_banged_scl_sdaE
+                0x00001ffc       0x34 main.o
+                0x00001ffc                vtable for hwlib::i2c_bus_bit_banged_scl_sda
+ .rodata._ZTVN3due6pin_ocE
+                0x00002030       0x18 main.o
+                0x00002030                vtable for due::pin_oc
  .rodata.main.str1.1
-                0x0000204b       0xa4 main.o
-                0x000020f0                . = ALIGN (0x4)
- *fill*         0x000020ef        0x1 
+                0x00002048       0xbe main.o
+                                 0xd3 (size before relaxing)
+                0x00002108                . = ALIGN (0x4)
+ *fill*         0x00002106        0x2 
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000020f0                . = ALIGN (0x4)
+                0x00002108                . = ALIGN (0x4)
  *(.gcc_except_table)
-                0x000020f0                . = ALIGN (0x4)
+                0x00002108                . = ALIGN (0x4)
  *(.eh_frame_hdr)
-                0x000020f0                . = ALIGN (0x4)
+                0x00002108                . = ALIGN (0x4)
  *(.eh_frame)
-                0x000020f0                . = ALIGN (0x4)
-                0x000020f0                __text_end = .
+                0x00002108                . = ALIGN (0x4)
+                0x00002108                __text_end = .
                 [!provide]                PROVIDE (__text_end = __text_end)
 
-.vfp11_veneer   0x000020f0        0x0
- .vfp11_veneer  0x000020f0        0x0 linker stubs
+.vfp11_veneer   0x00002108        0x0
+ .vfp11_veneer  0x00002108        0x0 linker stubs
 
-.v4_bx          0x000020f0        0x0
- .v4_bx         0x000020f0        0x0 linker stubs
+.v4_bx          0x00002108        0x0
+ .v4_bx         0x00002108        0x0 linker stubs
 
-.iplt           0x000020f0        0x0
- .iplt          0x000020f0        0x0 hwlib.o
+.iplt           0x00002108        0x0
+ .iplt          0x00002108        0x0 bmp280.o
 
 .IF_YOU_SEE_THIS_YOU_HAVE_ONE_OR_MORE_GLOBAL_OBJECT_CONSTRUCTORS
  *(.init)
  *(.preinit_array)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x000020f0                . = ALIGN (0x4)
-                0x000020f0                __exidx_start = .
+                0x00002108                . = ALIGN (0x4)
+                0x00002108                __exidx_start = .
                 [!provide]                PROVIDE (__exidx_start = __exidx_start)
 
-.ARM.exidx      0x000020f0        0x8
+.ARM.exidx      0x00002108        0x8
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
- .ARM.exidx     0x000020f0        0x8 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x00002108        0x8 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
 
-.rel.dyn        0x000020f8        0x0
- .rel.iplt      0x000020f8        0x0 hwlib.o
-                0x000020f8                . = ALIGN (0x4)
-                0x000020f8                __exidx_end = .
+.rel.dyn        0x00002110        0x0
+ .rel.iplt      0x00002110        0x0 bmp280.o
+                0x00002110                . = ALIGN (0x4)
+                0x00002110                __exidx_end = .
                 [!provide]                PROVIDE (__exidx_end = __exidx_end)
 
-.bss            0x20000000    0x12014
+.bss            0x20000000    0x12064
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                __stack_start = .
                 [!provide]                PROVIDE (__stack_start = __stack_start)
@@ -1488,56 +1559,62 @@ LOAD c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gc
                 [!provide]                PROVIDE (__bss_start = __bss_start)
                 0x20012000                . = ALIGN (0x4)
  *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss._ZGVZN6bmp28011getInstanceEaE8instance
+                0x20012000        0x4 bmp280lib.o
+                0x20012000                guard variable for bmp280::getInstance(signed char)::instance
+ .bss._ZZN6bmp28011getInstanceEaE8instance
+                0x20012004       0x4c bmp280lib.o
+                0x20012004                bmp280::getInstance(signed char)::instance
  .bss._ZZN3due9now_ticksEvE4high
-                0x20012000        0x8 hwlib.o
+                0x20012050        0x8 bmp280lib.o
  .bss._ZZN3due9now_ticksEvE8last_low
-                0x20012008        0x4 hwlib.o
+                0x20012058        0x4 bmp280lib.o
  .bss._ZZN3due9now_ticksEvE9init_done
-                0x2001200c        0x1 hwlib.o
+                0x2001205c        0x1 bmp280lib.o
  .bss._ZZN3due9uart_initEvE9init_done
-                0x2001200d        0x1 hwlib.o
- *fill*         0x2001200e        0x2 
+                0x2001205d        0x1 hwlib.o
+ *fill*         0x2001205e        0x2 
  .bss.i2c_bus_global
-                0x20012010        0x4 main.o
-                0x20012010                i2c_bus_global
-                0x20012014                . = ALIGN (0x4)
+                0x20012060        0x4 main.o
+                0x20012060                i2c_bus_global
+                0x20012064                . = ALIGN (0x4)
  *(COMMON)
-                0x20012014                . = ALIGN (0x4)
-                0x20012014                __bss_end = .
+                0x20012064                . = ALIGN (0x4)
+                0x20012064                __bss_end = .
                 [!provide]                PROVIDE (__bss_end = __bss_end)
 
-.data           0x20012014       0x1c load address 0x000020f8
-                0x20012014                . = ALIGN (0x4)
-                0x000020f8                __data_init_start = LOADADDR (.data)
+.data           0x20012064       0x1c load address 0x00002110
+                0x20012064                . = ALIGN (0x4)
+                0x00002110                __data_init_start = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_start = __data_init_start)
-                0x20012014                __data_start = .
+                0x20012064                __data_start = .
                 [!provide]                PROVIDE (__data_start = __data_start)
-                0x20012014                . = ALIGN (0x4)
+                0x20012064                . = ALIGN (0x4)
  *(.data .data.* .gnu.linkonce.d.*)
- .data._ZN3due7hw_uartE
-                0x20012014        0x4 hwlib.o
-                0x20012014                due::hw_uart
- .data._ZN5hwlib4coutE
-                0x20012018       0x14 hwlib.o
-                0x20012018                hwlib::cout
  .data._ZN6sam3xa15SystemCoreClockE
-                0x2001202c        0x4 hwlib.o
-                0x2001202c                sam3xa::SystemCoreClock
-                0x20012030                . = ALIGN (0x4)
-                0x20012030                __data_end = .
+                0x20012064        0x4 bmp280lib.o
+                0x20012064                sam3xa::SystemCoreClock
+ .data._ZN3due7hw_uartE
+                0x20012068        0x4 hwlib.o
+                0x20012068                due::hw_uart
+ .data._ZN5hwlib4coutE
+                0x2001206c       0x14 hwlib.o
+                0x2001206c                hwlib::cout
+                0x20012080                . = ALIGN (0x4)
+                0x20012080                __data_end = .
                 [!provide]                PROVIDE (__data_end = __data_end)
-                0x000020f8                __data_init_end = LOADADDR (.data)
+                0x00002110                __data_init_end = LOADADDR (.data)
                 [!provide]                PROVIDE (__data_init_end = __data_init_end)
                 [!provide]                PROVIDE (__data_size = (__data_end - __data_start))
                 [!provide]                PROVIDE (__data_init_size = __data_size)
                 [!provide]                PROVIDE (__data_init_end = (__data_init_start + __data_init_size))
 
-.igot.plt       0x20012030        0x0 load address 0x00002114
- .igot.plt      0x20012030        0x0 hwlib.o
-                0x20012030                . = ALIGN (0x4)
-                0x20012030                __heap_start = .
+.igot.plt       0x20012080        0x0 load address 0x0000212c
+ .igot.plt      0x20012080        0x0 bmp280.o
+                0x20012080                . = ALIGN (0x4)
+                0x20012080                __heap_start = .
                 [!provide]                PROVIDE (__heap_start = __heap_start)
-                0x20012030                . = ALIGN (0x4)
+                0x20012080                . = ALIGN (0x4)
                 0x20018000                __heap_end = __ram_end
                 [!provide]                PROVIDE (__heap_end = __heap_end)
 
@@ -1585,8 +1662,10 @@ LOAD c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gc
  .debug_frame   0x000001c4       0x38 c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
 
 .comment        0x00000000       0x75
- .comment       0x00000000       0x75 hwlib.o
+ .comment       0x00000000       0x75 bmp280.o
                                  0x76 (size before relaxing)
+ .comment       0x00000075       0x76 bmp280lib.o
+ .comment       0x00000075       0x76 hwlib.o
  .comment       0x00000075       0x76 main.o
  .comment       0x00000075       0x76 bmptk_cortex.o
  .comment       0x00000075       0x76 bmptk_fixed_size_stack.o
@@ -1619,47 +1698,51 @@ LOAD c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gc
                 0x00000000       0x2d
  *(.ARM.attributes)
  .ARM.attributes
-                0x00000000       0x2d hwlib.o
+                0x00000000       0x2d bmp280.o
  .ARM.attributes
-                0x0000002d       0x2d main.o
+                0x0000002d       0x2d bmp280lib.o
  .ARM.attributes
-                0x0000005a       0x2d bmptk_cortex.o
+                0x0000005a       0x2d hwlib.o
  .ARM.attributes
-                0x00000087       0x2d bmptk_heap_none.o
+                0x00000087       0x2d main.o
  .ARM.attributes
-                0x000000b4       0x33 bmptk_fixed_size_stack.o
+                0x000000b4       0x2d bmptk_cortex.o
  .ARM.attributes
-                0x000000e7       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubdf3.o)
+                0x000000e1       0x2d bmptk_heap_none.o
  .ARM.attributes
-                0x00000104       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivdf3.o)
+                0x0000010e       0x33 bmptk_fixed_size_stack.o
  .ARM.attributes
-                0x00000121       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_cmpdf2.o)
+                0x00000141       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubdf3.o)
  .ARM.attributes
-                0x0000013e       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_unorddf2.o)
+                0x0000015e       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivdf3.o)
  .ARM.attributes
-                0x0000015b       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixdfsi.o)
+                0x0000017b       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_cmpdf2.o)
  .ARM.attributes
-                0x00000178       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunsdfsi.o)
+                0x00000198       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_unorddf2.o)
  .ARM.attributes
-                0x00000195       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
+                0x000001b5       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixdfsi.o)
  .ARM.attributes
-                0x000001b2       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
+                0x000001d2       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunsdfsi.o)
  .ARM.attributes
-                0x000001cf       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_cmpsf2.o)
+                0x000001ef       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_addsubsf3.o)
  .ARM.attributes
-                0x000001ec       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixsfsi.o)
+                0x0000020c       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_muldivsf3.o)
  .ARM.attributes
-                0x00000209       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+                0x00000229       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_cmpsf2.o)
  .ARM.attributes
-                0x00000226       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o)
+                0x00000246       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixsfsi.o)
  .ARM.attributes
-                0x00000243       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
+                0x00000263       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_arm_fixunssfsi.o)
  .ARM.attributes
-                0x00000260       0x2d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+                0x00000280       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_ldivmod.o)
  .ARM.attributes
-                0x0000028d       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+                0x0000029d       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_aeabi_uldivmod.o)
  .ARM.attributes
-                0x000002aa       0x2d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
+                0x000002ba       0x2d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_udivmoddi4.o)
+ .ARM.attributes
+                0x000002e7       0x1d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/thumb/v7-m/nofp\libgcc.a(_dvmd_tls.o)
+ .ARM.attributes
+                0x00000304       0x2d c:/program files (x86)/gnu tools arm embedded/8 2018-q4-major/bin/../lib/gcc/arm-none-eabi/8.2.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libc.a(lib_a-memset.o)
 
 /DISCARD/
  *(.note.GNU-stack)

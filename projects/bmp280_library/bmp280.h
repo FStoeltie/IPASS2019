@@ -48,7 +48,7 @@
 #ifndef __BMP280_H__
 #define __BMP280_H__
 
-#include "bmp280_defs.hpp"
+#include "bmp280_defs.h"
 
 /*! CPP guard */
 #ifdef __cplusplus
