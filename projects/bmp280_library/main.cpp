@@ -18,13 +18,6 @@
 
 // possible_fixes start
 
-extern "C" void *_sbrk(int incr);
-void dummy_sbrk_caller() __attribute__((__used__));
-void dummy_sbrk_caller()
-{
-  _sbrk(0);
-}
-
 // possible_fixes end
 
 
@@ -1699,8 +1692,11 @@ int main( void ){
    struct bmp280_dev bmp;
    struct bmp280_config conf;
    struct bmp280_uncomp_data ucomp_data;
-   uint32_t pres32, pres64;
-   double pres;
+   //uint32_t pres32, pres64;
+   //double pres;
+   int32_t temp32;
+   double temp;
+
    /* Map the delay function pointer with the function responsible for implementing the delay */
    bmp.delay_ms = delay_ms;
 
@@ -1737,6 +1733,9 @@ int main( void ){
    /* Pressure oversampling set at 4x */
    conf.os_pres = BMP280_OS_4X;
 
+   /* Temperature oversampling set at 4x */
+   conf.os_temp = BMP280_OS_4X;
+
    /* Setting the output data rate as 1HZ(1000ms) */
    conf.odr = BMP280_ODR_1000_MS;
    rslt = bmp280_set_config(&conf, &bmp);
@@ -1745,27 +1744,20 @@ int main( void ){
    /* Always set the power mode after setting the configuration */
    rslt = bmp280_set_power_mode(BMP280_NORMAL_MODE, &bmp);
    print_rslt(" bmp280_set_power_mode status", rslt);
-   while (1)
-   {
-     /* Reading the raw data from sensor */
-     rslt = bmp280_get_uncomp_data(&ucomp_data, &bmp);
+ while (1)
+ {
+      /* Reading the raw data from sensor */
+      rslt = bmp280_get_uncomp_data(&ucomp_data, &bmp);
 
-     /* Getting the compensated pressure using 32 bit precision */
-     rslt = bmp280_get_comp_pres_32bit(&pres32, ucomp_data.uncomp_press, &bmp);
+      /* Getting the 32 bit compensated temperature */
+      rslt = bmp280_get_comp_temp_32bit(&temp32, ucomp_data.uncomp_temp, &bmp);
 
-     /* Getting the compensated pressure using 64 bit precision */
-     rslt = bmp280_get_comp_pres_64bit(&pres64, ucomp_data.uncomp_press, &bmp);
-
-     /* Getting the compensated pressure as floating point value */
-     rslt = bmp280_get_comp_pres_double(&pres, ucomp_data.uncomp_press, &bmp);
-     hwlib::cout << "UP" << (long) ucomp_data.uncomp_press << ", p32: " << (long) pres32 << hwlib::flush;
-     /*printf("UP: %ld, P32: %ld, P64: %ld, P64N: %ld, P: %f\r\n",
-            ucomp_data.uncomp_press,
-            pres32,
-            pres64,
-            pres64 / 256,
-            pres);*/
-     bmp.delay_ms(1000); /* Sleep time between measurements = BMP280_ODR_1000_MS */
+      /* Getting the compensated temperature as floating point value */
+      rslt = bmp280_get_comp_temp_double(&temp, ucomp_data.uncomp_temp, &bmp);
+      //printf("UT: %ld, T32: %ld, T: %f \r\n", ucomp_data.uncomp_temp, temp32, temp);
+      hwlib::cout << "Temp: " << hwlib::dec << (int)temp <<  "\n" << hwlib::flush;
+      /* Sleep time between measurements = BMP280_ODR_1000_MS */
+      bmp.delay_ms(1000);
    }
 
 }
