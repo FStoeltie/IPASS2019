@@ -359,82 +359,23 @@ int main( void ){
       << hwlib::flush;*/  
    hwlib::wait_ms( 1'000 );
    hwlib::cout << "Setting bmp280 settings...\n" << hwlib::flush;
-   int8_t rslt;
-   struct bmp280_dev bmp;
-   struct bmp280_config conf;
-   struct bmp280_uncomp_data ucomp_data;
-   //uint32_t pres32, pres64;
-   //double pres;
-   int32_t temp32;
-   double temp;
-
-   /* Map the delay function pointer with the function responsible for implementing the delay */
-   //bmp.delay_ms = delay_ms;
-
-   /* Assign device I2C address based on the status of SDO pin (GND for PRIMARY(0x76) & VDD for SECONDARY(0x77)) */
-   //bmp.dev_id = BMP280_I2C_ADDR_PRIM;
-  // bmp.dev_id = 0x76;
-   /* Select the interface mode as I2C */
-  // bmp.intf = BMP280_I2C_INTF;
-
-   /* Map the I2C read & write function pointer with the functions responsible for I2C bus transfer */
-   //bmp.read = i2c_reg_read;
-  // bmp.write = i2c_reg_write;
 
    hwlib::cout << "testing singleton\n" << hwlib::flush;
 
-bmp280::getInstance().set_i2c_bus(i2c_bus);
+   bmp280::getInstance().set_i2c_bus(i2c_bus);
    bmp280::getInstance().test();
 
    hwlib::cout << "end of testing singleton\n" << hwlib::flush;
-   /* To enable SPI interface: comment the above 4 lines and uncomment the below 4 lines */
 
-   /*
-   * bmp.dev_id = 0;
-   * bmp.read = spi_reg_read;
-   * bmp.write = spi_reg_write;
-   * bmp.intf = BMP280_SPI_INTF;
-   */
-   rslt = bmp280_init(&bmp);
    hwlib::cout << "Done...\n" << hwlib::flush;
-   print_rslt(" bmp280_init status", rslt);
-
-   rslt = bmp280_get_config(&conf, &bmp);
-   print_rslt(" bmp280_get_config status", rslt);
-
-
-   /* configuring the temperature oversampling, filter coefficient and output data rate */
-   /* Overwrite the desired settings */
-   conf.filter = BMP280_FILTER_COEFF_2;
-
-   /* Pressure oversampling set at 4x */
-   conf.os_pres = BMP280_OS_4X;
-
-   /* Temperature oversampling set at 4x */
-   conf.os_temp = BMP280_OS_4X;
-
-   /* Setting the output data rate as 1HZ(1000ms) */
-   conf.odr = BMP280_ODR_1000_MS;
-   rslt = bmp280_set_config(&conf, &bmp);
-   print_rslt(" bmp280_set_config status", rslt);
-
-   /* Always set the power mode after setting the configuration */
-   rslt = bmp280_set_power_mode(BMP280_NORMAL_MODE, &bmp);
-   print_rslt(" bmp280_set_power_mode status", rslt);
  while (1)
  {
-      /* Reading the raw data from sensor */
-      rslt = bmp280_get_uncomp_data(&ucomp_data, &bmp);
-
-      /* Getting the 32 bit compensated temperature */
-      rslt = bmp280_get_comp_temp_32bit(&temp32, ucomp_data.uncomp_temp, &bmp);
-
-      /* Getting the compensated temperature as floating point value */
-      rslt = bmp280_get_comp_temp_double(&temp, ucomp_data.uncomp_temp, &bmp);
-      //printf("UT: %ld, T32: %ld, T: %f \r\n", ucomp_data.uncomp_temp, temp32, temp);
-      hwlib::cout << "Temp: " << hwlib::dec << (int)temp <<  "\n" << hwlib::flush;
-      /* Sleep time between measurements = BMP280_ODR_1000_MS */
-      bmp.delay_ms(1000);
+      //int instance_temp = bmp280::getInstance().readPressure();
+      //hwlib::cout << "instance_temp: " << hwlib::dec << instance_temp << "\n" << hwlib::flush;
+      int alt = bmp280::getInstance().get_altitude_in_cm();
+      hwlib::cout << "altitude: " << hwlib::dec << alt << "\n" << hwlib::flush;
+      
+      hwlib::wait_ms( 1000 ); 
    }
 
 }

@@ -65,7 +65,7 @@ int8_t i2c_reg_read(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint1
 
    /* Implement the I2C read routine according to the target machine. */
    //uint8_t my_array[length];
-   //i2c_bus_global->i2c_bus::read(i2c_addr).read(reg_data, length);
+   //i2c_bus_global->i2c_bus::read(i2c_addr).read(readg_data, length);
    //i2c_bus_global->i2c_bus::write(i2c_addr).write(reg_addr);
    //i2c_bus_global->i2c_bus::read(i2c_addr).read(reg_data, length/ sizeof(uint8_t));
    
