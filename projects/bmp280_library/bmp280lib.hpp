@@ -13,137 +13,87 @@
 #ifndef __BMP280LIB_HPP__
 #define __BMP280LIB_HPP__
 
+// These functions are implemented in bmp280lib and bound to the bmp280 driver by bosch.
 void delay_ms(uint32_t period_ms);
 int8_t i2c_reg_write(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint16_t length);
 int8_t i2c_reg_read(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint16_t length);
-//int8_t spi_reg_write(uint8_t cs, uint8_t reg_addr, uint8_t *reg_data, uint16_t length);
-//int8_t spi_reg_read(uint8_t cs, uint8_t reg_addr, uint8_t *reg_data, uint16_t length);
 void print_rslt(const char api_name[], int8_t rslt);
 
+constexpr uint8_t BMP280_I2C_ADDR   = 0x76;
 
-
+/*!
+ *  \class bmp280
+ *  \brief  This library class provides an easy interface that binds the bmp280 bosch driver to hwlib, making it 'plug and play'.
+ *  \version 1.0
+ *  \author Ferdi Stoeltie
+ */
 class bmp280    {
 public:
-
-   static bmp280& getInstance(int8_t i2c_address = 0x76)
+   /*
+      \brief Function for the singleton pattern. Gets the only bmp280 instance.
+   */
+   static bmp280& getInstance()
    {
-      static bmp280 instance(i2c_address);
-                              
+      static bmp280 instance;                        
       return instance;
-   }
-
-   void set_i2c_bus(hwlib::i2c_bus_bit_banged_scl_sda& i2c_b)  {
-      i2c_bmp280_bus = &i2c_b;
    }
    bmp280(bmp280 const&)   = delete;
    void operator=(bmp280 const&)  = delete;
-   void test() {
 
-      rslt = bmp280_init(&bmp);
+   /*
+      \brief Initializes bmp280 with all the correct parameters. Call this method before calling any others!
+      param[in] i2c_bus The hwlib i2c_bus object to communicate through.
+      param[in] i2c_addr The i2c address of the BMP280 (0x76 or 0x77)
+   */
+   void Initialize(hwlib::i2c_bus_bit_banged_scl_sda& i2c_b, uint8_t i2c_addr = BMP280_I2C_ADDR);
+   
+   /*
+      \brief Gets the underlying bmp280 device driver from the bosch driver library.
+      \return struct bmp280_dev
+   */
+   struct bmp280_dev get_bmp280_dev_driver();
 
-      
-      rslt = bmp280_get_config(&conf, &bmp);
-      print_rslt(" bmp280_get_config status", rslt);
-      
-      /* configuring the temperature oversampling, filter coefficient and output data rate */
-      /* Overwrite the desired settings */
-      conf.filter = BMP280_FILTER_COEFF_16;
+   
+   /*
+      \brief Sets the bmp280 device driver for modifying default settings (updates immediately to the bmp280 sensor).
+      \param[in] bmp_d The bmp280_dev that replaces the current one. 
+   */
+   void set_bmp280_dev_driver(struct bmp280_dev bmp_d);
 
-      /* Pressure oversampling set at 4x */
-      conf.os_pres = BMP280_OS_4X;
+   /*
+      \brief Gets the underlying bmp280 config from the bosch driver library.
+      \return struct bmp280_config
+   */
+   struct bmp280_config get_bmp280_conf_driver();
 
-      /* Temperature oversampling set at 4x */
-      conf.os_temp = BMP280_OS_4X;
+   /*
+      \brief Sets the bmp280 config for modifying default settings (updates immediately to the bmp280 sensor).
+      \param[in] bmp_c The bmp280_config that replaces the current one. 
+   */
+   void set_bmp280_conf_driver(struct bmp280_config bmp_c);
 
-      /* Pressure oversampling set at 4x */
-      conf.os_pres = BMP280_OS_16X;
+   /*
+      \brief Reads the temperature value from the bmp280 and returns it as a double (always new read).
+      \return double Temperature value in degrees celcius.
+   */
+   double read_temperature();
 
-      /* Setting the output data rate as 1HZ(1000ms) */
-      conf.odr = BMP280_ODR_1000_MS;
+   /*
+      \brief Reads the pressure value from the bmp280 and returns it as a souble (always new read). The value is expressed in pascal (Pa).
+   */
+   double read_pressure();
 
-      rslt = bmp280_set_config(&conf, &bmp);
-
-      /* Always set the power mode after setting the configuration */
-      rslt = bmp280_set_power_mode(BMP280_NORMAL_MODE, &bmp);
-
-      print_rslt(" bmp280_init status", rslt);
-   }  
-
-   double readTemperature() {
-
-      //uint32_t pres32, pres64;
-      //double pres;
-      //int32_t temp32;
-      double temp;
-
-      /* Reading the raw data from sensor */
-      rslt = bmp280_get_uncomp_data(&ucomp_data, &bmp);
-
-      /* Getting the 32 bit compensated temperature */
-      //rslt = bmp280_get_comp_temp_32bit(&temp32, ucomp_data.uncomp_temp, &bmp);
-
-      /* Getting the compensated temperature as floating point value */
-      rslt = bmp280_get_comp_temp_double(&temp, ucomp_data.uncomp_temp, &bmp);
-      return temp;
-
-
-
-   }
-
-   double readPressure()   {
-
-      double pres = 0;
-
-      /* Reading the raw data from sensor */
-      rslt = bmp280_get_uncomp_data(&ucomp_data, &bmp);
-
-      /* Getting the compensated pressure as floating point value */
-      rslt = bmp280_get_comp_pres_double(&pres, ucomp_data.uncomp_press, &bmp);
-
-      return pres;
-   }
-
-   float get_altitude() {
-      double temp = readTemperature();
-      double pres = readPressure() * 1000; // hA to pascal
-
-      double base_pres = 101315; // pascal
-      float r_value = ((pow(base_pres / pres, 1 / 5.257) - 1) * (temp + 273.15));
-      return r_value;  
-   }
-   int get_altitude_in_cm() {
-      double temp = readTemperature();
-      double pres = readPressure(); // hA to pascal
-      hwlib::cout << "pressure is: " << hwlib::dec << (int) pres << "\n" << hwlib::flush;
-      double base_pres = 102380/*101315*/; // pascal
-      float r_value = ((pow(base_pres / pres, 1 / 5.257) - 1) * (temp + 273.15));
-      return r_value * 100;  
-   }
+   /*
+      \brief Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters.
+      \param[in] The local pressure at sea level, expressed in hectopascal (hPa).
+      \return float Altitude in meters.
+   */
+   float get_altitude(double base_pres = 1013.15);
 private:
-   bmp280(int8_t i2c_address = 0x76) {
-
-      /* Map the delay function pointer with the function responsible for implementing the delay */
-      bmp.delay_ms = delay_ms;
-
-      /* Assign device I2C address based on the status of SDO pin (GND for PRIMARY(0x76) & VDD for SECONDARY(0x77)) */
-      //bmp.dev_id = BMP280_I2C_ADDR_PRIM;
-      bmp.dev_id = 0x76;
-      /* Select the interface mode as I2C */
-      bmp.intf = BMP280_I2C_INTF;
-
-      /* Map the I2C read & write function pointer with the functions responsible for I2C bus transfer */
-      bmp.read = i2c_reg_read;
-      bmp.write = i2c_reg_write;
-
-
-
-   }
+   bmp280();
    friend int8_t i2c_reg_write(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint16_t length);
    friend int8_t i2c_reg_read(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint16_t length);
-/*   bmp280(bmp280 const&);              
-   void operator=(bmp280 const&); */
    hwlib::i2c_bus_bit_banged_scl_sda* i2c_bmp280_bus;
-
 
    int8_t rslt;
    struct bmp280_dev bmp;

@@ -361,19 +361,23 @@ int main( void ){
    hwlib::cout << "Setting bmp280 settings...\n" << hwlib::flush;
 
    hwlib::cout << "testing singleton\n" << hwlib::flush;
-
-   bmp280::getInstance().set_i2c_bus(i2c_bus);
-   bmp280::getInstance().test();
+   bmp280::getInstance().Initialize(i2c_bus);
+   //bmp280::getInstance().set_i2c_bus(i2c_bus);
+   //bmp280::getInstance().test();
 
    hwlib::cout << "end of testing singleton\n" << hwlib::flush;
 
    hwlib::cout << "Done...\n" << hwlib::flush;
  while (1)
  {
-      //int instance_temp = bmp280::getInstance().readPressure();
-      //hwlib::cout << "instance_temp: " << hwlib::dec << instance_temp << "\n" << hwlib::flush;
-      int alt = bmp280::getInstance().get_altitude_in_cm();
-      hwlib::cout << "altitude: " << hwlib::dec << alt << "\n" << hwlib::flush;
+      int instance_temp = bmp280::getInstance().read_temperature();
+      hwlib::cout << "instance_temp: " << hwlib::dec << instance_temp << "\n" << hwlib::flush;
+      
+/*      int instance_pressure = bmp280::getInstance().read_pressure();
+      hwlib::cout << "instance_pressure: " << hwlib::dec << instance_pressure << "\n" << hwlib::flush;*/
+
+/*      int alt = bmp280::getInstance().get_altitude();
+      hwlib::cout << "altitude: " << hwlib::dec << alt << "\n" << hwlib::flush;*/
       
       hwlib::wait_ms( 1000 ); 
    }

@@ -290,7 +290,7 @@ int8_t bmp280_init(struct bmp280_dev *dev)
 
             /* Check for chip id validity */
             if ((rslt == BMP280_OK) &&
-                (dev->chip_id == BMP280_CHIP_ID1 || dev->chip_id == BMP280_CHIP_ID2 || dev->chip_id == BMP280_CHIP_ID3))
+                (dev->chip_id == BMP280_CHIP_ID1 || dev->chip_id == BMP280_CHIP_ID2 || dev->chip_id == BMP280_CHIP_ID3 || dev->chip_id == BME280_CHIP_ID1))
             {
                 rslt = bmp280_soft_reset(dev);
                 if (rslt == BMP280_OK)

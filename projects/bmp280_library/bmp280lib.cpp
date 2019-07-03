@@ -30,21 +30,13 @@ void delay_ms(uint32_t period_ms)
  */
 int8_t i2c_reg_write(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint16_t length)
 {
-   /* Implement the I2C write routine according to the target machine. */
-   //auto scl           = hwlib::target::pin_oc{ hwlib::target::pins::scl };
-   //auto sda           = hwlib::target::pin_oc{ hwlib::target::pins::sda };
-   //auto i2c_bus       = hwlib::i2c_bus_bit_banged_scl_sda( scl, sda );
-   //i2c_bus* my_bus = i2c_bus_global;
    uint8_t mydata[length + 1];
    mydata[0] = reg_addr;
    for(int i = 1; i <= length; i++) {
       mydata[i] = reg_data[i - 1];
    }
-   hwlib::cout << "data to write: reg_addr: " << reg_addr << ", reg_data: " << reg_data << ", length: " << length << "\n" << hwlib::flush;
-   //i2c_bus_global->i2c_bus::write(i2c_addr).write(reg_addr);
    bmp280::getInstance().i2c_bmp280_bus->i2c_bus::write(i2c_addr).write(mydata, length + 1);
    return 0;
-   //return -1;
 }
 
 /*!
@@ -62,24 +54,8 @@ int8_t i2c_reg_write(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint
  */
 int8_t i2c_reg_read(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint16_t length)
 {
-
-   /* Implement the I2C read routine according to the target machine. */
-   //uint8_t my_array[length];
-   //i2c_bus_global->i2c_bus::read(i2c_addr).read(readg_data, length);
-   //i2c_bus_global->i2c_bus::write(i2c_addr).write(reg_addr);
-   //i2c_bus_global->i2c_bus::read(i2c_addr).read(reg_data, length/ sizeof(uint8_t));
-   
-   //i2c_bus_global->i2c_bus::readbmp280(i2c_addr).read(reg_data, length);
-   uint8_t a_value = 0;
-   /*uint8_t r_value = */ //i2c_bus_global->i2c_bus::readbmp280(i2c_addr, reg_addr).read(reg_data, length / sizeof( uint8_t ) );
-   hwlib::cout << "i2c_addr: " << hwlib::hex << i2c_addr << "\n" << hwlib::flush;
    bmp280::getInstance().i2c_bmp280_bus->i2c_bus::readbmp280(i2c_addr, reg_addr).read_from_register(reg_data, length);
-   hwlib::cout << "data to read: reg_addr: " << hwlib::hex << reg_addr << ", a_value: " << a_value <<", length: " << length << "\n" << hwlib::flush;
-/*   for(int i = 0; i < length; i++)  {
-      hwlib::cout << (char)my_array[length];
-   }*/
    return 0;
-   //return -1;
 }
 
 /*!
@@ -98,7 +74,7 @@ int8_t i2c_reg_read(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint1
 int8_t spi_reg_write(uint8_t cs, uint8_t reg_addr, uint8_t *reg_data, uint16_t length)
 {
 
-    /* Implement the SPI write routine according to the target machine. */
+    /* Not required */
     return -1;
 }
 
@@ -134,42 +110,104 @@ void print_rslt(const char api_name[], int8_t rslt)
 {
    if (rslt != BMP280_OK)
    {
-     //printf("%s\t", api_name);
-   /*         hwlib::cout 
-   << "Hello world!\n" 
-   << hwlib::flush;*/
-         /*         hwlib::cout 
-   << "Hello world!\n" 
-   << hwlib::flush;*/
       hwlib::cout << "api_name\n" << hwlib::flush;   
       if (rslt == BMP280_E_NULL_PTR)
       {
-         //printf("Error [%d] : Null pointer error\r\n", rslt);
          hwlib::cout << "Error " << rslt << " : Null pointer error\n" << hwlib::flush;
       }
       else if (rslt == BMP280_E_COMM_FAIL)
       {
-         //printf("Error [%d] : Bus communication failed\r\n", rslt);
          hwlib::cout << "Error " << rslt << " :Bus communication failed\n" << hwlib::flush;
       }
       else if (rslt == BMP280_E_IMPLAUS_TEMP)
       {
-         //printf("Error [%d] : Invalid Temperature\r\n", rslt);
          hwlib::cout << "Error " << rslt << " : Invalid Temperature\n" << hwlib::flush;
       }
       else if (rslt == BMP280_E_DEV_NOT_FOUND)
       {
-         //printf("Error [%d] : Device not found\r\n", rslt);
          hwlib::cout << "Error " << rslt << " : Device not found\n" << hwlib::flush;
       }
       else
       {
-         /* For more error codes refer "*_defs.h" */
-         //printf("Error [%d] : Unknown error code\r\n", rslt);
          hwlib::cout << "Error " << rslt << " : Unknown error code\n" << hwlib::flush;
       }
    }
-   else  {
-      hwlib::cout << "Everything OK\n" << hwlib::flush;
-   }
+}
+
+bmp280::bmp280() {
+
+
+}
+
+void bmp280::Initialize(hwlib::i2c_bus_bit_banged_scl_sda& i2c_b, uint8_t i2c_addr) {
+   i2c_bmp280_bus = &i2c_b;
+
+   /* Map the delay function pointer with the function responsible for implementing the delay */
+   bmp.delay_ms = delay_ms;
+   bmp.dev_id = i2c_addr;
+   bmp.intf = BMP280_I2C_INTF;
+   bmp.read = i2c_reg_read;
+   bmp.write = i2c_reg_write;
+
+   rslt = bmp280_init(&bmp);
+   rslt = bmp280_get_config(&conf, &bmp);
+
+   conf.filter = BMP280_FILTER_COEFF_16;
+   conf.os_temp = BMP280_OS_16X;
+   conf.os_pres = BMP280_OS_16X;
+   conf.odr = BMP280_ODR_1000_MS;
+
+   rslt = bmp280_set_config(&conf, &bmp);
+   rslt = bmp280_set_power_mode(BMP280_NORMAL_MODE, &bmp);
+
+   print_rslt(" bmp280_init status", rslt);
+
+}
+
+struct bmp280_dev bmp280::get_bmp280_dev_driver()  {
+   rslt = bmp280_get_config(&conf, &bmp);
+   return bmp;
+}
+
+void bmp280::set_bmp280_dev_driver(struct bmp280_dev bmp_d)  {
+   bmp = bmp_d;
+   rslt = bmp280_set_config(&conf, &bmp);
+   rslt = bmp280_set_power_mode(BMP280_NORMAL_MODE, &bmp);
+
+}
+
+struct bmp280_config bmp280::get_bmp280_conf_driver()  {
+   rslt = bmp280_get_config(&conf, &bmp);
+   return conf;
+}
+
+void bmp280::set_bmp280_conf_driver(struct bmp280_config bmp_c)  {
+   conf = bmp_c;
+   rslt = bmp280_set_config(&conf, &bmp);
+   rslt = bmp280_set_power_mode(BMP280_NORMAL_MODE, &bmp);
+
+}
+
+double bmp280::read_temperature() {
+   double temp;
+   rslt = bmp280_get_uncomp_data(&ucomp_data, &bmp);
+   rslt = bmp280_get_comp_temp_double(&temp, ucomp_data.uncomp_temp, &bmp);
+   return temp;
+}
+
+double bmp280::read_pressure()   {
+   double pres = 0;
+   rslt = bmp280_get_uncomp_data(&ucomp_data, &bmp);
+   rslt = bmp280_get_comp_pres_double(&pres, ucomp_data.uncomp_press, &bmp);
+   return pres;
+}
+
+// base_pres in pascal
+// in meters
+float bmp280::get_altitude(double base_pres) {
+   base_pres *= 1000;
+   double temp = read_temperature();
+   double pres = read_pressure(); // sensor pascal
+   float height_in_meters = (double)(((pow(base_pres / pres, 1 / 5.257) - 1) * (temp + 273.15))) / 0.0065;
+   return height_in_meters;  
 }
