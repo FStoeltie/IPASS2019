@@ -321,7 +321,7 @@ int main( void ){
 
 
    //auto oled_channel  = i2c_bus.channel( 0x3c );
-/*   auto oled          = hwlib::glcd_oled( i2c_bus );
+   auto oled          = hwlib::glcd_oled( i2c_bus );
    
    auto w1            = hwlib::window_part( 
       oled, hwlib::xy( 0, 0 ), hwlib::xy( 128, 16 ));  
@@ -356,8 +356,9 @@ int main( void ){
       << "\f" << "Ey Ey Ey"
       << "\n" << "said"
       << "\n" << "Let me tell you a story..."
-      << hwlib::flush;*/  
-   hwlib::wait_ms( 1'000 );
+      << hwlib::flush;
+        
+/*   hwlib::wait_ms( 1'000 );
    hwlib::cout << "Setting bmp280 settings...\n" << hwlib::flush;
 
    hwlib::cout << "testing singleton\n" << hwlib::flush;
@@ -371,7 +372,7 @@ int main( void ){
  while (1)
  {
       int instance_temp = bmp280::getInstance().read_temperature();
-      hwlib::cout << "instance_temp: " << hwlib::dec << instance_temp << "\n" << hwlib::flush;
+      hwlib::cout << "instance_temp: " << hwlib::dec << instance_temp << "\n" << hwlib::flush;*/
       
 /*      int instance_pressure = bmp280::getInstance().read_pressure();
       hwlib::cout << "instance_pressure: " << hwlib::dec << instance_pressure << "\n" << hwlib::flush;*/
@@ -379,8 +380,8 @@ int main( void ){
 /*      int alt = bmp280::getInstance().get_altitude();
       hwlib::cout << "altitude: " << hwlib::dec << alt << "\n" << hwlib::flush;*/
       
-      hwlib::wait_ms( 1000 ); 
-   }
+/*      hwlib::wait_ms( 1000 ); 
+   }*/
 
 }
 
