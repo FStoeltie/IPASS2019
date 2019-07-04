@@ -4,19 +4,10 @@
 /*#include "hwlib-graphics-color.hpp"*/
 #include <algorithm>
 #include <cmath>
+
+#ifndef __SCENE_HPP__
+#define __SCENE_HPP__
 constexpr double pi() { return std::atan(1)*4; }
-
-
-
-
-class Point{
-public:
-    Point(unsigned int x, unsigned int y) : x(x), y(y) {}
-private:
-    unsigned int x, y;
-protected:
-    
-};
 
 class GraphicsObject {
 public:
@@ -47,85 +38,52 @@ protected:
 
 };
 
+/*
+    \class GraphicsObjectSquare
+    \brief This class represents a simple square object. It contains helper methods to rotate and scale the square.
+    \author Ferdi Stoeltie
+    \version 1.0
+*/
 class GraphicsObjectSquare : public GraphicsObject {
 public:
-    void setRotationInDegrees(const unsigned int degrees) {
-        if (this->degrees == degrees)
-            return;
-        else    {
-            this->degrees = degrees;
-            hwlib::xy pivot =  hwlib::xy(pArray.at(0).x + (pArray.at(1).x - pArray.at(0).x) / 2, pArray.at(0).y + (pArray.at(2).y - pArray.at(0).y) / 2);
-            rotatePoint(pArray.at(0), pivot);
-            rotatePoint(pArray.at(1), pivot);
-            rotatePoint(pArray.at(2), pivot);
-            rotatePoint(pArray.at(3), pivot);
-        }
 
-    }
-    void setScale(const float scale)   {
-        if (this->scale == scale)
-            return;
-        else    {
-            /*pArray.at(0) = hwlib::xy(pArray.at(0).x * scale, hwlib.at(0).y * scale);
-            pArray.at(1) = hwlib::xy(pArray.at(1).x * scale, hwlib.at(1).y * scale);
-            pArray.at(2) = hwlib::xy(pArray.at(2).x * scale, hwlib.at(2).y * scale);
-            pArray.at(3) = hwlib::xy(pArray.at(3).x * scale, hwlib.at(3).y * scale);*/
-        }
-    }
+    /*
+        \brief Constructor that takes in a glc_oled window to draw to.
+        \param[in] window The oled window to draw to.
+    */
     GraphicsObjectSquare(hwlib::glcd_oled& window) : GraphicsObject(window) {}
-    void draw()  {
-        window.clear();
 
-        auto line1 = hwlib::line( 
-            pArray.at(0),
-            pArray.at(1), 
-            window.foreground 
-        );
-        line1.draw( window );
+    /*
+        \brief Rotates the square to the desired angle in degrees.
+        \paramp[in] degrees desired degrees to rotate the square from it's base.
+    */
+    void setRotationInDegrees(const unsigned int degrees);
 
-        auto line2 = hwlib::line( 
-            pArray.at(1),
-            pArray.at(2), 
-            window.foreground 
-        );
-        line2.draw( window );
+    /*
+        \brief Sets the scale for square object.
+        \param[in] scale Floating point to scale to.
+    */
+    void setScale(const float scale);
 
-        auto line3 = hwlib::line( 
-            pArray.at(2),
-            pArray.at(3), 
-            window.foreground 
-        );
-        line3.draw( window );
+    /*
+        \brief Calling this method will draw the object to screen.
+    */
+    void draw();
 
-        auto line4 = hwlib::line( 
-            pArray.at(3),
-            pArray.at(0), 
-            window.foreground 
-        );
-        line4.draw( window );
+    /*
+        Sets the square data (x, y, width, height and angle).
+        param[in] p The x,y positions of where to start drawing the square.
+        param[in] width Width of the square.
+        param[in] height Height of the square.
+        param[in] degrees Angle of the square in degrees.
+    */
+    void setSquareData(hwlib::xy p, unsigned int width = 0, unsigned int height = 0, const unsigned int degrees = 0);
+    
 
-        window.flush(); 
-        hwlib::wait_ms( 50000 );
-    }
-    void setSquareData(hwlib::xy p, unsigned int width = 0, unsigned int height = 0, const unsigned int degrees = 0)  { 
-        pArray.at(0) = p;
-        pArray.at(1) = hwlib::xy(pArray.at(0).x + width, pArray.at(0).y);
-        pArray.at(2) = hwlib::xy(pArray.at(0).x + width, pArray.at(0).y + height);
-        pArray.at(3) = hwlib::xy(pArray.at(0).x, pArray.at(0).y + height);
-        setRotationInDegrees(degrees);
-    }
-    std::array<hwlib::xy, 4> pArray = {hwlib::xy(0, 0), hwlib::xy(0,0)};
-    void rotatePoint(hwlib::xy& xyp, hwlib::xy pivot)    {
-        float angleInRadians = degrees * pi()/180;
-        
-        xyp = xyp - pivot;
-        unsigned int xi = pivot.x + (std::cos(angleInRadians) * xyp.x - std::sin(angleInRadians)  * xyp.y);
-        unsigned int yi = pivot.y + (std::sin(angleInRadians) * xyp.x + std::cos(angleInRadians) * xyp.y);
-        xyp = hwlib::xy(xi, yi);
-    }
 protected:
 private:
-
+    void rotatePoint(hwlib::xy& xyp, hwlib::xy pivot);
+    std::array<hwlib::xy, 4> pArray = {hwlib::xy(0, 0), hwlib::xy(0,0)};
 };
 
 class BaseScene{
@@ -135,50 +93,51 @@ protected:
 private:
 
 };
-
+/*
+    \class GraphScene
+    \brief This class creates a graph with several datapoints that are connected with lines.
+    \author Ferdi Stoeltie
+    \version 0.9
+*/
 class GraphScene : public GraphicsObject{
 public:
-    GraphScene(hwlib::glcd_oled& window, hwlib::xy startPoint, unsigned int width, unsigned int height) : GraphicsObject(window), startPoint(startPoint), 
-    x_axis(startPoint,hwlib::xy(startPoint.x + width, startPoint.y), window.foreground),
-    y_axis(startPoint,hwlib::xy(startPoint.x, startPoint.y + height), window.foreground),
-    width(width),
-    height(height) {}
-    void draw()  {
-        window.clear();
-
-        setScale(2);
-        x_axis.draw( window );
-        // draw edges
-        hwlib::line(hwlib::xy(pArray.at(0).x * everyValue, pArray.at(0).y * everyValue), hwlib::xy(pArray.at(1).x * everyValue, pArray.at(1).y * everyValue)).draw(window);
-        hwlib::line(hwlib::xy(pArray.at(1).x * everyValue, pArray.at(1).y * everyValue), hwlib::xy(pArray.at(2).x * everyValue, pArray.at(2).y * everyValue)).draw(window);
-        hwlib::line(hwlib::xy(pArray.at(2).x * everyValue, pArray.at(2).y * everyValue), hwlib::xy(pArray.at(3).x * everyValue, pArray.at(3).y * everyValue)).draw(window);
-        hwlib::line(hwlib::xy(pArray.at(3).x * everyValue, pArray.at(3).y * everyValue), hwlib::xy(pArray.at(4).x * everyValue, pArray.at(4).y * everyValue)).draw(window);
-
-        y_axis.draw( window );
-
-        window.flush(); 
-        hwlib::wait_ms( 50000 );
-    }
-    void setScale(const float scale)   {
-        if (this->scale == scale)
-            return;
-        else    {
-            startPoint = hwlib::xy(startPoint.x * scale, startPoint.y * scale);
-            width *= scale;
-            height *= scale;
-            everyValue *= scale;
-            x_axis = hwlib::line(startPoint, hwlib::xy(startPoint.x + width, startPoint.y), window.foreground);
-            y_axis = hwlib::line(startPoint,hwlib::xy(startPoint.x, startPoint.y + height), window.foreground);
-
-            for(auto& datapoint : pArray)   {
-                datapoint = hwlib::xy(datapoint.x, datapoint.y);
-            }
-        }
-    }
+    /*
+        \brief Constructor for creating the Graph Scene.
+        \param[in] window The hwlib glcd_oled window that it will draw to.
+        \param[in] startPoint point of where to start the Graph coordinates.
+        \param[in] width Width of the graph.
+        \param[in] height Height of the graph.
+    */
+    GraphScene(hwlib::glcd_oled& window, hwlib::xy startPoint, unsigned int width, unsigned int height);
+    /*
+        \brief Draws the graph and it's datapoints to the display.
+    */
+    void draw();
+    /*
+        \brief Pushes a new value onto the stack. The oldest one is pushed out of the stack.
+        \param[in] value The new value to push onto the stack.
+    */
+    void push_back(float value);
+    /*
+        \brief Scales the graph.
+        \param[in] scale The scale that is used to scale the GraphScene with (multiplaction).
+    */
+    void setScale(const float scale);
+    /*
+        \brief Method that takes in the minimum and maximum value that the values of the datapoints can have.
+                Useful to change distribution of datapoints on the y axis.
+        \param[in] min The minimum value that a datapoint can have.
+        \param[out] max The maximum value that a datapoint can have.
+    */
+    void set_range_scale(int min, int max);
 protected:
-    unsigned int points = 0;  
+      
 private:
-    std::array<hwlib::xy, 5> pArray = {hwlib::xy(0, 0), hwlib::xy(5, 5), hwlib::xy(10, 10), hwlib::xy(15, 15), hwlib::xy(18, 5)};
+    const uint8_t points = 10;
+    int range_scale = 1;
+    int min = 20;
+    hwlib::xy pArray[10] = {hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0),
+                            hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0)};
     hwlib::xy startPoint;
     hwlib::line x_axis;
     hwlib::line y_axis;
@@ -187,8 +146,4 @@ private:
     unsigned int everyValue = 1;
 };
 
-class graphicsManager {
-public:
-protected:
-private:
-};
+#endif // __SCENE_HPP__

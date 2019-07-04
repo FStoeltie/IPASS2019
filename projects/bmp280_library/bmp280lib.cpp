@@ -10,8 +10,6 @@
  */
 void delay_ms(uint32_t period_ms)
 {
-    /* Implement the delay routine according to the target machine */
-   //hwlib::cout << "Waiting: " << period_ms << "ms\n" << hwlib::flush;
    hwlib::wait_ms( period_ms ); 
 }
 
@@ -36,6 +34,7 @@ int8_t i2c_reg_write(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint
       mydata[i] = reg_data[i - 1];
    }
    bmp280::getInstance().i2c_bmp280_bus->i2c_bus::write(i2c_addr).write(mydata, length + 1);
+   // For now force a success, this is also checked later on...
    return 0;
 }
 
@@ -55,6 +54,7 @@ int8_t i2c_reg_write(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint
 int8_t i2c_reg_read(uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint16_t length)
 {
    bmp280::getInstance().i2c_bmp280_bus->i2c_bus::readbmp280(i2c_addr, reg_addr).read_from_register(reg_data, length);
+   // For now force a success, this is also checked later on...
    return 0;
 }
 

@@ -23,7 +23,7 @@ constexpr uint8_t BMP280_I2C_ADDR   = 0x76;
 
 /*!
  *  \class bmp280
- *  \brief  This library class provides an easy interface that binds the bmp280 bosch driver to hwlib, making it 'plug and play'.
+ *  \brief This library class provides an easy interface that binds the bmp280 bosch driver to hwlib, making it 'plug and play'.
  *  \version 1.0
  *  \author Ferdi Stoeltie
  */
@@ -53,7 +53,6 @@ public:
    */
    struct bmp280_dev get_bmp280_dev_driver();
 
-   
    /*
       \brief Sets the bmp280 device driver for modifying default settings (updates immediately to the bmp280 sensor).
       \param[in] bmp_d The bmp280_dev that replaces the current one. 
@@ -74,7 +73,7 @@ public:
 
    /*
       \brief Reads the temperature value from the bmp280 and returns it as a double (always new read).
-      \return double Temperature value in degrees celcius.
+      \return double Temperature value in degrees celsius.
    */
    double read_temperature();
 

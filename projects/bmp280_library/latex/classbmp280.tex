@@ -1,0 +1,139 @@
+\hypertarget{classbmp280}{}\section{bmp280 Class Reference}
+\label{classbmp280}\index{bmp280@{bmp280}}
+
+
+This library class provides an easy interface that binds the \mbox{\hyperlink{classbmp280}{bmp280}} bosch driver to hwlib, making it \textquotesingle{}plug and play\textquotesingle{}.  
+
+
+
+
+{\ttfamily \#include $<$bmp280lib.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbmp280_a8894efbfc8fd5622ab7872b2546bec5e}\label{classbmp280_a8894efbfc8fd5622ab7872b2546bec5e}} 
+{\bfseries bmp280} (\mbox{\hyperlink{classbmp280}{bmp280}} const \&)=delete
+\item 
+\mbox{\Hypertarget{classbmp280_a15f44f28857be544ca8628a65f113a5e}\label{classbmp280_a15f44f28857be544ca8628a65f113a5e}} 
+void {\bfseries operator=} (\mbox{\hyperlink{classbmp280}{bmp280}} const \&)=delete
+\item 
+\mbox{\Hypertarget{classbmp280_ae6908ebdc711f42e5f1c7981c85a728d}\label{classbmp280_ae6908ebdc711f42e5f1c7981c85a728d}} 
+void {\bfseries Initialize} (hwlib\+::i2c\+\_\+bus\+\_\+bit\+\_\+banged\+\_\+scl\+\_\+sda \&i2c\+\_\+b, uint8\+\_\+t i2c\+\_\+addr=B\+M\+P280\+\_\+\+I2\+C\+\_\+\+A\+D\+DR)
+\item 
+\mbox{\Hypertarget{classbmp280_ac15f0e1c589daaf1778a0f1b86620efb}\label{classbmp280_ac15f0e1c589daaf1778a0f1b86620efb}} 
+struct \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}} {\bfseries get\+\_\+bmp280\+\_\+dev\+\_\+driver} ()
+\item 
+\mbox{\Hypertarget{classbmp280_abf2047614752774902d6897bf0de8c02}\label{classbmp280_abf2047614752774902d6897bf0de8c02}} 
+void {\bfseries set\+\_\+bmp280\+\_\+dev\+\_\+driver} (struct \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}} bmp\+\_\+d)
+\item 
+\mbox{\Hypertarget{classbmp280_aa69aa6f655ea7a82e78da96f54aadfb8}\label{classbmp280_aa69aa6f655ea7a82e78da96f54aadfb8}} 
+struct \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}} {\bfseries get\+\_\+bmp280\+\_\+conf\+\_\+driver} ()
+\item 
+\mbox{\Hypertarget{classbmp280_ac8426d09704b2d35088d760acb10e876}\label{classbmp280_ac8426d09704b2d35088d760acb10e876}} 
+void {\bfseries set\+\_\+bmp280\+\_\+conf\+\_\+driver} (struct \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}} bmp\+\_\+c)
+\item 
+\mbox{\Hypertarget{classbmp280_ae598eb1f714ba9a39896099ee157164f}\label{classbmp280_ae598eb1f714ba9a39896099ee157164f}} 
+double {\bfseries read\+\_\+temperature} ()
+\item 
+\mbox{\Hypertarget{classbmp280_a9de10ab597caf99df7c2966452721c4d}\label{classbmp280_a9de10ab597caf99df7c2966452721c4d}} 
+double {\bfseries read\+\_\+pressure} ()
+\item 
+\mbox{\Hypertarget{classbmp280_a0a480dfb132b8efc68f8a9ab00c8d75b}\label{classbmp280_a0a480dfb132b8efc68f8a9ab00c8d75b}} 
+float {\bfseries get\+\_\+altitude} (double base\+\_\+pres=1013.\+15)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classbmp280_a59268d6ba91891061090635edd6fc04b}\label{classbmp280_a59268d6ba91891061090635edd6fc04b}} 
+static \mbox{\hyperlink{classbmp280}{bmp280}} \& {\bfseries get\+Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{classbmp280_a6edf190f34f4a642def68cfafd8d3a7f}{i2c\+\_\+reg\+\_\+write}} (uint8\+\_\+t i2c\+\_\+addr, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$reg\+\_\+data, uint16\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Function for writing the sensor\textquotesingle{}s registers through I2C bus. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{classbmp280_a9ea4f460cdfc82cd4c695f0bfd43bdc6}{i2c\+\_\+reg\+\_\+read}} (uint8\+\_\+t i2c\+\_\+addr, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$reg\+\_\+data, uint16\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Function for reading the sensor\textquotesingle{}s registers through I2C bus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This library class provides an easy interface that binds the \mbox{\hyperlink{classbmp280}{bmp280}} bosch driver to hwlib, making it \textquotesingle{}plug and play\textquotesingle{}. 
+
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classbmp280_a9ea4f460cdfc82cd4c695f0bfd43bdc6}\label{classbmp280_a9ea4f460cdfc82cd4c695f0bfd43bdc6}} 
+\index{bmp280@{bmp280}!i2c\_reg\_read@{i2c\_reg\_read}}
+\index{i2c\_reg\_read@{i2c\_reg\_read}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{i2c\_reg\_read}{i2c\_reg\_read}}
+{\footnotesize\ttfamily int8\+\_\+t i2c\+\_\+reg\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i2c\+\_\+addr,  }\item[{uint8\+\_\+t}]{reg\+\_\+addr,  }\item[{uint8\+\_\+t $\ast$}]{reg\+\_\+data,  }\item[{uint16\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Function for reading the sensor\textquotesingle{}s registers through I2C bus. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em i2c\+\_\+addr} & \+: Sensor I2C address. \\
+\hline
+\mbox{\texttt{ in}}  & {\em reg\+\_\+addr} & \+: Register address. \\
+\hline
+\mbox{\texttt{ out}}  & {\em reg\+\_\+data} & \+: Pointer to the data buffer to store the read data. \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & \+: No of bytes to read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of execution 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & -\/$>$ Success \\
+\hline
+{\em $>$0} & -\/$>$ Failure Info \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classbmp280_a6edf190f34f4a642def68cfafd8d3a7f}\label{classbmp280_a6edf190f34f4a642def68cfafd8d3a7f}} 
+\index{bmp280@{bmp280}!i2c\_reg\_write@{i2c\_reg\_write}}
+\index{i2c\_reg\_write@{i2c\_reg\_write}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{i2c\_reg\_write}{i2c\_reg\_write}}
+{\footnotesize\ttfamily int8\+\_\+t i2c\+\_\+reg\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i2c\+\_\+addr,  }\item[{uint8\+\_\+t}]{reg\+\_\+addr,  }\item[{uint8\+\_\+t $\ast$}]{reg\+\_\+data,  }\item[{uint16\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Function for writing the sensor\textquotesingle{}s registers through I2C bus. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em i2c\+\_\+addr} & \+: sensor I2C address. \\
+\hline
+\mbox{\texttt{ in}}  & {\em reg\+\_\+addr} & \+: Register address. \\
+\hline
+\mbox{\texttt{ in}}  & {\em reg\+\_\+data} & \+: Pointer to the data buffer whose value is to be written. \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & \+: No of bytes to write.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of execution 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & -\/$>$ Success \\
+\hline
+{\em $>$0} & -\/$>$ Failure Info \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+bmp280lib.\+hpp\item 
+bmp280lib.\+cpp\end{DoxyCompactItemize}
