@@ -1,5 +1,14 @@
 \hypertarget{class_graph_scene}{}\section{Graph\+Scene Class Reference}
 \label{class_graph_scene}\index{GraphScene@{GraphScene}}
+
+
+This class creates a graph with several datapoints that are connected with lines.  
+
+
+
+
+{\ttfamily \#include $<$scene.\+hpp$>$}
+
 Inheritance diagram for Graph\+Scene\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,25 +18,106 @@ Inheritance diagram for Graph\+Scene\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_graph_scene_a346e3c827c9268f7b3bb29507dc28d6e}\label{class_graph_scene_a346e3c827c9268f7b3bb29507dc28d6e}} 
-{\bfseries Graph\+Scene} (hwlib\+::glcd\+\_\+oled \&window, hwlib\+::xy start\+Point, unsigned int width, unsigned int height)
-\item 
+\mbox{\hyperlink{class_graph_scene_a346e3c827c9268f7b3bb29507dc28d6e}{Graph\+Scene}} (hwlib\+::glcd\+\_\+oled \&window, hwlib\+::xy start\+Point, unsigned int width, unsigned int height)
+\begin{DoxyCompactList}\small\item\em Constructor for creating the Graph Scene. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_graph_scene_aedb5e4cc32fd4fdef6e0d5504605f4a1}\label{class_graph_scene_aedb5e4cc32fd4fdef6e0d5504605f4a1}} 
-void {\bfseries draw} ()
-\item 
-\mbox{\Hypertarget{class_graph_scene_aa814c91b88a151e2137927c11bfc6b32}\label{class_graph_scene_aa814c91b88a151e2137927c11bfc6b32}} 
-void {\bfseries push\+\_\+back} (float value)
-\item 
-\mbox{\Hypertarget{class_graph_scene_a1b84f3b649cd82142519771ceb94b04a}\label{class_graph_scene_a1b84f3b649cd82142519771ceb94b04a}} 
-void {\bfseries set\+Scale} (const float scale)
-\item 
-\mbox{\Hypertarget{class_graph_scene_a2d123bfb5cc206a179c04a70841e6a8f}\label{class_graph_scene_a2d123bfb5cc206a179c04a70841e6a8f}} 
-void {\bfseries set\+\_\+range\+\_\+scale} (int min, int max)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_graph_scene_aedb5e4cc32fd4fdef6e0d5504605f4a1}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Draws the graph and it\textquotesingle{}s datapoints to the display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_scene_aa814c91b88a151e2137927c11bfc6b32}{push\+\_\+back}} (float value)
+\begin{DoxyCompactList}\small\item\em Pushes a new value onto the stack. The oldest one is pushed out of the stack. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_scene_a1b84f3b649cd82142519771ceb94b04a}{set\+Scale}} (const float scale)
+\begin{DoxyCompactList}\small\item\em Scales the graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_scene_a2d123bfb5cc206a179c04a70841e6a8f}{set\+\_\+range\+\_\+scale}} (int min, int max)
+\begin{DoxyCompactList}\small\item\em Method that takes in the minimum and maximum value that the values of the datapoints can have. Useful to change distribution of datapoints on the y axis. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+This class creates a graph with several datapoints that are connected with lines. 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+9 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_scene_a346e3c827c9268f7b3bb29507dc28d6e}\label{class_graph_scene_a346e3c827c9268f7b3bb29507dc28d6e}} 
+\index{GraphScene@{GraphScene}!GraphScene@{GraphScene}}
+\index{GraphScene@{GraphScene}!GraphScene@{GraphScene}}
+\subsubsection{\texorpdfstring{GraphScene()}{GraphScene()}}
+{\footnotesize\ttfamily Graph\+Scene\+::\+Graph\+Scene (\begin{DoxyParamCaption}\item[{hwlib\+::glcd\+\_\+oled \&}]{window,  }\item[{hwlib\+::xy}]{start\+Point,  }\item[{unsigned int}]{width,  }\item[{unsigned int}]{height }\end{DoxyParamCaption})}
+
+
+
+Constructor for creating the Graph Scene. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em window} & The hwlib glcd\+\_\+oled window that it will draw to. \\
+\hline
+\mbox{\texttt{ in}}  & {\em start\+Point} & point of where to start the Graph coordinates. \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & Width of the graph. \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & Height of the graph. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_scene_aa814c91b88a151e2137927c11bfc6b32}\label{class_graph_scene_aa814c91b88a151e2137927c11bfc6b32}} 
+\index{GraphScene@{GraphScene}!push\_back@{push\_back}}
+\index{push\_back@{push\_back}!GraphScene@{GraphScene}}
+\subsubsection{\texorpdfstring{push\_back()}{push\_back()}}
+{\footnotesize\ttfamily void Graph\+Scene\+::push\+\_\+back (\begin{DoxyParamCaption}\item[{float}]{value }\end{DoxyParamCaption})}
+
+
+
+Pushes a new value onto the stack. The oldest one is pushed out of the stack. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The new value to push onto the stack. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_scene_a2d123bfb5cc206a179c04a70841e6a8f}\label{class_graph_scene_a2d123bfb5cc206a179c04a70841e6a8f}} 
+\index{GraphScene@{GraphScene}!set\_range\_scale@{set\_range\_scale}}
+\index{set\_range\_scale@{set\_range\_scale}!GraphScene@{GraphScene}}
+\subsubsection{\texorpdfstring{set\_range\_scale()}{set\_range\_scale()}}
+{\footnotesize\ttfamily void Graph\+Scene\+::set\+\_\+range\+\_\+scale (\begin{DoxyParamCaption}\item[{int}]{min,  }\item[{int}]{max }\end{DoxyParamCaption})}
+
+
+
+Method that takes in the minimum and maximum value that the values of the datapoints can have. Useful to change distribution of datapoints on the y axis. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em min} & The minimum value that a datapoint can have. \\
+\hline
+\mbox{\texttt{ out}}  & {\em max} & The maximum value that a datapoint can have. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_scene_a1b84f3b649cd82142519771ceb94b04a}\label{class_graph_scene_a1b84f3b649cd82142519771ceb94b04a}} 
+\index{GraphScene@{GraphScene}!setScale@{setScale}}
+\index{setScale@{setScale}!GraphScene@{GraphScene}}
+\subsubsection{\texorpdfstring{setScale()}{setScale()}}
+{\footnotesize\ttfamily void Graph\+Scene\+::set\+Scale (\begin{DoxyParamCaption}\item[{const float}]{scale }\end{DoxyParamCaption})}
+
+
+
+Scales the graph. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em scale} & The scale that is used to scale the \mbox{\hyperlink{class_graph_scene}{Graph\+Scene}} with (multiplaction). \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-scene.\+hpp\item 
+\mbox{\hyperlink{scene_8hpp}{scene.\+hpp}}\item 
 scene.\+cpp\end{DoxyCompactItemize}

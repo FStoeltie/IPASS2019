@@ -1,5 +1,14 @@
 \hypertarget{class_graphics_object_square}{}\section{Graphics\+Object\+Square Class Reference}
 \label{class_graphics_object_square}\index{GraphicsObjectSquare@{GraphicsObjectSquare}}
+
+
+This class represents a simple square object. It contains helper methods to rotate and scale the square.  
+
+
+
+
+{\ttfamily \#include $<$scene.\+hpp$>$}
+
 Inheritance diagram for Graphics\+Object\+Square\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,25 +18,75 @@ Inheritance diagram for Graphics\+Object\+Square\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_graphics_object_square_af935eee79aab68a59befdf102f7f32a8}\label{class_graphics_object_square_af935eee79aab68a59befdf102f7f32a8}} 
-{\bfseries Graphics\+Object\+Square} (hwlib\+::glcd\+\_\+oled \&window)
-\item 
+\mbox{\hyperlink{class_graphics_object_square_af935eee79aab68a59befdf102f7f32a8}{Graphics\+Object\+Square}} (hwlib\+::glcd\+\_\+oled \&window)
+\begin{DoxyCompactList}\small\item\em Constructor that takes in a glc\+\_\+oled window to draw to. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_graphics_object_square_afb2753b58b896a13f90e3269898a8a1d}\label{class_graphics_object_square_afb2753b58b896a13f90e3269898a8a1d}} 
-void {\bfseries set\+Rotation\+In\+Degrees} (const unsigned int degrees)
-\item 
-\mbox{\Hypertarget{class_graphics_object_square_a92fc26cdb800858992f505a57f31e3aa}\label{class_graphics_object_square_a92fc26cdb800858992f505a57f31e3aa}} 
-void {\bfseries set\+Scale} (const float scale)
-\item 
+void \mbox{\hyperlink{class_graphics_object_square_afb2753b58b896a13f90e3269898a8a1d}{set\+Rotation\+In\+Degrees}} (const unsigned int degrees)
+\begin{DoxyCompactList}\small\item\em Rotates the square to the desired angle in degrees. @paramp\mbox{[}in\mbox{]} degrees desired degrees to rotate the square from it\textquotesingle{}s base. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_object_square_a92fc26cdb800858992f505a57f31e3aa}{set\+Scale}} (const float scale)
+\begin{DoxyCompactList}\small\item\em Sets the scale for square object. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_graphics_object_square_a7e494e475f4f47a77e8dc0eead6136bd}\label{class_graphics_object_square_a7e494e475f4f47a77e8dc0eead6136bd}} 
-void {\bfseries draw} ()
-\item 
-\mbox{\Hypertarget{class_graphics_object_square_abc8b9bacc687ce180f6a03ea6c8ee69b}\label{class_graphics_object_square_abc8b9bacc687ce180f6a03ea6c8ee69b}} 
-void {\bfseries set\+Square\+Data} (hwlib\+::xy p, unsigned int width=0, unsigned int height=0, const unsigned int degrees=0)
+void \mbox{\hyperlink{class_graphics_object_square_a7e494e475f4f47a77e8dc0eead6136bd}{draw}} ()
+\begin{DoxyCompactList}\small\item\em Calling this method will draw the object to screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graphics_object_square_abc8b9bacc687ce180f6a03ea6c8ee69b}{set\+Square\+Data}} (hwlib\+::xy p, unsigned int width=0, unsigned int height=0, const unsigned int degrees=0)
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
 
 
+\subsection{Detailed Description}
+This class represents a simple square object. It contains helper methods to rotate and scale the square. 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graphics_object_square_af935eee79aab68a59befdf102f7f32a8}\label{class_graphics_object_square_af935eee79aab68a59befdf102f7f32a8}} 
+\index{GraphicsObjectSquare@{GraphicsObjectSquare}!GraphicsObjectSquare@{GraphicsObjectSquare}}
+\index{GraphicsObjectSquare@{GraphicsObjectSquare}!GraphicsObjectSquare@{GraphicsObjectSquare}}
+\subsubsection{\texorpdfstring{GraphicsObjectSquare()}{GraphicsObjectSquare()}}
+{\footnotesize\ttfamily Graphics\+Object\+Square\+::\+Graphics\+Object\+Square (\begin{DoxyParamCaption}\item[{hwlib\+::glcd\+\_\+oled \&}]{window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor that takes in a glc\+\_\+oled window to draw to. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em window} & The oled window to draw to. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graphics_object_square_a92fc26cdb800858992f505a57f31e3aa}\label{class_graphics_object_square_a92fc26cdb800858992f505a57f31e3aa}} 
+\index{GraphicsObjectSquare@{GraphicsObjectSquare}!setScale@{setScale}}
+\index{setScale@{setScale}!GraphicsObjectSquare@{GraphicsObjectSquare}}
+\subsubsection{\texorpdfstring{setScale()}{setScale()}}
+{\footnotesize\ttfamily void Graphics\+Object\+Square\+::set\+Scale (\begin{DoxyParamCaption}\item[{const float}]{scale }\end{DoxyParamCaption})}
+
+
+
+Sets the scale for square object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em scale} & Floating point to scale to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graphics_object_square_abc8b9bacc687ce180f6a03ea6c8ee69b}\label{class_graphics_object_square_abc8b9bacc687ce180f6a03ea6c8ee69b}} 
+\index{GraphicsObjectSquare@{GraphicsObjectSquare}!setSquareData@{setSquareData}}
+\index{setSquareData@{setSquareData}!GraphicsObjectSquare@{GraphicsObjectSquare}}
+\subsubsection{\texorpdfstring{setSquareData()}{setSquareData()}}
+{\footnotesize\ttfamily void Graphics\+Object\+Square\+::set\+Square\+Data (\begin{DoxyParamCaption}\item[{hwlib\+::xy}]{p,  }\item[{unsigned int}]{width = {\ttfamily 0},  }\item[{unsigned int}]{height = {\ttfamily 0},  }\item[{const unsigned int}]{degrees = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Sets the square data (x, y, width, height and angle). param\mbox{[}in\mbox{]} p The x,y positions of where to start drawing the square. param\mbox{[}in\mbox{]} width Width of the square. param\mbox{[}in\mbox{]} height Height of the square. param\mbox{[}in\mbox{]} degrees Angle of the square in degrees. 
+
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-scene.\+hpp\item 
+\mbox{\hyperlink{scene_8hpp}{scene.\+hpp}}\item 
 scene.\+cpp\end{DoxyCompactItemize}

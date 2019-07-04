@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "bgiv",
-  1: "bgv",
-  2: "b",
-  3: "b",
-  4: "i",
-  5: "b"
+  0: "bdghiprsvw~",
+  1: "bgiv",
+  2: "bhs",
+  3: "bdgiprsw~",
+  4: "p",
+  5: "i",
+  6: "b"
 };
 
 var indexSectionNames =
@@ -14,8 +15,9 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "related",
-  5: "defines"
+  4: "variables",
+  5: "related",
+  6: "defines"
 };
 
 var indexSectionLabels =
@@ -24,7 +26,8 @@ var indexSectionLabels =
   1: "Classes",
   2: "Files",
   3: "Functions",
-  4: "Friends",
-  5: "Macros"
+  4: "Variables",
+  5: "Friends",
+  6: "Macros"
 };
 

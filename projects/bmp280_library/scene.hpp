@@ -1,7 +1,12 @@
-#include <array>
+/**
+    * @file    scene.hpp
+    * @date 2019-04-07
+    * @version v1.0.0
 
+*/
+
+#include <array>
 #include "hwlib.hpp"
-/*#include "hwlib-graphics-color.hpp"*/
 #include <algorithm>
 #include <cmath>
 
@@ -38,39 +43,39 @@ protected:
 
 };
 
-/*
-    \class GraphicsObjectSquare
-    \brief This class represents a simple square object. It contains helper methods to rotate and scale the square.
-    \author Ferdi Stoeltie
-    \version 1.0
+/**
+    @class GraphicsObjectSquare
+    @brief This class represents a simple square object. It contains helper methods to rotate and scale the square.
+    @author Ferdi Stoeltie
+    @version 1.0
 */
 class GraphicsObjectSquare : public GraphicsObject {
 public:
 
-    /*
-        \brief Constructor that takes in a glc_oled window to draw to.
-        \param[in] window The oled window to draw to.
+    /**
+        @brief Constructor that takes in a glc_oled window to draw to.
+        @param[in] window The oled window to draw to.
     */
     GraphicsObjectSquare(hwlib::glcd_oled& window) : GraphicsObject(window) {}
 
-    /*
-        \brief Rotates the square to the desired angle in degrees.
-        \paramp[in] degrees desired degrees to rotate the square from it's base.
+    /**
+        @brief Rotates the square to the desired angle in degrees.
+        @paramp[in] degrees desired degrees to rotate the square from it's base.
     */
     void setRotationInDegrees(const unsigned int degrees);
 
-    /*
-        \brief Sets the scale for square object.
-        \param[in] scale Floating point to scale to.
+    /**
+        @brief Sets the scale for square object.
+        @param[in] scale Floating point to scale to.
     */
     void setScale(const float scale);
 
-    /*
-        \brief Calling this method will draw the object to screen.
+    /**
+        @brief Calling this method will draw the object to screen.
     */
     void draw();
 
-    /*
+    /**
         Sets the square data (x, y, width, height and angle).
         param[in] p The x,y positions of where to start drawing the square.
         param[in] width Width of the square.
@@ -93,41 +98,41 @@ protected:
 private:
 
 };
-/*
-    \class GraphScene
-    \brief This class creates a graph with several datapoints that are connected with lines.
-    \author Ferdi Stoeltie
-    \version 0.9
+/**
+    @class GraphScene
+    @brief This class creates a graph with several datapoints that are connected with lines.
+    @author Ferdi Stoeltie
+    @version 0.9
 */
 class GraphScene : public GraphicsObject{
 public:
-    /*
-        \brief Constructor for creating the Graph Scene.
-        \param[in] window The hwlib glcd_oled window that it will draw to.
-        \param[in] startPoint point of where to start the Graph coordinates.
-        \param[in] width Width of the graph.
-        \param[in] height Height of the graph.
+    /**
+        @brief Constructor for creating the Graph Scene.
+        @param[in] window The hwlib glcd_oled window that it will draw to.
+        @param[in] startPoint point of where to start the Graph coordinates.
+        @param[in] width Width of the graph.
+        @param[in] height Height of the graph.
     */
     GraphScene(hwlib::glcd_oled& window, hwlib::xy startPoint, unsigned int width, unsigned int height);
-    /*
-        \brief Draws the graph and it's datapoints to the display.
+    /**
+        @brief Draws the graph and it's datapoints to the display.
     */
     void draw();
-    /*
-        \brief Pushes a new value onto the stack. The oldest one is pushed out of the stack.
-        \param[in] value The new value to push onto the stack.
+    /**
+        @brief Pushes a new value onto the stack. The oldest one is pushed out of the stack.
+        @param[in] value The new value to push onto the stack.
     */
     void push_back(float value);
-    /*
-        \brief Scales the graph.
-        \param[in] scale The scale that is used to scale the GraphScene with (multiplaction).
+    /**
+        @brief Scales the graph.
+        @param[in] scale The scale that is used to scale the GraphScene with (multiplaction).
     */
     void setScale(const float scale);
-    /*
-        \brief Method that takes in the minimum and maximum value that the values of the datapoints can have.
+    /**
+        @brief Method that takes in the minimum and maximum value that the values of the datapoints can have.
                 Useful to change distribution of datapoints on the y axis.
-        \param[in] min The minimum value that a datapoint can have.
-        \param[out] max The maximum value that a datapoint can have.
+        @param[in] min The minimum value that a datapoint can have.
+        @param[out] max The maximum value that a datapoint can have.
     */
     void set_range_scale(int min, int max);
 protected:

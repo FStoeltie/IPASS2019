@@ -29,12 +29,19 @@ var menudata={children:[
 {text:"Class Hierarchy",url:"hierarchy.html"},
 {text:"Class Members",url:"functions.html",children:[
 {text:"All",url:"functions.html"},
+{text:"Functions",url:"functions_func.html"},
 {text:"Related Functions",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"},
 {text:"File Members",url:"globals.html",children:[
 {text:"All",url:"globals.html",children:[
-{text:"b",url:"globals.html#index_b"}]},
+{text:"b",url:"globals.html#index_b"},
+{text:"d",url:"globals.html#index_d"},
+{text:"i",url:"globals.html#index_i"},
+{text:"p",url:"globals.html#index_p"}]},
 {text:"Functions",url:"globals_func.html",children:[
-{text:"b",url:"globals_func.html#index_b"}]},
+{text:"b",url:"globals_func.html#index_b"},
+{text:"d",url:"globals_func.html#index_d"},
+{text:"i",url:"globals_func.html#index_i"},
+{text:"p",url:"globals_func.html#index_p"}]},
 {text:"Macros",url:"globals_defs.html"}]}]}]}
