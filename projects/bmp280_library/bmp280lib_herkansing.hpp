@@ -7,13 +7,49 @@
 #include "hwlib.hpp"
 
 #include <math.h>
+static constexpr uint8_t BMP280_DEVICE_ID_01 = 0x57;
+static constexpr uint8_t BMP280_DEVICE_ID_02 = 0x58;
+static constexpr uint8_t BMP280_DEVICE_ID_03 = 0x59;
+static constexpr uint8_t BME280_DEVICE_ID_01 = 0x60;
 
+static constexpr uint8_t REG_DEVICE_ID = 0xD0;
+static constexpr uint8_t REG_RESET_BMP = 0xE0;
+static constexpr uint8_t REG_STANDBY_TIME = 0xF5;
+
+static constexpr uint8_t RESET_VALUE = 0xB6;
+
+static constexpr uint8_t STANDBY_TIME_500_US = 0x00;
+static constexpr uint8_t STANDBY_TIME_62500_US = 0x01;
+static constexpr uint8_t STANDBY_TIME_125_MS = 0x02;
+static constexpr uint8_t STANDBY_TIME_250_MS = 0x03;
+static constexpr uint8_t STANDBY_TIME_500_MS = 0x04;
+static constexpr uint8_t STANDBY_TIME_1_S = 0x05;
+static constexpr uint8_t STANDBY_TIME_2_S = 0x06;
+static constexpr uint8_t STANDBY_TIME_4_S = 0x07;
+
+// standby time between measurements in normal mode
+enum class STANDBY_TIME : uint8_t{
+    US_500 = 0x00,
+    US_62500 = 0x01,
+    MS_125 = 0x02,
+    MS_250 = 0x03,
+    MS_500 = 0x04,
+    S_1 = 0x05,
+    S_2 = 0x06,
+    S_4 = 0x07
+
+};
 class bmp280lib_herkansing {
 public:
     bmp280lib_herkansing(hwlib::i2c_bus& hbus, uint8_t address) : 
     hbus(hbus),
     address(address)
-    {}
+    {
+        if(getDeviceId())   {
+            hwlib::cout << "Device ID recognized! " << hwlib::hex << deviceId << "\n" << hwlib::flush;
+        }
+        retrieveCalibrationData();
+    }
     void test() {
         hbus.write(address).write(0xD0);
         uint8_t result = 0;
@@ -23,84 +59,21 @@ public:
 
         hwlib::wait_ms(10);
         retrieveCalibrationData();
-/*      uint8_t dig_result[2];
-        hbus.write(address).write(0x88);
-        hwlib::wait_ms(10);
-        hbus.read(address).read(dig_result, 2);
-        unsigned short dig_T1 = ((unsigned int)dig_result[1]) << 8 | (unsigned int)dig_result[0];
-        hwlib::cout << "dig1: " << hwlib::dec << dig_T1 << "\n" << hwlib::flush;
-        hwlib::wait_ms(10);
 
-        hbus.write(address).write(0x8A);
-        hwlib::wait_ms(10);
-        hbus.read(address).read(dig_result, 2);
-        signed short dig_T2 = (int)(dig_result[1]) << 8 | (int)dig_result[0];
-        hwlib::cout << "dig2: " << hwlib::dec << dig_T2 << "\n" << hwlib::flush;
-        hwlib::wait_ms(10);
+        hwlib::cout << "temperature guess: " << hwlib::dec << (int32_t)getTemperature() << "\n" << hwlib::flush;
 
-        hbus.write(address).write(0x8C);
-        hwlib::wait_ms(10);
-        hbus.read(address).read(dig_result, 2);
-        signed short dig_T3 = (int)(dig_result[1]) << 8 | (int)dig_result[0];
-        hwlib::cout << "dig3: " << hwlib::dec << dig_T3 << "\n" << hwlib::flush;
-        hwlib::wait_ms(10);*/
-
-        /*hbus.write(address).write(0x7A);
-        hwlib::wait_ms(10);
-        uint8_t result_data[3];
-        hbus.read(address).read(result_data, 3);
-        int32_t up = (((unsigned long) result_data[0] << 11) | ((unsigned long) result_data[1] << 4) | (unsigned long) result_data[2]) >> (0 - 0);
-        int32_t temp_result = bmp280_compensate_T_int32(up, dig_T1, dig_T2, dig_T3);
-        hwlib::cout << "temperature guess: " << hwlib::dec << (int32_t)temp_result << "\n" << hwlib::flush;
-
-        hwlib::wait_ms(10);
-        double factor = pow(2, 4);
-        double uT = (( (result_data[0] *256.0) + result_data[1] + (result_data[2]/256.0))) * factor;   //20bit UT
-        hwlib::cout << "uT result hwlib: " << hwlib::dec << (int32_t)uT << "\n" << hwlib::flush;
-        double temp_result2 = 0;
-        calcTemperature(temp_result2, uT, dig_T1, dig_T2, dig_T3);
-        hwlib::cout << "temperature guess 2: " << hwlib::dec << (int32_t)temp_result2 << "\n" << hwlib::flush;*/
-
+        hwlib::cout << "Testing standby time!\n" << hwlib::flush;
+        setStandbyTime(STANDBY_TIME::MS_250);
+        hwlib::cout << "Standby reading:\t" << hwlib::hex << readStandbyRegister() << "\n" << hwlib::flush;
+    }
+    // divide by 1000 to get to degrees celcius
+    int32_t getTemperature()   {
         hbus.write(address).write(0xF7);
-        hwlib::wait_ms(10);
         uint8_t result_data[6];
         hbus.read(address).read(result_data, 6);
-        int32_t up = (((int32_t) result_data[3] << 12) | ((unsigned long) result_data[4] << 4) | (unsigned long) result_data[5] >> 4) << (0 - 0);
-        int32_t temp_result = bmp280_compensate_T_int32(up);
-        hwlib::cout << "temperature guess: " << hwlib::dec << (int32_t)temp_result << "\n" << hwlib::flush;
-
-        hwlib::wait_ms(10);
-        double factor = pow(2, 4);
-        double uT = (( (result_data[3] *256.0) + result_data[4] + (result_data[5]/256.0))) * factor;   //20bit UT
-        hwlib::cout << "uT result hwlib: " << hwlib::dec << (int32_t)uT << "\n" << hwlib::flush;
-        double temp_result2 = 0;
-        calcTemperature(temp_result2, uT);
-        hwlib::cout << "temperature guess 2: " << hwlib::dec << (int32_t)temp_result2 << "\n" << hwlib::flush;
-    }
-
-    // Returns temperature in DegC, resolution is 0.01 DegC. Output value of “5123” equals 51.23 DegC.
-    // t_fine carries fine temperature as global value
-    int32_t t_fine;
-
-    /*
-    ** temperature calculation
-    ** @param : T  = stores the temperature value after calculation.
-    ** @param : uT = the uncalibrated temperature value.
-    */
-    char calcTemperature(double &T, double uT)
-    {
-        double adc_T = uT ;
-        //Serial.print("adc_T = "); Serial.println(adc_T,DEC);
-            
-        double var1 = (((double)adc_T)/16384.0-((double)dig_T1)/1024.0)*((double)dig_T2);
-        double var2 = ((((double)adc_T)/131072.0 - ((double)dig_T1)/8192.0)*(((double)adc_T)/131072.0 - ((double)dig_T1)/8192.0))*((double)dig_T3);
-        t_fine = (long signed int)(var1+var2);
-            
-        T = (var1+var2)/5120.0;
-        
-        if(T>100.0 || T <-100.0)return 0;
-        
-        return (1);
+        int32_t raw_temp = (((int32_t) result_data[3] << 12) | ((unsigned long) result_data[4] << 4) | (unsigned long) result_data[5] >> 4) << (0 - 0);
+        int32_t temp_result = bmp280_compensate_T_int32(raw_temp);
+        return temp_result;
     }
     void retrieveCalibrationData()  {
         dig_T1 = readCalibrationRegister(0x88);
@@ -116,16 +89,45 @@ public:
         dig_P8 = (int16_t) readCalibrationRegister(0x9C);
         dig_P9 = (int16_t) readCalibrationRegister(0x9E);
     }
-    uint16_t readCalibrationRegister(uint8_t reg_address)   {
+    uint16_t readCalibrationRegister(const uint8_t reg_address)   {
         uint8_t dig_result[2];
         hbus.write(address).write(reg_address);
-        hwlib::wait_ms(10);
         hbus.read(address).read(dig_result, 2);
         unsigned short result = ((unsigned int)dig_result[1]) << 8 | (unsigned int)dig_result[0];
-        hwlib::wait_ms(10);
         return result;
     }
-
+    void reset()    {
+        uint8_t resetData[2] = {REG_RESET_BMP, RESET_VALUE};
+        hbus.write(address).write(resetData, 2);
+    }
+    void setStandbyTime(STANDBY_TIME standby_time)   {
+        uint8_t standby_data[2] = {REG_STANDBY_TIME, static_cast<uint8_t>(standby_time)};
+        hbus.write(address).write(standby_data, 2);
+    }
+    uint8_t readStandbyRegister()   {
+        hbus.write(address).write(REG_STANDBY_TIME);
+        uint8_t standby_time = 0;
+        hbus.read(address).read(standby_time);
+        return standby_time;
+    }
+    bool getDeviceId()  {
+        hbus.write(address).write(REG_DEVICE_ID);
+        uint8_t result = 0;
+        hbus.read(address).read(result);
+        if(result == BMP280_DEVICE_ID_01 || 
+            result == BMP280_DEVICE_ID_02 || 
+            result == BMP280_DEVICE_ID_03 || 
+            result == BME280_DEVICE_ID_01)  {
+            deviceId = result;
+            return true;
+        }
+        else    {
+            return false;
+        }
+    }
+    // Returns temperature in DegC, resolution is 0.01 DegC. Output value of “5123” equals 51.23 DegC.
+    // t_fine carries fine temperature as global value
+    int32_t t_fine;
 /*    int32_t bmp280_compensate_T_int32(int32_t adc_T, int32_t dig_T1, int32_t dig_T2, int32_t dig_T3)
     {
         int32_t var1, var2, T;
@@ -148,6 +150,7 @@ private:
     hwlib::i2c_bus& hbus;
     uint8_t address;
 
+    uint8_t deviceId = 0;
     // Calibration values
     // Calibration values temperature
     uint16_t    dig_T1;
