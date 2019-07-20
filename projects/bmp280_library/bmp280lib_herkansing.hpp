@@ -57,12 +57,18 @@ public:
         hbus.read(address).read(result);
         hwlib::cout << "result: " << hwlib::hex << result << "\n" << hwlib::flush;
 
-        hwlib::wait_ms(10);
+        hwlib::wait_ms(50);
+        uint8_t temp_config_test[2] = {0XF4, 0x23};
+        hbus.write(address).write(temp_config_test, 2);
         //reset();
         hwlib::wait_ms(50);
+        hbus.write(address).write(0XF4);
+        uint8_t reg_config_val = 0;
+        hbus.read(address).read(reg_config_val);
+        hwlib::cout << "reg_config_val reading:\t0x" << hwlib::hex << reg_config_val << "\n" << hwlib::flush;
         //retrieveCalibrationData();
         //setStandbyTime(STANDBY_TIME::US_500);
-
+        hwlib::wait_ms(50);
         hwlib::cout << "Dig_T1:\t" << hwlib::dec << dig_T1 << "\n" << hwlib::flush;
         hwlib::cout << "Dig_T2:\t" << hwlib::dec << dig_T2 << "\n" << hwlib::flush;
         hwlib::cout << "Dig_T3:\t" << hwlib::dec << dig_T3 << "\n" << hwlib::flush;
@@ -83,9 +89,9 @@ public:
         hwlib::wait_ms( 20 );
         hbus.read(address).read(result_data, 6);
         int32_t raw_temp = (((int32_t) result_data[3] << 12) | ((int32_t) result_data[4] << 4) | (int32_t) result_data[5] >> 4) << (0 - 0);
-        hwlib::cout << "result 1 " << result_data[3] << "\n" << hwlib::flush;
+/*        hwlib::cout << "result 1 " << result_data[3] << "\n" << hwlib::flush;
         hwlib::cout << "result 2 " << result_data[4] << "\n" << hwlib::flush;
-        hwlib::cout << "result 3 " << result_data[5] << "\n" << hwlib::flush;
+        hwlib::cout << "result 3 " << result_data[5] << "\n" << hwlib::flush;*/
         int32_t temp_result = bmp280_compensate_T_int32(raw_temp);
         return temp_result;
     }
