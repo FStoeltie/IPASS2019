@@ -14,6 +14,7 @@ static constexpr uint8_t BME280_DEVICE_ID_01 = 0x60;
 
 static constexpr uint8_t REG_DEVICE_ID = 0xD0;
 static constexpr uint8_t REG_RESET_BMP = 0xE0;
+static constexpr uint8_t REG_CTRL_MEASUREMENT = 0xF4;
 static constexpr uint8_t REG_CONFIG = 0xF5;
 
 static constexpr uint8_t RESET_VALUE = 0xB6;
@@ -36,8 +37,36 @@ enum class STANDBY_TIME : uint8_t{
     MS_500 = 0x04,
     S_1 = 0x05,
     S_2 = 0x06,
-    S_4 = 0x07
+    S_4 = 0x07,
+};
 
+enum class PRES_OVERSAMPLING : uint8_t{
+    PRES_OS_OFF = 0x00,
+    PRES_OS_01 = 0x04,
+    PRES_OS_02 = 0x08,
+    PRES_OS_04 = 0x0B,
+    PRES_OS_08 = 0x10,
+    PRES_OS_16 = 0x14,
+};
+enum class TEMP_OVERSAMPLING : uint8_t{
+    TEMP_OS_OFF = 0x00,
+    TEMP_OS_01 = 0x20,
+    TEMP_OS_02 = 0x40,
+    TEMP_OS_04 = 0x50,
+    TEMP_OS_08 = 0x80,
+    TEMP_OS_16 = 0xA0,
+};
+enum class OVERSAMPLING : uint8_t   {
+    OVER_01 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_01) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_01),
+    OVER_02 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_02) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_02),
+    OVER_04 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_04) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_04),
+    OVER_08 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_08) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_08),
+    OVER_16 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_16) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_16),
+};
+enum class MODE : uint8_t {
+    SLEEP = 0x00,
+    FORCED = 0x01,
+    NORMAL = 0x11,
 };
 class bmp280lib_herkansing {
 public:
@@ -49,6 +78,8 @@ public:
             hwlib::cout << "Device ID recognized! " << hwlib::hex << deviceId << "\n" << hwlib::flush;
         }
         retrieveCalibrationData();
+        control_measurement_data = static_cast<uint8_t>(OVERSAMPLING::OVER_04) | static_cast<uint8_t>(MODE::NORMAL);
+        setMode(MODE::NORMAL);
     }
     void test() {
         hbus.write(address).write(0xD0);
@@ -58,8 +89,9 @@ public:
         hwlib::cout << "result: " << hwlib::hex << result << "\n" << hwlib::flush;
 
         hwlib::wait_ms(50);
-        uint8_t temp_config_test[2] = {0XF4, 0x23};
-        hbus.write(address).write(temp_config_test, 2);
+        setOversampling(OVERSAMPLING::OVER_02);
+/*        uint8_t temp_config_test[2] = {0XF4, 0x23};
+        hbus.write(address).write(temp_config_test, 2);*/
         //reset();
         hwlib::wait_ms(50);
         hbus.write(address).write(0XF4);
@@ -104,6 +136,14 @@ public:
         uint32_t temp_result = bmp280_compensate_P_int32(raw_pressure);
         return temp_result;
     }
+
+    /**
+    \brief Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters.
+    \param[in] The local pressure at sea level, expressed in hectopascal (hPa).
+    \return float Altitude in meters.
+    */
+    float get_altitude(double base_pres = 1013.15);
+
     void retrieveCalibrationData()  {
         dig_T1 = readCalibrationRegister(0x88);
         dig_T2 = (int16_t) readCalibrationRegister(0x8A);
@@ -129,6 +169,18 @@ public:
         uint8_t resetData[2] = {REG_RESET_BMP, RESET_VALUE};
         hbus.write(address).write(resetData, 2);
     }
+
+    void setOversampling(OVERSAMPLING os)  {
+        control_measurement_data = (control_measurement_data & ~static_cast<uint8_t>(os)) | static_cast<uint8_t>(os);
+        uint8_t control_measurement[2] = {REG_CTRL_MEASUREMENT, control_measurement_data};
+        hbus.write(address).write(control_measurement, 2);
+    }
+    void setMode(MODE m)  {
+        control_measurement_data = (control_measurement_data & ~static_cast<uint8_t>(m)) | static_cast<uint8_t>(m);
+        uint8_t control_measurement[2] = {REG_CTRL_MEASUREMENT, control_measurement_data};
+        hbus.write(address).write(control_measurement, 2);
+    }
+
     void setStandbyTime(STANDBY_TIME standby_time)   {
         config_data = ((config_data & 0x1F) | (static_cast<uint8_t>(standby_time) << 5));
 
@@ -168,6 +220,9 @@ public:
         T = (t_fine * 5 + 128) >> 8;
         return T;
     }*/
+
+private:
+
     int32_t bmp280_compensate_T_int32(int32_t adc_T)    {
         int32_t var1, var2, T;
         var1 = ((((adc_T >> 3) - ((int32_t) dig_T1 << 1 ))) * ((int32_t) dig_T2 )) >> 11;
@@ -206,7 +261,7 @@ public:
         p = (uint32_t)((int32_t)p + ((var1 + var2 + dig_P7) >> 4));
         return p;
     }
-private:
+    
     hwlib::i2c_bus& hbus;
     uint8_t address;
 
@@ -220,6 +275,8 @@ private:
     uint16_t    dig_P1;
     int16_t     dig_P2, dig_P3, dig_P4, dig_P5, dig_P6, dig_P7, dig_P8, dig_P9; 
 
+    // Control measurement data
+    uint8_t control_measurement_data = 0x00;
     // Config data
     uint8_t config_data = 0x00;
 
