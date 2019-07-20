@@ -50,6 +50,10 @@ int main( void ){
    }*/
 
    bmp280lib_herkansing mytest(i2c_bus, 0x76);
-   mytest.test();
+   while(1) {
+      mytest.test();
+      hwlib::wait_ms( 1000 );
+   }
+   
 }
 
