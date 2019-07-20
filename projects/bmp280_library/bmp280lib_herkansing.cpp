@@ -3,10 +3,10 @@
 // base_pres in pascal
 // in meters
 
-float bmp280lib_herkansing::get_altitude(double base_pres) {
+float bmp280lib_herkansing::getAltitude(double base_pres) {
    base_pres *= 1000;
-   double temp = 5;
-   double pres = 5; // sensor pascal
+   double temp = getTemperature() / 1000;
+   double pres = getPressure() * 10; // sensor pascal
    float height_in_meters = (double)(((pow(base_pres / pres, 1 / 5.257) - 1) * (temp + 273.15))) / 0.0065;
    return height_in_meters;  
 }
@@ -18,9 +18,6 @@ int32_t bmp280lib_herkansing::getTemperature()   {
     hwlib::wait_ms( 20 );
     hbus.read(address).read(result_data, 6);
     int32_t raw_temp = (((int32_t) result_data[3] << 12) | ((int32_t) result_data[4] << 4) | (int32_t) result_data[5] >> 4) << (0 - 0);
-/*        hwlib::cout << "result 1 " << result_data[3] << "\n" << hwlib::flush;
-    hwlib::cout << "result 2 " << result_data[4] << "\n" << hwlib::flush;
-    hwlib::cout << "result 3 " << result_data[5] << "\n" << hwlib::flush;*/
     int32_t temp_result = bmp280_compensate_T_int32(raw_temp);
     return temp_result;
 }
@@ -73,8 +70,18 @@ void bmp280lib_herkansing::setMode(MODE m)  {
 }
 
 void bmp280lib_herkansing::setStandbyTime(STANDBY_TIME standby_time)   {
-    config_data = ((config_data & 0x1F) | (static_cast<uint8_t>(standby_time) << 5));
-
+    //config_data = ((config_data & 0x1F) | (static_cast<uint8_t>(standby_time) << 5));
+/*    hwlib::cout << "value of standby time is: 0x" << hwlib::hex << (uint8_t)standby_time << "\n" << hwlib::flush;*/
+    config_data = (config_data & ~static_cast<uint8_t>(standby_time)) | static_cast<uint8_t>(standby_time);
+/*    hwlib::cout << "value of config data standby time is: 0x" << hwlib::hex << (uint8_t)config_data << "\n" << hwlib::flush;*/
+    uint8_t standby_data[2] = {REG_CONFIG, config_data};
+    hbus.write(address).write(standby_data, 2);
+}
+void bmp280lib_herkansing::setIIR(IIR_RES res)   {
+    //config_data = ((config_data & 0x1F) | (static_cast<uint8_t>(standby_time) << 5));
+/*    hwlib::cout << "value of standby time is: 0x" << hwlib::hex << (uint8_t)standby_time << "\n" << hwlib::flush;*/
+    config_data = (config_data & ~static_cast<uint8_t>(res)) | static_cast<uint8_t>(res);
+/*    hwlib::cout << "value of config data standby time is: 0x" << hwlib::hex << (uint8_t)config_data << "\n" << hwlib::flush;*/
     uint8_t standby_data[2] = {REG_CONFIG, config_data};
     hbus.write(address).write(standby_data, 2);
 }
@@ -101,8 +108,6 @@ bool bmp280lib_herkansing::getDeviceId()  {
         return false;
     }
 }
-
-
 
 // Returns temperature in DegC, resolution is 0.01 DegC. Output value of “5123” equals 51.23 DegC.
 int32_t bmp280lib_herkansing::bmp280_compensate_T_int32(int32_t adc_T)    {

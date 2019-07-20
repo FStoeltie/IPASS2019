@@ -31,15 +31,21 @@ static constexpr uint8_t STANDBY_TIME_4_S = 0x07;
 // standby time between measurements in normal mode
 enum class STANDBY_TIME : uint8_t{
     US_500 = 0x00,
-    US_62500 = 0x01,
-    MS_125 = 0x02,
-    MS_250 = 0x03,
-    MS_500 = 0x04,
-    S_1 = 0x05,
-    S_2 = 0x06,
-    S_4 = 0x07,
+    US_62500 = 0x20,
+    MS_125 = 0x40,
+    MS_250 = 0x60,
+    MS_500 = 0x80,
+    S_1 = 0xA0,
+    S_2 = 0xC0,
+    S_4 = 0xE0,
 };
-
+enum class IIR_RES : uint8_t{
+    IIR_OFF = 0x00,
+    IIR_02 = 0x02,
+    IIR_04 = 0x04,
+    IIR_08 = 0x08,
+    IIR_16 = 0x10,
+};
 enum class PRES_OVERSAMPLING : uint8_t{
     PRES_OS_OFF = 0x00,
     PRES_OS_01 = 0x04,
@@ -63,6 +69,7 @@ enum class OVERSAMPLING : uint8_t   {
     OVER_08 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_08) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_08),
     OVER_16 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_16) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_16),
 };
+
 enum class MODE : uint8_t {
     SLEEP = 0x00,
     FORCED = 0x01,
@@ -99,7 +106,8 @@ public:
         hbus.read(address).read(reg_config_val);
         hwlib::cout << "reg_config_val reading:\t0x" << hwlib::hex << reg_config_val << "\n" << hwlib::flush;
         //retrieveCalibrationData();
-        //setStandbyTime(STANDBY_TIME::US_500);
+        setStandbyTime(STANDBY_TIME::S_4);
+        setIIR(IIR_RES::IIR_16);
         hwlib::wait_ms(50);
         hwlib::cout << "Dig_T1:\t" << hwlib::dec << dig_T1 << "\n" << hwlib::flush;
         hwlib::cout << "Dig_T2:\t" << hwlib::dec << dig_T2 << "\n" << hwlib::flush;
@@ -112,6 +120,7 @@ public:
         hwlib::cout << "Standby reading:\t0x" << hwlib::hex << readStandbyRegister() << "\n" << hwlib::flush;
 
         hwlib::cout << "Pressure guess: " << hwlib::dec << (uint32_t)getPressure() << "\n" << hwlib::flush;
+        hwlib::cout << "Altitude guess: " << hwlib::dec << (uint32_t)getAltitude(1010.6) << "\n" << hwlib::flush;
     }
     // divide by 1000 to get to degrees celcius
     int32_t getTemperature();
@@ -123,10 +132,11 @@ public:
     \param[in] The local pressure at sea level, expressed in hectopascal (hPa).
     \return float Altitude in meters.
     */
-    float get_altitude(double base_pres = 1013.15);
+    float getAltitude(double base_pres = 1013.15);
 
     void retrieveCalibrationData();
     uint16_t readCalibrationRegister(const uint8_t reg_address);
+    void setIIR(IIR_RES res);
     void reset();
 
     void setOversampling(OVERSAMPLING os);
