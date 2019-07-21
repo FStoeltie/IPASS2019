@@ -2,7 +2,30 @@
 
 // base_pres in pascal
 // in meters
-
+bmp280lib_herkansing::bmp280lib_herkansing(hwlib::i2c_bus& hbus, uint8_t address) : 
+hbus(hbus),
+address(address)
+{
+    control_measurement_data = static_cast<uint8_t>(OVERSAMPLING::OVER_04) | static_cast<uint8_t>(MODE::NORMAL);
+}
+void bmp280lib_herkansing::configure()    {
+    device_id = readDeviceIdRegister();
+    if(device_id != BMP280_DEVICE_ID_01 || 
+    device_id != BMP280_DEVICE_ID_02 || 
+    device_id != BMP280_DEVICE_ID_03 || 
+    device_id != BME280_DEVICE_ID_01)  {
+        error |= static_cast<uint8_t>(BMP280_ERROR::UNKNOWN_DEVICE_ID);;
+    }
+    retrieveCalibrationData();
+    setMode(MODE::NORMAL);
+    if (control_measurement_data != readCtrlRegister())   {
+        error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
+    }
+    setStandbyTime(STANDBY_TIME::MS_500);
+    if (config_data != readConfigRegister())   {
+        error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
+    }
+}
 float bmp280lib_herkansing::getAltitude(double sea_level_pres) {
    sea_level_pres *= 1000;
    double temp = getTemperature() / 1000;
@@ -105,20 +128,8 @@ uint8_t bmp280lib_herkansing::readDeviceIdRegister()  {
     hbus.read(address).read(device_id);
     return device_id;
 }
-bool bmp280lib_herkansing::getDeviceId()  {
-    hbus.write(address).write(REG_DEVICE_ID);
-    uint8_t result = 0;
-    hbus.read(address).read(result);
-    if(result == BMP280_DEVICE_ID_01 || 
-        result == BMP280_DEVICE_ID_02 || 
-        result == BMP280_DEVICE_ID_03 || 
-        result == BME280_DEVICE_ID_01)  {
-        deviceId = result;
-        return true;
-    }
-    else    {
-        return false;
-    }
+uint8_t bmp280lib_herkansing::getDeviceId() {
+    return device_id;
 }
 
 // Returns temperature in DegC, resolution is 0.01 DegC. Output value of “5123” equals 51.23 DegC.
@@ -136,7 +147,6 @@ uint32_t bmp280lib_herkansing::bmp280_compensate_P_int32(int32_t adc_P)
 {
     int32_t var1, var2;
     uint32_t p;
-    //var1 = (((int32_t)t_fine) >> 1) – (int32_t)64000;
     var1 = (((int32_t) t_fine) >> 1) - (int32_t) 64000;
     var2 = (((var1>>2) * (var1>>2)) >> 11 ) * ((int32_t)dig_P6);
     var2 = var2 + ((var1*((int32_t)dig_P5))<<1);

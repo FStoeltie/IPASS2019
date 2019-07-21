@@ -90,71 +90,54 @@ enum class BMP280_ERROR : uint8_t{
     TEMP_OUT_OF_RANGE = (0x01) << 2,
     PRES_OUT_OF_RANGE = (0x01) << 3,
 };
+  
+inline hwlib::ostream & operator<< ( hwlib::ostream & stream, const float & f ) {
+    int i_value = (int)f; 
+  
+    float f_value = f - (float)i_value; 
+    f_value *= pow(10, 6);
+    //uint8_t old_value = (uint8_t) f;
+    //stream << old_value << "." << (uint8_t) ((f - old_value) * 10); 
+    stream << i_value << '.' << (int)f_value;
+/*    if (mantisse_value != 0) {
 
+    }
+*/
+  return stream;
+}
 class bmp280lib_herkansing {
 public:
-    bmp280lib_herkansing(hwlib::i2c_bus& hbus, uint8_t address) : 
-    hbus(hbus),
-    address(address)
-    {
-        if(getDeviceId())   {
-            hwlib::cout << "Device ID recognized! " << hwlib::hex << deviceId << "\n" << hwlib::flush;
-        }
-        retrieveCalibrationData();
-        control_measurement_data = static_cast<uint8_t>(OVERSAMPLING::OVER_04) | static_cast<uint8_t>(MODE::NORMAL);
-        setMode(MODE::NORMAL);
-    }
-    void configure()    {
-        deviceId = readDeviceIdRegister();
-        if(deviceId != BMP280_DEVICE_ID_01 || 
-        deviceId != BMP280_DEVICE_ID_02 || 
-        deviceId != BMP280_DEVICE_ID_03 || 
-        deviceId != BME280_DEVICE_ID_01)  {
-            error |= static_cast<uint8_t>(BMP280_ERROR::UNKNOWN_DEVICE_ID);;
-        }
-        retrieveCalibrationData();
-        setMode(MODE::NORMAL);
-        if (control_measurement_data != readCtrlRegister())   {
-            error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
-        }
-        setStandbyTime(STANDBY_TIME::MS_500);
-        if (config_data != readConfigRegister())   {
-            error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
-        }
-    }
+    bmp280lib_herkansing(hwlib::i2c_bus& hbus, uint8_t address);
+    void configure();
     void test() {
         hbus.write(address).write(0xD0);
         uint8_t result = 0;
-        hwlib::wait_ms(10);
         hbus.read(address).read(result);
         hwlib::cout << "result: " << hwlib::hex << result << "\n" << hwlib::flush;
 
-        hwlib::wait_ms(50);
         setOversampling(OVERSAMPLING::OVER_02);
-/*      uint8_t temp_config_test[2] = {0XF4, 0x23};
-        hbus.write(address).write(temp_config_test, 2);*/
-        //reset();
-        hwlib::wait_ms(50);
+
         hbus.write(address).write(REG_CTRL_MEASUREMENT);
         uint8_t reg_config_val = 0;
         hbus.read(address).read(reg_config_val);
         hwlib::cout << "reg_config_val reading:\t0x" << hwlib::hex << readCtrlRegister() << "\n" << hwlib::flush;
-        //retrieveCalibrationData();
+
         setStandbyTime(STANDBY_TIME::S_4);
         setIIR(IIR_RES::IIR_16);
-        hwlib::wait_ms(50);
         hwlib::cout << "Dig_T1:\t" << hwlib::dec << dig_T1 << "\n" << hwlib::flush;
         hwlib::cout << "Dig_T2:\t" << hwlib::dec << dig_T2 << "\n" << hwlib::flush;
         hwlib::cout << "Dig_T3:\t" << hwlib::dec << dig_T3 << "\n" << hwlib::flush;
 
         hwlib::cout << "temperature guess: " << hwlib::dec << (int32_t)getTemperature() << "\n" << hwlib::flush;
+        hwlib::cout << "temperature guess with a floating point value: " << hwlib::dec << (float)getTemperature()/1000 << "\n" << hwlib::flush;
 
         hwlib::cout << "Testing standby time!\n" << hwlib::flush;
         
         hwlib::cout << "Standby reading:\t0x" << hwlib::hex << readConfigRegister() << "\n" << hwlib::flush;
 
         hwlib::cout << "Pressure guess: " << hwlib::dec << (uint32_t)getPressure() << "\n" << hwlib::flush;
-        hwlib::cout << "Altitude guess: " << hwlib::dec << (uint32_t)getAltitude(1010.6) << "\n" << hwlib::flush;
+        hwlib::cout << "Altitude guess: " << hwlib::dec << (int32_t)getAltitude(1022.7) << "\n" << hwlib::flush;
+        hwlib::cout << "testing a float value:\t" << hwlib::dec << (float)5.5 << "\n" << hwlib::flush;
     }
     // divide by 1000 to get to degrees celcius
     int32_t getTemperature();
@@ -168,8 +151,6 @@ public:
     */
     float getAltitude(double sea_level_pres = 1013.15);
 
-    void retrieveCalibrationData();
-    uint16_t readCalibrationRegister(const uint8_t reg_address);
     void setIIR(IIR_RES res);
     void reset();
 
@@ -178,12 +159,16 @@ public:
 
     void setStandbyTime(STANDBY_TIME standby_time);
     
-    uint8_t readCtrlRegister();
-    uint8_t readConfigRegister();
-    bool getDeviceId();
-    uint8_t readDeviceIdRegister();
+    uint8_t getDeviceId();
 
 private:
+    
+    uint8_t readCtrlRegister();
+    uint8_t readConfigRegister();
+    uint8_t readDeviceIdRegister();
+
+    void retrieveCalibrationData();
+    uint16_t readCalibrationRegister(const uint8_t reg_address);
 
     int32_t bmp280_compensate_T_int32(int32_t adc_T);
     // Returns pressure in Pa as unsigned 32 bit integer. Output value of “96386” equals 96386 Pa = 963.86 hPa
@@ -192,7 +177,7 @@ private:
     hwlib::i2c_bus& hbus;
     uint8_t address;
     int32_t t_fine;
-    uint8_t deviceId = 0;
+    uint8_t device_id = 0;
     // Calibration values
     // Calibration values temperature
     uint16_t    dig_T1;
