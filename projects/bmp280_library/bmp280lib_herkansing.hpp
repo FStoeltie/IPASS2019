@@ -2,12 +2,12 @@
 /**
     This is a test
 
-    * \file bmp280lib_herkansing.hpp
+    * \file bmp280.hpp
     * @date 2019-22-07
     * @version v1.0.0
 */
-#ifndef __BMP280LIB_HERKANSING_HPP__
-#define __BMP280LIB_HERKANSING_HPP__
+#ifndef __bmp280_HPP__
+#define __bmp280_HPP__
 #include "bmp280.h"
 #include "hwlib.hpp"
 
@@ -63,7 +63,6 @@ static constexpr uint8_t STANDBY_TIME_500_MS = 0x04;
 static constexpr uint8_t STANDBY_TIME_1_S = 0x05;
 static constexpr uint8_t STANDBY_TIME_2_S = 0x06;
 static constexpr uint8_t STANDBY_TIME_4_S = 0x07;
-
 
 /**
     \enum STANDBY_TIME
@@ -144,7 +143,7 @@ enum class OVERSAMPLING : uint8_t   {
 enum class MODE : uint8_t {
     SLEEP = 0x00, /**< BMP280 in sleep mode, won't take measurements */
     FORCED = 0x01,  /**< BMP280 will only take a measurement when temperature or pressure is requested */
-    NORMAL = 0x11, /**< BMP280 will run in continuous mode with a standby between every measurement */
+    NORMAL = 0b00000011, /**< BMP280 will run in continuous mode with a standby between every measurement */
 };
 
 // To do in the future
@@ -169,22 +168,23 @@ inline hwlib::ostream & operator<< ( hwlib::ostream & stream, const float & f ) 
 /**
     \brief  I am dead <3
     \author Ferdi Stoeltie
-
 */
-class bmp280lib_herkansing {
+class bmp280 {
 public:
     /**
         \brief Constructor of BMP280. 
         Requires a i2c bus to use for communication with the bmp280 and the i2c address,
         (usually 0x76 | 0x77) of the BMP280.
+        Default values that are set for the BMP280 are normal mode and oversampling x2.
+        This constructor does not perform any read or write operations with the BMP280.
         \param[in] hwlib::i2c_bus& hbus The hwlib i2c bus to use.
         \param[in] uint8_t Address The i2c address for the BMP280.
-
     */
-    bmp280lib_herkansing(hwlib::i2c_bus& hbus, uint8_t address);
+    bmp280(hwlib::i2c_bus& hbus, uint8_t address);
 
     /**
         \brief Configures the bmp280 by retrieving required data from the bmp280 and setting register values.  
+        Performs read and write operations to the BMP280.
         \warning Retrieving temperature and pressure before calling this method will result in undefined behaviour (wrong measurements).
     */
     void configure();
@@ -194,15 +194,15 @@ public:
         hbus.read(address).read(result);
         hwlib::cout << "result: " << hwlib::hex << result << "\n" << hwlib::flush;
 
-        setOversampling(OVERSAMPLING::OVER_02);
+        //setOversampling(OVERSAMPLING::OVER_02);
 
-        hbus.write(address).write(REG_CTRL_MEASUREMENT);
-        uint8_t reg_config_val = 0;
-        hbus.read(address).read(reg_config_val);
-        hwlib::cout << "reg_config_val reading:\t0x" << hwlib::hex << read_ctrl_reg() << "\n" << hwlib::flush;
+        //hbus.write(address).write(REG_CTRL_MEASUREMENT);
+        //uint8_t reg_config_val = 0;
+        //hbus.read(address).read(reg_config_val);
+        hwlib::cout << "read_ctrl_reg reading:\t0x" << hwlib::hex << read_ctrl_reg() << "\n" << hwlib::flush;
 
-        setStandbyTime(STANDBY_TIME::S_4);
-        setIIR(IIR_RES::IIR_16);
+
+
         hwlib::cout << "Dig_T1:\t" << hwlib::dec << dig_T1 << "\n" << hwlib::flush;
         hwlib::cout << "Dig_T2:\t" << hwlib::dec << dig_T2 << "\n" << hwlib::flush;
         hwlib::cout << "Dig_T3:\t" << hwlib::dec << dig_T3 << "\n" << hwlib::flush;
@@ -220,30 +220,35 @@ public:
 
     /**
         \brief Get the temperature in degrees celcius .
+        Performs a read operation to the BMP280.
         \return float Degrees celcius of measured temperature.
     */
     float getTemperature();
     
     /**
         \brief Get the pressure in pA.
+        Performs a read operation to the BMP280.
         \return uint32_t Pressure in unit of pA.
     */
     uint32_t getPressure();
 
     /**
         \brief Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters.
-        \param[in] The local pressure at sea level, expressed in hectopascal (hPa).
+        Performs write operations to the BMP280.
+        \param[in] sea_level_pres The local pressure at sea level, expressed in hectopascal (hPa).
         \return float Altitude in meters.
     */
     float getAltitude(double sea_level_pres = 1013.15);
 
     /**
         \brief Resets the BMP280 to factory default.
+        Performs a write operation to the BMP280.
     */
     void reset();
 
     /**
         \brief Sets the oversampling for obtaining measurements, Default is 2.
+        Performs a read and write operation to the BMP280.
         \param[in] OVERSAMPLING The oversampling to use.
         \return bool Returns true when value has been set succesfully and false if failed.
     */
@@ -251,6 +256,7 @@ public:
 
     /**
         \brief Mode that the BMP280 should operate in. Default is normal mode.
+        Performs a read and write operation to the BMP280.
         \param[in] MODE Mode that the BMP280 should operate in.
         \return bool Returns true when value has been set succesfully and false if failed.
     */
@@ -258,6 +264,7 @@ public:
 
     /**
         \brief Sets the filtering coefficient for pressure.
+        Performs a read and write operation to the BMP280.
         \param[in] IIR_RES resolution of the filter.
         \return bool Returns true when value has been set succesfully and false if failed.
     */
@@ -265,16 +272,23 @@ public:
 
     /**
         \brief Set the standby time beween measurements when in normal mode.
+        Performs a read and write operation to the BMP280.
         \param[in] STANDBY_TIME standby time enum for standby time between measurements.
         \return bool Returns true when value has been set succesfully and false if failed.
     */
     bool setStandbyTime(STANDBY_TIME standby_time);
+
     /**
         \brief Gets the device id that has been found for the BMP.
         \return  uint8_t The device id (not i2c address!) for the bmp280 at address 0xD0.
     */
     uint8_t getDeviceId();
 
+    /**
+        \brief Returns uint8_t that can contain error types.
+        \return uint8_t Error types of error that have been found.
+    */
+    uint8_t getErrors();
 private:
 /*    std::array<uint8_t, 6> readBurstPresTempRegisters() {
         hbus.write(address).write(REG_PRESSURE_DATA);
