@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['i2c_5fbus_5fbit_5fbanged_5fscl_5fsda',['i2c_bus_bit_banged_scl_sda',['../classhwlib_1_1i2c__bus__bit__banged__scl__sda.html#aff6b11113640da8c8f04b60081bef5ae',1,'hwlib::i2c_bus_bit_banged_scl_sda']]],
-  ['i2c_5fread_5ftransaction',['i2c_read_transaction',['../classhwlib_1_1i2c__read__transaction.html#ac88e81cebe07d775147379f080867550',1,'hwlib::i2c_read_transaction']]],
-  ['i2c_5fread_5ftransaction_5fbmp280',['i2c_read_transaction_bmp280',['../classhwlib_1_1i2c__read__transaction__bmp280.html#a3fd67094af4d16fe409a69db5b5514c6',1,'hwlib::i2c_read_transaction_bmp280']]],
-  ['i2c_5freg_5fread',['i2c_reg_read',['../bmp280lib_8hpp.html#a9ea4f460cdfc82cd4c695f0bfd43bdc6',1,'bmp280lib.cpp']]],
-  ['i2c_5freg_5fwrite',['i2c_reg_write',['../bmp280lib_8hpp.html#a6edf190f34f4a642def68cfafd8d3a7f',1,'bmp280lib.cpp']]],
-  ['i2c_5fwrite_5ftransaction',['i2c_write_transaction',['../classhwlib_1_1i2c__write__transaction.html#a9238d0369f2249ea8de55383a0396db2',1,'hwlib::i2c_write_transaction']]],
-  ['initialize',['Initialize',['../classbmp280.html#ae6908ebdc711f42e5f1c7981c85a728d',1,'bmp280']]]
+  ['get_5faltitude',['get_altitude',['../classbmp280.html#a0a480dfb132b8efc68f8a9ab00c8d75b',1,'bmp280']]],
+  ['get_5fbmp280_5fconf_5fdriver',['get_bmp280_conf_driver',['../classbmp280.html#aa69aa6f655ea7a82e78da96f54aadfb8',1,'bmp280']]],
+  ['get_5fbmp280_5fdev_5fdriver',['get_bmp280_dev_driver',['../classbmp280.html#ac15f0e1c589daaf1778a0f1b86620efb',1,'bmp280']]],
+  ['getaltitude',['getAltitude',['../classbmp280lib__herkansing.html#abe01c7707407af7bcfaf6a04bf974aa8',1,'bmp280lib_herkansing']]],
+  ['getdeviceid',['getDeviceId',['../classbmp280lib__herkansing.html#aef18583b72fd106287ab46f37a4d293c',1,'bmp280lib_herkansing']]],
+  ['getinstance',['getInstance',['../classbmp280.html#a59268d6ba91891061090635edd6fc04b',1,'bmp280']]],
+  ['getpressure',['getPressure',['../classbmp280lib__herkansing.html#a89c716a3a52660f3d54f13dca2436211',1,'bmp280lib_herkansing']]],
+  ['gettemperature',['getTemperature',['../classbmp280lib__herkansing.html#aa92e440eb6fe9ca0e0622bbcc244478c',1,'bmp280lib_herkansing']]],
+  ['graphicsobjectsquare',['GraphicsObjectSquare',['../class_graphics_object_square.html#af935eee79aab68a59befdf102f7f32a8',1,'GraphicsObjectSquare']]],
+  ['graphscene',['GraphScene',['../class_graph_scene.html#a346e3c827c9268f7b3bb29507dc28d6e',1,'GraphScene']]]
 ];

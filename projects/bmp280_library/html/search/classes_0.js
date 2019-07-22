@@ -6,5 +6,6 @@ var searchData=
   ['bmp280_5fconfig',['bmp280_config',['../structbmp280__config.html',1,'']]],
   ['bmp280_5fdev',['bmp280_dev',['../structbmp280__dev.html',1,'']]],
   ['bmp280_5fstatus',['bmp280_status',['../structbmp280__status.html',1,'']]],
-  ['bmp280_5funcomp_5fdata',['bmp280_uncomp_data',['../structbmp280__uncomp__data.html',1,'']]]
+  ['bmp280_5funcomp_5fdata',['bmp280_uncomp_data',['../structbmp280__uncomp__data.html',1,'']]],
+  ['bmp280lib_5fherkansing',['bmp280lib_herkansing',['../classbmp280lib__herkansing.html',1,'']]]
 ];

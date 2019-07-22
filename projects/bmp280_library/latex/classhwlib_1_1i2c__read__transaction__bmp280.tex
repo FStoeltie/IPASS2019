@@ -1,0 +1,63 @@
+\hypertarget{classhwlib_1_1i2c__read__transaction__bmp280}{}\section{hwlib\+::i2c\+\_\+read\+\_\+transaction\+\_\+bmp280 Class Reference}
+\label{classhwlib_1_1i2c__read__transaction__bmp280}\index{hwlib::i2c\_read\_transaction\_bmp280@{hwlib::i2c\_read\_transaction\_bmp280}}
+
+
+{\ttfamily \#include $<$hwlib-\/i2c\+\_\+bmp280.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classhwlib_1_1i2c__read__transaction__bmp280_a3fd67094af4d16fe409a69db5b5514c6}\label{classhwlib_1_1i2c__read__transaction__bmp280_a3fd67094af4d16fe409a69db5b5514c6}} 
+\mbox{\hyperlink{classhwlib_1_1i2c__read__transaction__bmp280_a3fd67094af4d16fe409a69db5b5514c6}{i2c\+\_\+read\+\_\+transaction\+\_\+bmp280}} (\mbox{\hyperlink{classhwlib_1_1i2c__primitives}{i2c\+\_\+primitives}} \&primitives, uint\+\_\+fast8\+\_\+t i2c\+\_\+addr, uint\+\_\+fast8\+\_\+t reg\+\_\+addr)
+\begin{DoxyCompactList}\small\item\em create (start) a read transaction \end{DoxyCompactList}\item 
+uint\+\_\+fast8\+\_\+t \mbox{\hyperlink{classhwlib_1_1i2c__read__transaction__bmp280_a96d6bcfad832c1fa278305cd59d8756e}{read}} (uint8\+\_\+t \&data)
+\item 
+uint\+\_\+fast8\+\_\+t \mbox{\hyperlink{classhwlib_1_1i2c__read__transaction__bmp280_ae928d38fa75a357dee92717b3888e2e5}{read\+\_\+byte}} ()
+\item 
+void \mbox{\hyperlink{classhwlib_1_1i2c__read__transaction__bmp280_a1105511aec269220328b3b64bf72521a}{read\+\_\+from\+\_\+register}} (uint8\+\_\+t data\mbox{[}$\,$\mbox{]}, uint16\+\_\+t n)
+\item 
+\mbox{\Hypertarget{classhwlib_1_1i2c__read__transaction__bmp280_a8aa882ce79b24083764d17badcc193dc}\label{classhwlib_1_1i2c__read__transaction__bmp280_a8aa882ce79b24083764d17badcc193dc}} 
+void {\bfseries read} (uint8\+\_\+t data\mbox{[}$\,$\mbox{]}, size\+\_\+t n)
+\item 
+\mbox{\Hypertarget{classhwlib_1_1i2c__read__transaction__bmp280_a7059b62573a67086b570140c3683d9a0}\label{classhwlib_1_1i2c__read__transaction__bmp280_a7059b62573a67086b570140c3683d9a0}} 
+\mbox{\hyperlink{classhwlib_1_1i2c__read__transaction__bmp280_a7059b62573a67086b570140c3683d9a0}{$\sim$i2c\+\_\+read\+\_\+transaction\+\_\+bmp280}} ()
+\begin{DoxyCompactList}\small\item\em terminate (close) the read transaction \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+i2c bus read transaction class
+
+This class abstracts a read transaction. The read transaction is in progress for as long as this object exists. Multiple read calls can be done on the object. The destructor will close the transaction. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classhwlib_1_1i2c__read__transaction__bmp280_a96d6bcfad832c1fa278305cd59d8756e}\label{classhwlib_1_1i2c__read__transaction__bmp280_a96d6bcfad832c1fa278305cd59d8756e}} 
+\index{hwlib::i2c\_read\_transaction\_bmp280@{hwlib::i2c\_read\_transaction\_bmp280}!read@{read}}
+\index{read@{read}!hwlib::i2c\_read\_transaction\_bmp280@{hwlib::i2c\_read\_transaction\_bmp280}}
+\subsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily uint\+\_\+fast8\+\_\+t hwlib\+::i2c\+\_\+read\+\_\+transaction\+\_\+bmp280\+::read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+read a single bytes
+
+This function reads a single byte from the slave \mbox{\Hypertarget{classhwlib_1_1i2c__read__transaction__bmp280_ae928d38fa75a357dee92717b3888e2e5}\label{classhwlib_1_1i2c__read__transaction__bmp280_ae928d38fa75a357dee92717b3888e2e5}} 
+\index{hwlib::i2c\_read\_transaction\_bmp280@{hwlib::i2c\_read\_transaction\_bmp280}!read\_byte@{read\_byte}}
+\index{read\_byte@{read\_byte}!hwlib::i2c\_read\_transaction\_bmp280@{hwlib::i2c\_read\_transaction\_bmp280}}
+\subsubsection{\texorpdfstring{read\_byte()}{read\_byte()}}
+{\footnotesize\ttfamily uint\+\_\+fast8\+\_\+t hwlib\+::i2c\+\_\+read\+\_\+transaction\+\_\+bmp280\+::read\+\_\+byte (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+read a single bytes
+
+This function reads and returns a single byte from the slave \mbox{\Hypertarget{classhwlib_1_1i2c__read__transaction__bmp280_a1105511aec269220328b3b64bf72521a}\label{classhwlib_1_1i2c__read__transaction__bmp280_a1105511aec269220328b3b64bf72521a}} 
+\index{hwlib::i2c\_read\_transaction\_bmp280@{hwlib::i2c\_read\_transaction\_bmp280}!read\_from\_register@{read\_from\_register}}
+\index{read\_from\_register@{read\_from\_register}!hwlib::i2c\_read\_transaction\_bmp280@{hwlib::i2c\_read\_transaction\_bmp280}}
+\subsubsection{\texorpdfstring{read\_from\_register()}{read\_from\_register()}}
+{\footnotesize\ttfamily void hwlib\+::i2c\+\_\+read\+\_\+transaction\+\_\+bmp280\+::read\+\_\+from\+\_\+register (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data\mbox{[}$\,$\mbox{]},  }\item[{uint16\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+read bytes
+
+This function reads n bytes from the slave to data\mbox{[}\mbox{]}.
+
+Note that n is a byte, hence the maximum number of bytes per call is 255. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{hwlib-i2c__bmp280_8hpp}{hwlib-\/i2c\+\_\+bmp280.\+hpp}}\end{DoxyCompactItemize}

@@ -33,5 +33,7 @@ var searchData=
   ['bmp280_5fst_5ftrimcustom_5freg',['BMP280_ST_TRIMCUSTOM_REG',['../bmp280__defs_8h.html#ab1ecd637ef46894211951efa604c0efa',1,'bmp280_defs.h']]],
   ['bmp280_5fstatus',['bmp280_status',['../structbmp280__status.html',1,'']]],
   ['bmp280_5funcomp_5fdata',['bmp280_uncomp_data',['../structbmp280__uncomp__data.html',1,'']]],
-  ['bmp280lib_2ehpp',['bmp280lib.hpp',['../bmp280lib_8hpp.html',1,'']]]
+  ['bmp280lib_2ehpp',['bmp280lib.hpp',['../bmp280lib_8hpp.html',1,'']]],
+  ['bmp280lib_5fherkansing',['bmp280lib_herkansing',['../classbmp280lib__herkansing.html',1,'bmp280lib_herkansing'],['../classbmp280lib__herkansing.html#a3cc4f7a6f0d825cfc58cd88fc9db173b',1,'bmp280lib_herkansing::bmp280lib_herkansing()']]],
+  ['bmp280lib_5fherkansing_2ehpp',['bmp280lib_herkansing.hpp',['../bmp280lib__herkansing_8hpp.html',1,'']]]
 ];

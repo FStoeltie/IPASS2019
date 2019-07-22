@@ -1,0 +1,219 @@
+\hypertarget{classbmp280lib__herkansing}{}\section{bmp280lib\+\_\+herkansing Class Reference}
+\label{classbmp280lib__herkansing}\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+
+
+I am dead $<$3.  
+
+
+
+
+{\ttfamily \#include $<$bmp280lib\+\_\+herkansing.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbmp280lib__herkansing_a3cc4f7a6f0d825cfc58cd88fc9db173b}{bmp280lib\+\_\+herkansing}} (\mbox{\hyperlink{classhwlib_1_1i2c__bus}{hwlib\+::i2c\+\_\+bus}} \&hbus, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Constructor of B\+M\+P280. Requires a i2c bus to use for communication with the \mbox{\hyperlink{classbmp280}{bmp280}} and the i2c address, (usually 0x76 $\vert$ 0x77) of the B\+M\+P280. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbmp280lib__herkansing_aca822c7f1ef89422a995adaceadee032}{configure}} ()
+\begin{DoxyCompactList}\small\item\em Configures the \mbox{\hyperlink{classbmp280}{bmp280}} by retrieving required data from the \mbox{\hyperlink{classbmp280}{bmp280}} and setting register values. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classbmp280lib__herkansing_a4b49dc7303ea9f0e9aab8cf287eac352}\label{classbmp280lib__herkansing_a4b49dc7303ea9f0e9aab8cf287eac352}} 
+void {\bfseries test} ()
+\item 
+float \mbox{\hyperlink{classbmp280lib__herkansing_aa92e440eb6fe9ca0e0622bbcc244478c}{get\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Get the temperature in degrees celcius . \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classbmp280lib__herkansing_a89c716a3a52660f3d54f13dca2436211}{get\+Pressure}} ()
+\begin{DoxyCompactList}\small\item\em Get the pressure in pA. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classbmp280lib__herkansing_abe01c7707407af7bcfaf6a04bf974aa8}{get\+Altitude}} (double sea\+\_\+level\+\_\+pres=1013.\+15)
+\begin{DoxyCompactList}\small\item\em Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classbmp280lib__herkansing_a66f8a01172ff3d69fa3d0e9aedf459f3}\label{classbmp280lib__herkansing_a66f8a01172ff3d69fa3d0e9aedf459f3}} 
+void \mbox{\hyperlink{classbmp280lib__herkansing_a66f8a01172ff3d69fa3d0e9aedf459f3}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the B\+M\+P280 to factory default. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbmp280lib__herkansing_a7039106106dd5d76214ed6b8ee03fdca}{set\+Oversampling}} (O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG os)
+\begin{DoxyCompactList}\small\item\em Sets the oversampling for obtaining measurements, Default is 2. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbmp280lib__herkansing_a6c594dd38b45498ab69bf4489d77f7da}{set\+Mode}} (M\+O\+DE m)
+\begin{DoxyCompactList}\small\item\em Mode that the B\+M\+P280 should operate in. Default is normal mode. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbmp280lib__herkansing_a61d6c72faa2af2fbd32294467a3cb9da}{set\+I\+IR}} (I\+I\+R\+\_\+\+R\+ES res)
+\begin{DoxyCompactList}\small\item\em Sets the filtering coefficient for pressure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbmp280lib__herkansing_aa538fdcce06539dd07b1733879518e1a}{set\+Standby\+Time}} (S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+ME standby\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Set the standby time beween measurements when in normal mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classbmp280lib__herkansing_aef18583b72fd106287ab46f37a4d293c}{get\+Device\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Gets the device id that has been found for the B\+MP. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+I am dead $<$3. 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbmp280lib__herkansing_a3cc4f7a6f0d825cfc58cd88fc9db173b}\label{classbmp280lib__herkansing_a3cc4f7a6f0d825cfc58cd88fc9db173b}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{bmp280lib\_herkansing()}{bmp280lib\_herkansing()}}
+{\footnotesize\ttfamily bmp280lib\+\_\+herkansing\+::bmp280lib\+\_\+herkansing (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classhwlib_1_1i2c__bus}{hwlib\+::i2c\+\_\+bus}} \&}]{hbus,  }\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+
+
+Constructor of B\+M\+P280. Requires a i2c bus to use for communication with the \mbox{\hyperlink{classbmp280}{bmp280}} and the i2c address, (usually 0x76 $\vert$ 0x77) of the B\+M\+P280. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em hwlib\+::i2c\+\_\+bus\&} & hbus The hwlib i2c bus to use. \\
+\hline
+\mbox{\texttt{ in}}  & {\em uint8\+\_\+t} & Address The i2c address for the B\+M\+P280. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbmp280lib__herkansing_aca822c7f1ef89422a995adaceadee032}\label{classbmp280lib__herkansing_aca822c7f1ef89422a995adaceadee032}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!configure@{configure}}
+\index{configure@{configure}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{configure()}{configure()}}
+{\footnotesize\ttfamily void bmp280lib\+\_\+herkansing\+::configure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Configures the \mbox{\hyperlink{classbmp280}{bmp280}} by retrieving required data from the \mbox{\hyperlink{classbmp280}{bmp280}} and setting register values. 
+
+\begin{DoxyWarning}{Warning}
+Retrieving temperature and pressure before calling this method will result in undefined behaviour (wrong measurements). 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classbmp280lib__herkansing_abe01c7707407af7bcfaf6a04bf974aa8}\label{classbmp280lib__herkansing_abe01c7707407af7bcfaf6a04bf974aa8}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!getAltitude@{getAltitude}}
+\index{getAltitude@{getAltitude}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{getAltitude()}{getAltitude()}}
+{\footnotesize\ttfamily float bmp280lib\+\_\+herkansing\+::get\+Altitude (\begin{DoxyParamCaption}\item[{double}]{sea\+\_\+level\+\_\+pres = {\ttfamily 1013.15} }\end{DoxyParamCaption})}
+
+
+
+Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em The} & local pressure at sea level, expressed in hectopascal (h\+Pa). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float Altitude in meters. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280lib__herkansing_aef18583b72fd106287ab46f37a4d293c}\label{classbmp280lib__herkansing_aef18583b72fd106287ab46f37a4d293c}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!getDeviceId@{getDeviceId}}
+\index{getDeviceId@{getDeviceId}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{getDeviceId()}{getDeviceId()}}
+{\footnotesize\ttfamily uint8\+\_\+t bmp280lib\+\_\+herkansing\+::get\+Device\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the device id that has been found for the B\+MP. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t The device id (not i2c address!) for the \mbox{\hyperlink{classbmp280}{bmp280}} at address 0x\+D0. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280lib__herkansing_a89c716a3a52660f3d54f13dca2436211}\label{classbmp280lib__herkansing_a89c716a3a52660f3d54f13dca2436211}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!getPressure@{getPressure}}
+\index{getPressure@{getPressure}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{getPressure()}{getPressure()}}
+{\footnotesize\ttfamily uint32\+\_\+t bmp280lib\+\_\+herkansing\+::get\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the pressure in pA. 
+
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t Pressure in unit of pA. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280lib__herkansing_aa92e440eb6fe9ca0e0622bbcc244478c}\label{classbmp280lib__herkansing_aa92e440eb6fe9ca0e0622bbcc244478c}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!getTemperature@{getTemperature}}
+\index{getTemperature@{getTemperature}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{getTemperature()}{getTemperature()}}
+{\footnotesize\ttfamily float bmp280lib\+\_\+herkansing\+::get\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the temperature in degrees celcius . 
+
+\begin{DoxyReturn}{Returns}
+float Degrees celcius of measured temperature. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280lib__herkansing_a61d6c72faa2af2fbd32294467a3cb9da}\label{classbmp280lib__herkansing_a61d6c72faa2af2fbd32294467a3cb9da}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!setIIR@{setIIR}}
+\index{setIIR@{setIIR}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{setIIR()}{setIIR()}}
+{\footnotesize\ttfamily bool bmp280lib\+\_\+herkansing\+::set\+I\+IR (\begin{DoxyParamCaption}\item[{I\+I\+R\+\_\+\+R\+ES}]{res }\end{DoxyParamCaption})}
+
+
+
+Sets the filtering coefficient for pressure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em I\+I\+R\+\_\+\+R\+ES} & resolution of the filter. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true when value has been set succesfully and false if failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280lib__herkansing_a6c594dd38b45498ab69bf4489d77f7da}\label{classbmp280lib__herkansing_a6c594dd38b45498ab69bf4489d77f7da}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!setMode@{setMode}}
+\index{setMode@{setMode}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{setMode()}{setMode()}}
+{\footnotesize\ttfamily bool bmp280lib\+\_\+herkansing\+::set\+Mode (\begin{DoxyParamCaption}\item[{M\+O\+DE}]{m }\end{DoxyParamCaption})}
+
+
+
+Mode that the B\+M\+P280 should operate in. Default is normal mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em M\+O\+DE} & Mode that the B\+M\+P280 should operate in. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true when value has been set succesfully and false if failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280lib__herkansing_a7039106106dd5d76214ed6b8ee03fdca}\label{classbmp280lib__herkansing_a7039106106dd5d76214ed6b8ee03fdca}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!setOversampling@{setOversampling}}
+\index{setOversampling@{setOversampling}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{setOversampling()}{setOversampling()}}
+{\footnotesize\ttfamily bool bmp280lib\+\_\+herkansing\+::set\+Oversampling (\begin{DoxyParamCaption}\item[{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}]{os }\end{DoxyParamCaption})}
+
+
+
+Sets the oversampling for obtaining measurements, Default is 2. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG} & The oversampling to use. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true when value has been set succesfully and false if failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280lib__herkansing_aa538fdcce06539dd07b1733879518e1a}\label{classbmp280lib__herkansing_aa538fdcce06539dd07b1733879518e1a}} 
+\index{bmp280lib\_herkansing@{bmp280lib\_herkansing}!setStandbyTime@{setStandbyTime}}
+\index{setStandbyTime@{setStandbyTime}!bmp280lib\_herkansing@{bmp280lib\_herkansing}}
+\subsubsection{\texorpdfstring{setStandbyTime()}{setStandbyTime()}}
+{\footnotesize\ttfamily bool bmp280lib\+\_\+herkansing\+::set\+Standby\+Time (\begin{DoxyParamCaption}\item[{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+ME}]{standby\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Set the standby time beween measurements when in normal mode. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+ME} & standby time enum for standby time between measurements. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true when value has been set succesfully and false if failed. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bmp280lib__herkansing_8hpp}{bmp280lib\+\_\+herkansing.\+hpp}}\item 
+bmp280lib\+\_\+herkansing.\+cpp\end{DoxyCompactItemize}

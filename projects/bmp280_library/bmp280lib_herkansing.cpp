@@ -62,18 +62,18 @@ uint32_t bmp280lib_herkansing::getPressure()   {
 }
 
 void bmp280lib_herkansing::retrieveCalibrationData()  {
-    dig_T1 = readCalibrationRegister(0x88);
-    dig_T2 = (int16_t) readCalibrationRegister(0x8A);
-    dig_T3 = (int16_t) readCalibrationRegister(0x8C);
-    dig_P1 = readCalibrationRegister(0x8E);
-    dig_P2 = (int16_t) readCalibrationRegister(0x90);
-    dig_P3 = (int16_t) readCalibrationRegister(0x92);
-    dig_P4 = (int16_t) readCalibrationRegister(0x94);
-    dig_P5 = (int16_t) readCalibrationRegister(0x96);
-    dig_P6 = (int16_t) readCalibrationRegister(0x98);
-    dig_P7 = (int16_t) readCalibrationRegister(0x9A);
-    dig_P8 = (int16_t) readCalibrationRegister(0x9C);
-    dig_P9 = (int16_t) readCalibrationRegister(0x9E);
+    dig_T1 = readCalibrationRegister(REG_DIG_T1);
+    dig_T2 = (int16_t) readCalibrationRegister(REG_DIG_T2);
+    dig_T3 = (int16_t) readCalibrationRegister(REG_DIG_T3);
+    dig_P1 = readCalibrationRegister(REG_DIG_P1);
+    dig_P2 = (int16_t) readCalibrationRegister(REG_DIG_P2);
+    dig_P3 = (int16_t) readCalibrationRegister(REG_DIG_P3);
+    dig_P4 = (int16_t) readCalibrationRegister(REG_DIG_P4);
+    dig_P5 = (int16_t) readCalibrationRegister(REG_DIG_P5);
+    dig_P6 = (int16_t) readCalibrationRegister(REG_DIG_P6);
+    dig_P7 = (int16_t) readCalibrationRegister(REG_DIG_P7);
+    dig_P8 = (int16_t) readCalibrationRegister(REG_DIG_P8);
+    dig_P9 = (int16_t) readCalibrationRegister(REG_DIG_P8);
 }
 
 uint16_t bmp280lib_herkansing::readCalibrationRegister(const uint8_t reg_address)   {
@@ -89,9 +89,10 @@ void bmp280lib_herkansing::reset()   {
     hbus.write(address).write(resetData, 2);
 }
 bool bmp280lib_herkansing::setOversampling(OVERSAMPLING os)  {
-    uint8_t cos = static_cast<uint8_t>(os);
-    control_measurement_data = (control_measurement_data & ~cos) | cos;
-    uint8_t control_measurement[2] = {REG_CTRL_MEASUREMENT, control_measurement_data};
+    uint8_t cast_os = static_cast<uint8_t>(os);
+    control_measurement_data = (control_measurement_data & ~cast_os) | cast_os;
+    return set_reg(REG_CTRL_MEASUREMENT, control_measurement_data);
+/*    uint8_t control_measurement[2] = {REG_CTRL_MEASUREMENT, control_measurement_data};
     hbus.write(address).write(control_measurement, 2);
 
     if(always_check)    {
@@ -100,12 +101,14 @@ bool bmp280lib_herkansing::setOversampling(OVERSAMPLING os)  {
             return false;
         }
     }
-    return true;
+    return true;*/
 }
 
-void bmp280lib_herkansing::setMode(MODE m)  {
-    control_measurement_data = (control_measurement_data & ~static_cast<uint8_t>(m)) | static_cast<uint8_t>(m);
-    uint8_t control_measurement[2] = {REG_CTRL_MEASUREMENT, control_measurement_data};
+bool bmp280lib_herkansing::setMode(MODE m)  {
+    uint8_t cast_mode = static_cast<uint8_t>(m);
+    control_measurement_data = (control_measurement_data & ~cast_mode) | cast_mode;
+    return set_reg(REG_CTRL_MEASUREMENT, control_measurement_data);
+/*    uint8_t control_measurement[2] = {REG_CTRL_MEASUREMENT, control_measurement_data};
     hbus.write(address).write(control_measurement, 2);
 
     if(always_check)    {
@@ -114,27 +117,36 @@ void bmp280lib_herkansing::setMode(MODE m)  {
             return false;
         }
     }
-    return true;
+    return true;*/
 }
-bool set_reg(uint8_t reg, uint8_t val) {
-    hbus.write(address).write(control_measurement, 2);
-    if(always_check)    {
-        if(!(cos & read_ctrl_reg()))    {
-            error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
-            return false;
-        }
-    }
-    return true;
-}
-void bmp280lib_herkansing::setStandbyTime(STANDBY_TIME standby_time)   {
-    config_data = (config_data & ~static_cast<uint8_t>(standby_time)) | static_cast<uint8_t>(standby_time);
+
+bool bmp280lib_herkansing::setStandbyTime(STANDBY_TIME standby_time)   {
+    uint8_t cast_st = static_cast<uint8_t>(standby_time);
+/*    config_data = (config_data & ~static_cast<uint8_t>(standby_time)) | static_cast<uint8_t>(standby_time);
     uint8_t standby_data[2] = {REG_CONFIG, config_data};
-    hbus.write(address).write(standby_data, 2);
+    hbus.write(address).write(standby_data, 2);*/
+    config_data = (config_data & ~cast_st) | cast_st;
+    return set_reg(REG_CONFIG, config_data);
 }
-void bmp280lib_herkansing::setIIR(IIR_RES res)   {
-    config_data = (config_data & ~static_cast<uint8_t>(res)) | static_cast<uint8_t>(res);
+bool bmp280lib_herkansing::setIIR(IIR_RES res)   {
+/*    config_data = (config_data & ~static_cast<uint8_t>(res)) | static_cast<uint8_t>(res);
     uint8_t standby_data[2] = {REG_CONFIG, config_data};
-    hbus.write(address).write(standby_data, 2);
+    hbus.write(address).write(standby_data, 2);*/
+    uint8_t cast_res = static_cast<uint8_t>(res);
+    config_data = (config_data & ~cast_res) | cast_res;
+    return set_reg(REG_CONFIG, config_data);
+}
+
+bool bmp280lib_herkansing::set_reg(uint8_t reg, uint8_t val) {
+    uint8_t data[] = {reg, val};
+    hbus.write(address).write(data, 2);
+    if(reg_check)    {
+        if(!(val & reg))    {
+            error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
+            return false;
+        }
+    }
+    return true;
 }
 
 uint8_t bmp280lib_herkansing::read_conf_reg()   {

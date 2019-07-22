@@ -106,4 +106,118 @@ Gets the underlying \mbox{\hyperlink{classbmp280}{bmp280}} device driver from th
 
 \begin{DoxyReturn}{Returns}
 struct \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}} 
-\en
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280_ae598eb1f714ba9a39896099ee157164f}\label{classbmp280_ae598eb1f714ba9a39896099ee157164f}} 
+\index{bmp280@{bmp280}!read\_temperature@{read\_temperature}}
+\index{read\_temperature@{read\_temperature}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{read\_temperature()}{read\_temperature()}}
+{\footnotesize\ttfamily double bmp280\+::read\+\_\+temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads the temperature value from the \mbox{\hyperlink{classbmp280}{bmp280}} and returns it as a double (always new read). 
+
+\begin{DoxyReturn}{Returns}
+double Temperature value in degrees celsius. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280_ac8426d09704b2d35088d760acb10e876}\label{classbmp280_ac8426d09704b2d35088d760acb10e876}} 
+\index{bmp280@{bmp280}!set\_bmp280\_conf\_driver@{set\_bmp280\_conf\_driver}}
+\index{set\_bmp280\_conf\_driver@{set\_bmp280\_conf\_driver}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{set\_bmp280\_conf\_driver()}{set\_bmp280\_conf\_driver()}}
+{\footnotesize\ttfamily void bmp280\+::set\+\_\+bmp280\+\_\+conf\+\_\+driver (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}}}]{bmp\+\_\+c }\end{DoxyParamCaption})}
+
+
+
+Sets the \mbox{\hyperlink{classbmp280}{bmp280}} config for modifying default settings (updates immediately to the \mbox{\hyperlink{classbmp280}{bmp280}} sensor). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bmp\+\_\+c} & The \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}} that replaces the current one. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classbmp280_abf2047614752774902d6897bf0de8c02}\label{classbmp280_abf2047614752774902d6897bf0de8c02}} 
+\index{bmp280@{bmp280}!set\_bmp280\_dev\_driver@{set\_bmp280\_dev\_driver}}
+\index{set\_bmp280\_dev\_driver@{set\_bmp280\_dev\_driver}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{set\_bmp280\_dev\_driver()}{set\_bmp280\_dev\_driver()}}
+{\footnotesize\ttfamily void bmp280\+::set\+\_\+bmp280\+\_\+dev\+\_\+driver (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}}}]{bmp\+\_\+d }\end{DoxyParamCaption})}
+
+
+
+Sets the \mbox{\hyperlink{classbmp280}{bmp280}} device driver for modifying default settings (updates immediately to the \mbox{\hyperlink{classbmp280}{bmp280}} sensor). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em bmp\+\_\+d} & The \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}} that replaces the current one. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classbmp280_a9ea4f460cdfc82cd4c695f0bfd43bdc6}\label{classbmp280_a9ea4f460cdfc82cd4c695f0bfd43bdc6}} 
+\index{bmp280@{bmp280}!i2c\_reg\_read@{i2c\_reg\_read}}
+\index{i2c\_reg\_read@{i2c\_reg\_read}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{i2c\_reg\_read}{i2c\_reg\_read}}
+{\footnotesize\ttfamily int8\+\_\+t i2c\+\_\+reg\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i2c\+\_\+addr,  }\item[{uint8\+\_\+t}]{reg\+\_\+addr,  }\item[{uint8\+\_\+t $\ast$}]{reg\+\_\+data,  }\item[{uint16\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Function for reading the sensor\textquotesingle{}s registers through I2C bus. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em i2c\+\_\+addr} & \+: Sensor I2C address. \\
+\hline
+\mbox{\texttt{ in}}  & {\em reg\+\_\+addr} & \+: Register address. \\
+\hline
+\mbox{\texttt{ out}}  & {\em reg\+\_\+data} & \+: Pointer to the data buffer to store the read data. \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & \+: No of bytes to read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of execution 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & -\/$>$ Success \\
+\hline
+{\em $>$0} & -\/$>$ Failure Info \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{classbmp280_a6edf190f34f4a642def68cfafd8d3a7f}\label{classbmp280_a6edf190f34f4a642def68cfafd8d3a7f}} 
+\index{bmp280@{bmp280}!i2c\_reg\_write@{i2c\_reg\_write}}
+\index{i2c\_reg\_write@{i2c\_reg\_write}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{i2c\_reg\_write}{i2c\_reg\_write}}
+{\footnotesize\ttfamily int8\+\_\+t i2c\+\_\+reg\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i2c\+\_\+addr,  }\item[{uint8\+\_\+t}]{reg\+\_\+addr,  }\item[{uint8\+\_\+t $\ast$}]{reg\+\_\+data,  }\item[{uint16\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Function for writing the sensor\textquotesingle{}s registers through I2C bus. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em i2c\+\_\+addr} & \+: sensor I2C address. \\
+\hline
+\mbox{\texttt{ in}}  & {\em reg\+\_\+addr} & \+: Register address. \\
+\hline
+\mbox{\texttt{ in}}  & {\em reg\+\_\+data} & \+: Pointer to the data buffer whose value is to be written. \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & \+: No of bytes to write.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Status of execution 
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & -\/$>$ Success \\
+\hline
+{\em $>$0} & -\/$>$ Failure Info \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bmp280lib_8hpp}{bmp280lib.\+hpp}}\item 
+bmp280lib.\+cpp\end{DoxyCompactItemize}

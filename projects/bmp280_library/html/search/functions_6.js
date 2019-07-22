@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['set_5fbmp280_5fconf_5fdriver',['set_bmp280_conf_driver',['../classbmp280.html#ac8426d09704b2d35088d760acb10e876',1,'bmp280']]],
-  ['set_5fbmp280_5fdev_5fdriver',['set_bmp280_dev_driver',['../classbmp280.html#abf2047614752774902d6897bf0de8c02',1,'bmp280']]],
-  ['set_5frange_5fscale',['set_range_scale',['../class_graph_scene.html#a2d123bfb5cc206a179c04a70841e6a8f',1,'GraphScene']]],
-  ['setrotationindegrees',['setRotationInDegrees',['../class_graphics_object_square.html#afb2753b58b896a13f90e3269898a8a1d',1,'GraphicsObjectSquare']]],
-  ['setscale',['setScale',['../class_graphics_object_square.html#a92fc26cdb800858992f505a57f31e3aa',1,'GraphicsObjectSquare::setScale()'],['../class_graph_scene.html#a1b84f3b649cd82142519771ceb94b04a',1,'GraphScene::setScale()']]],
-  ['setsquaredata',['setSquareData',['../class_graphics_object_square.html#abc8b9bacc687ce180f6a03ea6c8ee69b',1,'GraphicsObjectSquare']]]
+  ['read',['read',['../classhwlib_1_1i2c__primitives.html#a2a8cc988531ea774d39d726f213f8585',1,'hwlib::i2c_primitives::read()'],['../classhwlib_1_1i2c__read__transaction.html#a624e7979dcf697e748955bace4cf2273',1,'hwlib::i2c_read_transaction::read(uint8_t &amp;data)'],['../classhwlib_1_1i2c__read__transaction.html#a4c886112d92dddb502cb18a18c3a385f',1,'hwlib::i2c_read_transaction::read(uint8_t data[], size_t n)'],['../classhwlib_1_1i2c__read__transaction__bmp280.html#a96d6bcfad832c1fa278305cd59d8756e',1,'hwlib::i2c_read_transaction_bmp280::read()'],['../classhwlib_1_1i2c__bus.html#ac4dd659c140ae5f8f7d6bbd48351d88f',1,'hwlib::i2c_bus::read()']]],
+  ['read_5fack',['read_ack',['../classhwlib_1_1i2c__primitives.html#adfa6c493163d397f58a3e2ba4617dbac',1,'hwlib::i2c_primitives']]],
+  ['read_5fbit',['read_bit',['../classhwlib_1_1i2c__primitives.html#a55a6e105449bcba89fd329a80a065f2c',1,'hwlib::i2c_primitives']]],
+  ['read_5fbyte',['read_byte',['../classhwlib_1_1i2c__primitives.html#a21c9843d3a7801781e576013a1e154f9',1,'hwlib::i2c_primitives::read_byte()'],['../classhwlib_1_1i2c__read__transaction.html#a404a7d9db0ddd18aaeac84b266e89f9e',1,'hwlib::i2c_read_transaction::read_byte()'],['../classhwlib_1_1i2c__read__transaction__bmp280.html#ae928d38fa75a357dee92717b3888e2e5',1,'hwlib::i2c_read_transaction_bmp280::read_byte()']]],
+  ['read_5ffrom_5fregister',['read_from_register',['../classhwlib_1_1i2c__read__transaction__bmp280.html#a1105511aec269220328b3b64bf72521a',1,'hwlib::i2c_read_transaction_bmp280']]],
+  ['read_5fpressure',['read_pressure',['../classbmp280.html#a9de10ab597caf99df7c2966452721c4d',1,'bmp280']]],
+  ['read_5ftemperature',['read_temperature',['../classbmp280.html#ae598eb1f714ba9a39896099ee157164f',1,'bmp280']]],
+  ['reset',['reset',['../classbmp280lib__herkansing.html#a66f8a01172ff3d69fa3d0e9aedf459f3',1,'bmp280lib_herkansing']]]
 ];

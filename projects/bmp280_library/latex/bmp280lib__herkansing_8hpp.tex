@@ -1,0 +1,145 @@
+\hypertarget{bmp280lib__herkansing_8hpp}{}\section{bmp280lib\+\_\+herkansing.\+hpp File Reference}
+\label{bmp280lib__herkansing_8hpp}\index{bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}}
+{\ttfamily \#include \char`\"{}bmp280.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}hwlib.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classtestclass}{testclass}}
+\begin{DoxyCompactList}\small\item\em cheese and onions please! \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classbmp280lib__herkansing}{bmp280lib\+\_\+herkansing}}
+\begin{DoxyCompactList}\small\item\em I am dead $<$3. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a2db4a9862b3a2e31301ac185385d2520}\label{bmp280lib__herkansing_8hpp_a2db4a9862b3a2e31301ac185385d2520}} 
+enum {\bfseries S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+ME} \+: uint8\+\_\+t \{ \newline
+{\bfseries U\+S\+\_\+500} = 0x00, 
+{\bfseries U\+S\+\_\+62500} = 0x20, 
+{\bfseries M\+S\+\_\+125} = 0x40, 
+{\bfseries M\+S\+\_\+250} = 0x60, 
+\newline
+{\bfseries M\+S\+\_\+500} = 0x80, 
+{\bfseries S\+\_\+1} = 0x\+A0, 
+{\bfseries S\+\_\+2} = 0x\+C0, 
+{\bfseries S\+\_\+4} = 0x\+E0
+ \}
+\item 
+\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a67b0684f2b007e72879b3ec3928a4a40}\label{bmp280lib__herkansing_8hpp_a67b0684f2b007e72879b3ec3928a4a40}} 
+enum {\bfseries I\+I\+R\+\_\+\+R\+ES} \+: uint8\+\_\+t \{ \newline
+{\bfseries I\+I\+R\+\_\+\+O\+FF} = 0x00, 
+{\bfseries I\+I\+R\+\_\+02} = 0x02, 
+{\bfseries I\+I\+R\+\_\+04} = 0x04, 
+{\bfseries I\+I\+R\+\_\+08} = 0x08, 
+\newline
+{\bfseries I\+I\+R\+\_\+16} = 0x10
+ \}
+\item 
+\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a927fa48c5658c0d1ae6e0cf819b57386}\label{bmp280lib__herkansing_8hpp_a927fa48c5658c0d1ae6e0cf819b57386}} 
+enum {\bfseries P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG} \+: uint8\+\_\+t \{ \newline
+{\bfseries P\+R\+E\+S\+\_\+\+O\+S\+\_\+\+O\+FF} = 0x00, 
+{\bfseries P\+R\+E\+S\+\_\+\+O\+S\+\_\+01} = 0x04, 
+{\bfseries P\+R\+E\+S\+\_\+\+O\+S\+\_\+02} = 0x08, 
+{\bfseries P\+R\+E\+S\+\_\+\+O\+S\+\_\+04} = 0x0B, 
+\newline
+{\bfseries P\+R\+E\+S\+\_\+\+O\+S\+\_\+08} = 0x10, 
+{\bfseries P\+R\+E\+S\+\_\+\+O\+S\+\_\+16} = 0x14
+ \}
+\item 
+enum \mbox{\hyperlink{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2be}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2bead111c7df08d42beeadfa4bef0d4b5371}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+\+O\+FF}} = 0x00, 
+\mbox{\hyperlink{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2bea5ca125333ef12176feeeb8e4946bc6de}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+01}} = 0x20, 
+\mbox{\hyperlink{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2beadaf48f57f9d771b16cc434810e77e018}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+02}} = 0x40, 
+\mbox{\hyperlink{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2bea7e97411525b4bbe0bc7f5384b4fba8dd}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+04}} = 0x50, 
+\newline
+\mbox{\hyperlink{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2beacf36da920e2661aa4c8293906b7b481a}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+08}} = 0x80, 
+\mbox{\hyperlink{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2beaa8f46777c64bbc96f0c9c894c6b3bdef}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+16}} = 0x\+A0
+ \}
+\begin{DoxyCompactList}\small\item\em this is a test \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a8eb2f33991b63046b2887939a003837f}\label{bmp280lib__herkansing_8hpp_a8eb2f33991b63046b2887939a003837f}} 
+enum {\bfseries O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG} \+: uint8\+\_\+t \{ \newline
+{\bfseries O\+V\+E\+R\+\_\+01} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+01) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+01), 
+{\bfseries O\+V\+E\+R\+\_\+02} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+02) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+02), 
+{\bfseries O\+V\+E\+R\+\_\+04} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+04) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+04), 
+{\bfseries O\+V\+E\+R\+\_\+08} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+08) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+08), 
+\newline
+{\bfseries O\+V\+E\+R\+\_\+16} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+16) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+16)
+ \}
+\item 
+\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a4fa86f9d2218a1052a2f337ec17984d3}\label{bmp280lib__herkansing_8hpp_a4fa86f9d2218a1052a2f337ec17984d3}} 
+enum {\bfseries M\+O\+DE} \+: uint8\+\_\+t \{ {\bfseries S\+L\+E\+EP} = 0x00, 
+{\bfseries F\+O\+R\+C\+ED} = 0x01, 
+{\bfseries N\+O\+R\+M\+AL} = 0x11
+ \}
+\item 
+\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_ad02bf9b870e4716fc22e2a73d75950eb}\label{bmp280lib__herkansing_8hpp_ad02bf9b870e4716fc22e2a73d75950eb}} 
+enum {\bfseries B\+M\+P280\+\_\+\+E\+R\+R\+OR} \+: uint8\+\_\+t \{ \newline
+{\bfseries N\+O\+\_\+\+E\+R\+R\+OR} = 0x00, 
+{\bfseries U\+N\+K\+N\+O\+W\+N\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+ID} = 0x01, 
+{\bfseries U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+G\+\_\+\+D\+A\+TA} = (0x01) $<$$<$ 1, 
+{\bfseries T\+E\+M\+P\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+GE} = (0x01) $<$$<$ 2, 
+\newline
+{\bfseries P\+R\+E\+S\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+GE} = (0x01) $<$$<$ 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a187be2b07aff016ba06c9a74afcd7b5a}\label{bmp280lib__herkansing_8hpp_a187be2b07aff016ba06c9a74afcd7b5a}} 
+hwlib\+::ostream \& {\bfseries operator$<$$<$} (hwlib\+::ostream \&stream, const float \&f)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is a test
+
+\begin{DoxyDate}{Date}
+2019-\/22-\/07 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+v1.\+0.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2be}\label{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2be}} 
+\index{bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}!TEMP\_OVERSAMPLING@{TEMP\_OVERSAMPLING}}
+\index{TEMP\_OVERSAMPLING@{TEMP\_OVERSAMPLING}!bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}}
+\subsubsection{\texorpdfstring{TEMP\_OVERSAMPLING}{TEMP\_OVERSAMPLING}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2be}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+this is a test 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_OFF@{TEMP\_OS\_OFF}!bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}}\index{bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}!TEMP\_OS\_OFF@{TEMP\_OS\_OFF}}}\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2bead111c7df08d42beeadfa4bef0d4b5371}\label{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2bead111c7df08d42beeadfa4bef0d4b5371}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+\+O\+FF&Temperature measurement off \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_01@{TEMP\_OS\_01}!bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}}\index{bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}!TEMP\_OS\_01@{TEMP\_OS\_01}}}\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2bea5ca125333ef12176feeeb8e4946bc6de}\label{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2bea5ca125333ef12176feeeb8e4946bc6de}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+01&Temperature measurement 1 (0.\+00050 Degrees Celcius) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_02@{TEMP\_OS\_02}!bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}}\index{bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}!TEMP\_OS\_02@{TEMP\_OS\_02}}}\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2beadaf48f57f9d771b16cc434810e77e018}\label{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2beadaf48f57f9d771b16cc434810e77e018}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+02&Temperature measurement 2 (0.\+00025 Degrees Celcius) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_04@{TEMP\_OS\_04}!bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}}\index{bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}!TEMP\_OS\_04@{TEMP\_OS\_04}}}\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2bea7e97411525b4bbe0bc7f5384b4fba8dd}\label{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2bea7e97411525b4bbe0bc7f5384b4fba8dd}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+04&Temperature measurement 4 (0.\+00012 Degrees Celcius) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_08@{TEMP\_OS\_08}!bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}}\index{bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}!TEMP\_OS\_08@{TEMP\_OS\_08}}}\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2beacf36da920e2661aa4c8293906b7b481a}\label{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2beacf36da920e2661aa4c8293906b7b481a}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+08&Temperature measurement 8 (0.\+0006 Degrees Celcius) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_16@{TEMP\_OS\_16}!bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}}\index{bmp280lib\_herkansing.hpp@{bmp280lib\_herkansing.hpp}!TEMP\_OS\_16@{TEMP\_OS\_16}}}\mbox{\Hypertarget{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2beaa8f46777c64bbc96f0c9c894c6b3bdef}\label{bmp280lib__herkansing_8hpp_a5a8e2b39306e8386e576cea10f95d2beaa8f46777c64bbc96f0c9c894c6b3bdef}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+16&Temperature measurement 16 (0.\+00003 Degrees Celcius) \\
+\hline
+
+\end{DoxyEnumFields}

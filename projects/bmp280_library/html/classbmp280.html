@@ -261,4 +261,161 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> device driver for modifying default settings (updates immediately to the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bos
+<p>Sets the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> device driver for modifying default settings (updates immediately to the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> sensor). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">bmp_d</td><td>The <a class="el" href="structbmp280__dev.html">bmp280_dev</a> that replaces the current one. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a9ea4f460cdfc82cd4c695f0bfd43bdc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ea4f460cdfc82cd4c695f0bfd43bdc6">&#9670;&nbsp;</a></span>i2c_reg_read</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t i2c_reg_read </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>i2c_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reg_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>reg_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function for reading the sensor's registers through I2C bus. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i2c_addr</td><td>: Sensor I2C address. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg_addr</td><td>: Register address. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">reg_data</td><td>: Pointer to the data buffer to store the read data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>: No of bytes to read.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of execution </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>-&gt; Success </td></tr>
+    <tr><td class="paramname">&gt;0</td><td>-&gt; Failure Info </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6edf190f34f4a642def68cfafd8d3a7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6edf190f34f4a642def68cfafd8d3a7f">&#9670;&nbsp;</a></span>i2c_reg_write</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t i2c_reg_write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>i2c_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>reg_addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>reg_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>length</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Function for writing the sensor's registers through I2C bus. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">i2c_addr</td><td>: sensor I2C address. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg_addr</td><td>: Register address. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">reg_data</td><td>: Pointer to the data buffer whose value is to be written. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>: No of bytes to write.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of execution </dd></dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">0</td><td>-&gt; Success </td></tr>
+    <tr><td class="paramname">&gt;0</td><td>-&gt; Failure Info </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="bmp280lib_8hpp_source.html">bmp280lib.hpp</a></li>
+<li>bmp280lib.cpp</li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Generated by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</body>
+</html>

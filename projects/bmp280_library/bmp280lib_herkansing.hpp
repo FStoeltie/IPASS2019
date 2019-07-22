@@ -1,6 +1,11 @@
 /* File will include own communication */
+/**
+    This is a test
 
-
+    * \file bmp280lib_herkansing.hpp
+    * @date 2019-22-07
+    * @version v1.0.0
+*/
 #ifndef __BMP280LIB_HERKANSING_HPP__
 #define __BMP280LIB_HERKANSING_HPP__
 #include "bmp280.h"
@@ -34,6 +39,21 @@ static constexpr uint8_t REG_PRES_DATA = 0xF7;
 static constexpr uint8_t REG_TEMP_DATA = 0xFA;
 static constexpr uint8_t RESET_VALUE = 0xB6;
 
+// Registers for calibration data (set in factory, read-only)
+static constexpr uint8_t REG_DIG_T1 = 0x88;
+static constexpr uint8_t REG_DIG_T2 = 0x8A;
+static constexpr uint8_t REG_DIG_T3 = 0x8C;
+static constexpr uint8_t REG_DIG_P1 = 0x8E;
+static constexpr uint8_t REG_DIG_P2 = 0x90;
+static constexpr uint8_t REG_DIG_P3 = 0x92;
+static constexpr uint8_t REG_DIG_P4 = 0x94;
+static constexpr uint8_t REG_DIG_P5 = 0x96;
+static constexpr uint8_t REG_DIG_P6 = 0x98;
+static constexpr uint8_t REG_DIG_P7 = 0x9A;
+static constexpr uint8_t REG_DIG_P8 = 0x9C;
+static constexpr uint8_t REG_DIG_P9 = 0x9E;
+
+static constexpr uint8_t REG_DIG_RESERVED = 0xA0;
 
 static constexpr uint8_t STANDBY_TIME_500_US = 0x00;
 static constexpr uint8_t STANDBY_TIME_62500_US = 0x01;
@@ -44,40 +64,70 @@ static constexpr uint8_t STANDBY_TIME_1_S = 0x05;
 static constexpr uint8_t STANDBY_TIME_2_S = 0x06;
 static constexpr uint8_t STANDBY_TIME_4_S = 0x07;
 
-// standby time between measurements in normal mode
+
+/**
+    \enum STANDBY_TIME
+    \brief Enum for standby time values between measurements taken by bmp280 
+    (only when bmp280 is in normal mode).
+    \author Ferdi Stoeltie
+*/
 enum class STANDBY_TIME : uint8_t{
-    US_500 = 0x00,
-    US_62500 = 0x20,
-    MS_125 = 0x40,
-    MS_250 = 0x60,
-    MS_500 = 0x80,
-    S_1 = 0xA0,
-    S_2 = 0xC0,
-    S_4 = 0xE0,
+    US_500 = 0x00,  /**< 500 microseconds */
+    US_62500 = 0x20,    /**< 62.5 milliseconds */
+    MS_125 = 0x40,  /**< 125 milliseconds */
+    MS_250 = 0x60,  /**< 250 milliseconds */
+    MS_500 = 0x80,  /**< 500 milliseconds */
+    S_1 = 0xA0, /**< 1 second */
+    S_2 = 0xC0, /**< 2 seconds */
+    S_4 = 0xE0, /**< 4 seconds */
 };
+
+/**
+    \enum IIR_RES
+    \brief Enum for IIR resolution. used for changing rate of change of pressure measurement based on past measurements. 
+    \author Ferdi Stoeltie
+*/
 enum class IIR_RES : uint8_t{
-    IIR_OFF = 0x00,
-    IIR_02 = 0x02,
-    IIR_04 = 0x04,
-    IIR_08 = 0x08,
-    IIR_16 = 0x10,
+    IIR_OFF = 0x00, /**< IIR Res off */
+    IIR_02 = 0x02,  /**< IIR Res x2 */
+    IIR_04 = 0x04,  /**< IIR Res x4 */
+    IIR_08 = 0x08,  /**< IIR Res x8 */
+    IIR_16 = 0x10,  /**< IIR Res x16 */
 };
+
+/**
+    \enum PRES_OVERSAMPLING
+    \brief Enum for Pressure sampling setting.
+    \author Ferdi Stoeltie
+*/
 enum class PRES_OVERSAMPLING : uint8_t{
-    PRES_OS_OFF = 0x00,
-    PRES_OS_01 = 0x04,
-    PRES_OS_02 = 0x08,
-    PRES_OS_04 = 0x0B,
-    PRES_OS_08 = 0x10,
-    PRES_OS_16 = 0x14,
+    PRES_OS_OFF = 0x00, /**< Temperature measurement off */
+    PRES_OS_01 = 0x04,  /**< Pressure measurement 1   (2.62 Pa) */
+    PRES_OS_02 = 0x08,  /**< Pressure measurement 2   (1.31 Pa) */
+    PRES_OS_04 = 0x0B,  /**< Pressure measurement 4   (0.66 Pa) */
+    PRES_OS_08 = 0x10,  /**< Pressure measurement 8   (0.33 Pa) */
+    PRES_OS_16 = 0x14,  /**< Pressure measurement 16  (0.16 Pa) */
 };
+
+/**
+    \enum TEMP_OVERSAMPLING
+    \brief Enum for temperature sampling setting.
+    \author Ferdi Stoeltie
+*/
 enum class TEMP_OVERSAMPLING : uint8_t{
-    TEMP_OS_OFF = 0x00,
-    TEMP_OS_01 = 0x20,
-    TEMP_OS_02 = 0x40,
-    TEMP_OS_04 = 0x50,
-    TEMP_OS_08 = 0x80,
-    TEMP_OS_16 = 0xA0,
+    TEMP_OS_OFF = 0x00, /**< Temperature measurement off */
+    TEMP_OS_01 = 0x20,  /**< Temperature measurement 1  (0.00050 Degrees Celcius) */
+    TEMP_OS_02 = 0x40,  /**< Temperature measurement 2  (0.00025 Degrees Celcius) */
+    TEMP_OS_04 = 0x50,  /**< Temperature measurement 4  (0.00012 Degrees Celcius) */
+    TEMP_OS_08 = 0x80,  /**< Temperature measurement 8  (0.00006 Degrees Celcius) */
+    TEMP_OS_16 = 0xA0,  /**< Temperature measurement 16 (0.00003 Degrees Celcius) */
 };
+
+/**
+    \enum OVERSAMPLING
+    \brief Enum for Oversampling. Combines both temperature and pressure oversampling into a single value (mask).
+    \author Ferdi Stoeltie
+*/
 enum class OVERSAMPLING : uint8_t   {
     OVER_01 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_01) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_01),
     OVER_02 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_02) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_02),
@@ -86,12 +136,18 @@ enum class OVERSAMPLING : uint8_t   {
     OVER_16 = static_cast<uint8_t>(PRES_OVERSAMPLING::PRES_OS_16) | static_cast<uint8_t>(TEMP_OVERSAMPLING::TEMP_OS_16),
 };
 
+/**
+    \enum MODE
+    \brief Enum to select mode for BMP280 to operate in.
+    \author Ferdi Stoeltie
+*/
 enum class MODE : uint8_t {
-    SLEEP = 0x00,
-    FORCED = 0x01,
-    NORMAL = 0x11,
+    SLEEP = 0x00, /**< BMP280 in sleep mode, won't take measurements */
+    FORCED = 0x01,  /**< BMP280 will only take a measurement when temperature or pressure is requested */
+    NORMAL = 0x11, /**< BMP280 will run in continuous mode with a standby between every measurement */
 };
 
+// To do in the future
 enum class BMP280_ERROR : uint8_t{
     NO_ERROR = 0x00,
     UNKNOWN_DEVICE_ID = 0x01,
@@ -109,9 +165,28 @@ inline hwlib::ostream & operator<< ( hwlib::ostream & stream, const float & f ) 
 
   return stream;
 }
+
+/**
+    \brief  I am dead <3
+    \author Ferdi Stoeltie
+
+*/
 class bmp280lib_herkansing {
 public:
+    /**
+        \brief Constructor of BMP280. 
+        Requires a i2c bus to use for communication with the bmp280 and the i2c address,
+        (usually 0x76 | 0x77) of the BMP280.
+        \param[in] hwlib::i2c_bus& hbus The hwlib i2c bus to use.
+        \param[in] uint8_t Address The i2c address for the BMP280.
+
+    */
     bmp280lib_herkansing(hwlib::i2c_bus& hbus, uint8_t address);
+
+    /**
+        \brief Configures the bmp280 by retrieving required data from the bmp280 and setting register values.  
+        \warning Retrieving temperature and pressure before calling this method will result in undefined behaviour (wrong measurements).
+    */
     void configure();
     void test() {
         hbus.write(address).write(0xD0);
@@ -142,6 +217,7 @@ public:
         hwlib::cout << "Pressure guess: " << hwlib::dec << (uint32_t)getPressure() << "\n" << hwlib::flush;
         hwlib::cout << "Altitude guess: " << hwlib::dec << (int32_t)getAltitude(1022.7) << "\n" << hwlib::flush;
     }
+
     /**
         \brief Get the temperature in degrees celcius .
         \return float Degrees celcius of measured temperature.
@@ -162,12 +238,6 @@ public:
     float getAltitude(double sea_level_pres = 1013.15);
 
     /**
-        \brief Sets the filtering coefficient for pressure.
-        \param[in] IIR_RES resolution of the filter.
-    */
-    void setIIR(IIR_RES res);
-
-    /**
         \brief Resets the BMP280 to factory default.
     */
     void reset();
@@ -175,21 +245,34 @@ public:
     /**
         \brief Sets the oversampling for obtaining measurements, Default is 2.
         \param[in] OVERSAMPLING The oversampling to use.
+        \return bool Returns true when value has been set succesfully and false if failed.
     */
     bool setOversampling(OVERSAMPLING os);
 
     /**
         \brief Mode that the BMP280 should operate in. Default is normal mode.
         \param[in] MODE Mode that the BMP280 should operate in.
+        \return bool Returns true when value has been set succesfully and false if failed.
     */
-    void setMode(MODE m);
+    bool setMode(MODE m);
+
+    /**
+        \brief Sets the filtering coefficient for pressure.
+        \param[in] IIR_RES resolution of the filter.
+        \return bool Returns true when value has been set succesfully and false if failed.
+    */
+    bool setIIR(IIR_RES res);
 
     /**
         \brief Set the standby time beween measurements when in normal mode.
-        \param[in] 
+        \param[in] STANDBY_TIME standby time enum for standby time between measurements.
+        \return bool Returns true when value has been set succesfully and false if failed.
     */
-    void setStandbyTime(STANDBY_TIME standby_time);
-    
+    bool setStandbyTime(STANDBY_TIME standby_time);
+    /**
+        \brief Gets the device id that has been found for the BMP.
+        \return  uint8_t The device id (not i2c address!) for the bmp280 at address 0xD0.
+    */
     uint8_t getDeviceId();
 
 private:
@@ -200,7 +283,7 @@ private:
         std::array<uint8_t, 6> r_value = std::array<uint8_t, 6>();
         return 
     }*/
-
+    bool set_reg(uint8_t reg, uint8_t val);
     // Reads control register data
     uint8_t read_ctrl_reg();
 
@@ -218,6 +301,7 @@ private:
 
     // Returns temperature as degrees celcius * 100
     int32_t bmp280_compensate_T_int32(int32_t adc_T);
+
     // Returns pressure in Pa as unsigned 32 bit integer. Output value of “96386” equals 96386 Pa = 963.86 hPa
     uint32_t bmp280_compensate_P_int32(int32_t adc_P);
 
@@ -248,6 +332,7 @@ private:
     // Contains error codes
     uint8_t error = 0x00;
 
-    bool always_check = true;
+    // True: Checks every write operation to control and config reg to see if succesfully set.
+    const bool reg_check = true;
 };
 #endif // __BMP280LIB_HPP__
