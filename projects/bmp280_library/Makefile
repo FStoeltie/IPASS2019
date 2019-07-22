@@ -8,10 +8,10 @@
 # 
 #############################################################################
 # source files in this project (main.cpp is automatically assumed)
-SOURCES := scene.cpp bmp280lib_herkansing.cpp
+SOURCES := scene.cpp bmp280.cpp 
 
 # header files in this project
-HEADERS := scene.hpp bmp280lib_herkansing.hpp
+HEADERS := scene.hpp bmp280.hpp bmp280_test.hpp
 
 # other places to look for files for this project
 SEARCH  := 

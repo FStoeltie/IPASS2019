@@ -12,7 +12,8 @@
 
 /*#include "bmp280.h"
 #include "bmp280lib.hpp"*/
-#include "bmp280lib_herkansing.hpp"
+#include "bmp280.hpp"
+#include "bmp280_test.hpp"
 int main( void ){
        
    namespace target = hwlib::target;
@@ -49,12 +50,21 @@ int main( void ){
       hwlib::wait_ms( 2500 ); 
    }*/
 
-   bmp280 mytest(i2c_bus, 0x76);
+/*   bmp280 mytest(i2c_bus, 0x76);
    mytest.configure();
    while(1) {
       mytest.test();
       hwlib::wait_ms( 200 );
+   }*/
+   bmp280 bmp_test(i2c_bus, 0x76);
+   bmp280_test test;
+
+   test.test01(bmp_test);   
+   test.test02(bmp_test);  
+   test.test03(bmp_test); 
+   while(1) {
+      hwlib::wait_ms(1000);
    }
-   
+
 }
 

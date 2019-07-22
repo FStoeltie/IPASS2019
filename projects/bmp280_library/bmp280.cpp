@@ -1,7 +1,5 @@
-#include "bmp280lib_herkansing.hpp"
+#include "bmp280.hpp"
 
-// base_pres in pascal
-// in meters
 bmp280::bmp280(hwlib::i2c_bus& hbus, uint8_t address) : 
 hbus(hbus),
 address(address)
@@ -10,11 +8,11 @@ address(address)
 }
 void bmp280::configure()    {
     device_id = read_dev_id_reg();
-    if(device_id != BMP280_DEVICE_ID_01 || 
-    device_id != BMP280_DEVICE_ID_02 || 
-    device_id != BMP280_DEVICE_ID_03 || 
+    if(device_id != BMP280_DEVICE_ID_01 && 
+    device_id != BMP280_DEVICE_ID_02 && 
+    device_id != BMP280_DEVICE_ID_03 && 
     device_id != BME280_DEVICE_ID_01)  {
-        error |= static_cast<uint8_t>(BMP280_ERROR::UNKNOWN_DEVICE_ID);;
+        error |= static_cast<uint8_t>(BMP280_ERROR::UNKNOWN_DEVICE_ID);
     }
     retrieveCalibrationData();
     setMode(MODE::FORCED);
@@ -26,14 +24,9 @@ void bmp280::configure()    {
         error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
     }
     setIIR(IIR_RES::IIR_02);
-/*    setStandbyTime(STANDBY_TIME::S_4);
-    setIIR(IIR_RES::IIR_02);
-    if(setMode(MODE::NORMAL))    {
-        hwlib::cout << "Mode set to SLEEP succesfully!\n" << hwlib::flush;
+    if (config_data != read_conf_reg())   {
+        error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
     }
-    else    {
-        hwlib::cout << "Mode set to SLEEP has failed!\n" << hwlib::flush;            
-    }*/
 }
 float bmp280::getAltitude(double sea_level_pres) {
    sea_level_pres *= 1000;
@@ -55,7 +48,7 @@ float bmp280::getTemperature()   {
     hbus.read(address).read(result_data, 6);
     int32_t raw_temp = (((int32_t) result_data[3] << 12) | ((int32_t) result_data[4] << 4) | (int32_t) result_data[5] >> 4) << (0 - 0);
     int32_t temp_result = bmp280_compensate_T_int32(raw_temp);
-    if((control_measurement_data & 0x03) == static_cast<uint8_t>(MODE::FORCED))  {
+    if(temp_result < BMP280_MIN_PRESS && temp_result > BMP280_MAX_PRESS)  {
         error |= static_cast<uint8_t>(BMP280_ERROR::TEMP_OUT_OF_RANGE);
     }
     return (float)temp_result / 100;
@@ -69,11 +62,11 @@ uint32_t bmp280::getPressure()   {
     uint8_t result_data[6];
     hbus.read(address).read(result_data, 6);
     int32_t raw_pressure = (((int32_t) result_data[0] << 12) | ((int32_t) result_data[1] << 4) | (int32_t) result_data[2] >> 4) << (0 - 0);
-    uint32_t temp_result = bmp280_compensate_P_int32(raw_pressure);
-    if(temp_result < BMP280_MIN_PRESS && temp_result > BMP280_MAX_PRESS)  {
-        error |= static_cast<uint8_t>(BMP280_ERROR::TEMP_OUT_OF_RANGE);
+    uint32_t pres_result = bmp280_compensate_P_int32(raw_pressure);
+    if(pres_result < BMP280_MIN_PRESS && pres_result > BMP280_MAX_PRESS)  {
+        error |= static_cast<uint8_t>(BMP280_ERROR::PRES_OUT_OF_RANGE);
     }
-    return temp_result;
+    return pres_result;
 }
 
 void bmp280::retrieveCalibrationData()  {
@@ -107,16 +100,6 @@ bool bmp280::setOversampling(OVERSAMPLING os)  {
     uint8_t cast_os = static_cast<uint8_t>(os);
     control_measurement_data = (control_measurement_data & ~cast_os) | cast_os;
     return set_reg(REG_CTRL_MEASUREMENT, control_measurement_data);
-/*    uint8_t control_measurement[2] = {REG_CTRL_MEASUREMENT, control_measurement_data};
-    hbus.write(address).write(control_measurement, 2);
-
-    if(always_check)    {
-        if(!(cos & read_ctrl_reg()))    {
-            error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
-            return false;
-        }
-    }
-    return true;*/
 }
 
 bool bmp280::setMode(MODE m)  {
@@ -128,6 +111,7 @@ bool bmp280::setMode(MODE m)  {
 bool bmp280::setStandbyTime(STANDBY_TIME standby_time)   {
     uint8_t cast_st = static_cast<uint8_t>(standby_time);
     config_data = (config_data & ~cast_st) | cast_st;
+/*    hwlib::cout << "standby value: " << hwlib::hex << config_data << "\n" << hwlib::flush;*/
     return set_reg(REG_CONFIG, config_data);
 }
 bool bmp280::setIIR(IIR_RES res)   {

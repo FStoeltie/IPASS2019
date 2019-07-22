@@ -1,18 +1,18 @@
 /* File will include own communication */
 /**
-    This is a test
+    This file contains all the requirements to use the bmp280 class.
+
 
     * \file bmp280.hpp
-    * @date 2019-22-07
-    * @version v1.0.0
+    * \author Ferdi Stoeltie
+    * \date 2019-22-07
+    * \version v1.0.0
 */
 #ifndef __bmp280_HPP__
 #define __bmp280_HPP__
-#include "bmp280.h"
 #include "hwlib.hpp"
 
 #include <math.h>
-#include <array>
 
 // Minimum temperature for BMP280
 static constexpr int8_t BMP280_MIN_TEMP = -40;
@@ -194,14 +194,7 @@ public:
         hbus.read(address).read(result);
         hwlib::cout << "result: " << hwlib::hex << result << "\n" << hwlib::flush;
 
-        //setOversampling(OVERSAMPLING::OVER_02);
-
-        //hbus.write(address).write(REG_CTRL_MEASUREMENT);
-        //uint8_t reg_config_val = 0;
-        //hbus.read(address).read(reg_config_val);
         hwlib::cout << "read_ctrl_reg reading:\t0x" << hwlib::hex << read_ctrl_reg() << "\n" << hwlib::flush;
-
-
 
         hwlib::cout << "Dig_T1:\t" << hwlib::dec << dig_T1 << "\n" << hwlib::flush;
         hwlib::cout << "Dig_T2:\t" << hwlib::dec << dig_T2 << "\n" << hwlib::flush;
@@ -319,15 +312,15 @@ private:
     // Returns pressure in Pa as unsigned 32 bit integer. Output value of “96386” equals 96386 Pa = 963.86 hPa
     uint32_t bmp280_compensate_P_int32(int32_t adc_P);
 
-    // The i2c bus that is used to communicate with the BMP280/BME280
+    // The i2c bus that is used to communicate with the BMP280
     hwlib::i2c_bus& hbus;
 
-    // I2c Address of the BMP280/BME280
+    // I2c Address of the BMP280
     uint8_t address;
 
     int32_t t_fine;
 
-    // Internal id of the BMP280/BME280
+    // Internal id of the BMP280
     uint8_t device_id = 0;
     // Calibration values
     // Calibration values temperature
