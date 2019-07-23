@@ -29,7 +29,8 @@ The library is fairly easy to use.<br/>
    bmpInstance.setStandbyTime(STANDBY_TIME);    // set standby time in normal mode.
    bmpInstance.getErrors();      // Get possible errors.
    ```
-## Changes made
-## Result
 ## Resources
+hwlib: https://github.com/wovo/hwlib
+bmptk: https://github.com/wovo/bmptk
 ## Future
+Adding full support for the BME280 also.
