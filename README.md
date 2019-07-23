@@ -30,7 +30,7 @@ The library is fairly easy to use.<br/>
    bmpInstance.getErrors();      // Get possible errors.
    ```
 ## Resources
-hwlib: https://github.com/wovo/hwlib
+hwlib: https://github.com/wovo/hwlib<br/>
 bmptk: https://github.com/wovo/bmptk
 ## Future
 Adding full support for the BME280 also.
