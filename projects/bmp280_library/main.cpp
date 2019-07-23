@@ -64,6 +64,7 @@ int main( void ){
       mytest.test();
       hwlib::wait_ms( 200 );
    }*/
+
    bmp280 bmp_test(i2c_bus, 0x76);
    bmp_test.configure();
    bmp280_test test;
