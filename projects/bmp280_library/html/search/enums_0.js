@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['temp_5foversampling',['TEMP_OVERSAMPLING',['../bmp280lib__herkansing_8hpp.html#a5a8e2b39306e8386e576cea10f95d2be',1,'bmp280lib_herkansing.hpp']]]
+  ['iir_5fres',['IIR_RES',['../bmp280_8hpp.html#a67b0684f2b007e72879b3ec3928a4a40',1,'bmp280.hpp']]]
 ];

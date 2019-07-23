@@ -6,6 +6,7 @@ address(address)
 {
     control_measurement_data = static_cast<uint8_t>(OVERSAMPLING::OVER_04) | static_cast<uint8_t>(MODE::NORMAL);
 }
+
 void bmp280::configure()    {
     device_id = read_dev_id_reg();
     if(device_id != BMP280_DEVICE_ID_01 && 
@@ -28,6 +29,7 @@ void bmp280::configure()    {
         error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
     }
 }
+
 float bmp280::getAltitude(double sea_level_pres) {
    sea_level_pres *= 1000;
    double temp = getTemperature() / 10;

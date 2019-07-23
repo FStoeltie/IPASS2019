@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['temp_5fos_5f01',['TEMP_OS_01',['../bmp280lib__herkansing_8hpp.html#a5a8e2b39306e8386e576cea10f95d2bea5ca125333ef12176feeeb8e4946bc6de',1,'bmp280lib_herkansing.hpp']]],
-  ['temp_5fos_5f02',['TEMP_OS_02',['../bmp280lib__herkansing_8hpp.html#a5a8e2b39306e8386e576cea10f95d2beadaf48f57f9d771b16cc434810e77e018',1,'bmp280lib_herkansing.hpp']]],
-  ['temp_5fos_5f04',['TEMP_OS_04',['../bmp280lib__herkansing_8hpp.html#a5a8e2b39306e8386e576cea10f95d2bea7e97411525b4bbe0bc7f5384b4fba8dd',1,'bmp280lib_herkansing.hpp']]],
-  ['temp_5fos_5f08',['TEMP_OS_08',['../bmp280lib__herkansing_8hpp.html#a5a8e2b39306e8386e576cea10f95d2beacf36da920e2661aa4c8293906b7b481a',1,'bmp280lib_herkansing.hpp']]],
-  ['temp_5fos_5f16',['TEMP_OS_16',['../bmp280lib__herkansing_8hpp.html#a5a8e2b39306e8386e576cea10f95d2beaa8f46777c64bbc96f0c9c894c6b3bdef',1,'bmp280lib_herkansing.hpp']]],
-  ['temp_5fos_5foff',['TEMP_OS_OFF',['../bmp280lib__herkansing_8hpp.html#a5a8e2b39306e8386e576cea10f95d2bead111c7df08d42beeadfa4bef0d4b5371',1,'bmp280lib_herkansing.hpp']]]
+  ['bme280_5fms_5f10',['BME280_MS_10',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520acb506005fe069f2a7c9ba43fc2758791',1,'bmp280.hpp']]],
+  ['bme280_5fms_5f125',['BME280_MS_125',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520ad4def0902d5b1b321a8ad69947f4a7ee',1,'bmp280.hpp']]],
+  ['bme280_5fms_5f20',['BME280_MS_20',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520abd08985ada7a5e756c7b726f9a22bff0',1,'bmp280.hpp']]],
+  ['bme280_5fms_5f250',['BME280_MS_250',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520a8f6c1b75cee6d3b7fe87222ccc6b0a24',1,'bmp280.hpp']]],
+  ['bme280_5fms_5f500',['BME280_MS_500',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520a578e79a74587acce7f704cdabb3259a1',1,'bmp280.hpp']]],
+  ['bme280_5fs_5f1',['BME280_S_1',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520a410044470df7f4f0ecf54bd42d08a66c',1,'bmp280.hpp']]],
+  ['bme280_5fus_5f500',['BME280_US_500',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520abbf6c849d5c16b71472e7d0338d4a8a7',1,'bmp280.hpp']]],
+  ['bme280_5fus_5f62500',['BME280_US_62500',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520a7fbb40fb4d4ef0ee5b1c4416ea1f3012',1,'bmp280.hpp']]]
 ];

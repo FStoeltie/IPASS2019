@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['testclass',['testclass',['../classtestclass.html',1,'']]]
+  ['vectorgraphicsobject',['VectorGraphicsObject',['../class_vector_graphics_object.html',1,'']]]
 ];

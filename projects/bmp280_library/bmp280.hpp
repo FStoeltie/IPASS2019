@@ -170,7 +170,7 @@ inline hwlib::ostream & operator<< ( hwlib::ostream & stream, const float & f ) 
   
     float f_value = f - (float)i_value; 
     f_value *= pow(10, 2);
-    stream << i_value << '.' << (int)f_value;
+    stream << i_value << '.' << (unsigned int)f_value;
 
   return stream;
 }
@@ -180,6 +180,7 @@ inline hwlib::ostream & operator<< ( hwlib::ostream & stream, const float & f ) 
             All modes (SLEEP, FORCED, STANDBY) work.
     \author Ferdi Stoeltie
     \date 2019-23-07
+    \version 1.0.0
 */
 class bmp280 {
 public:
@@ -200,28 +201,6 @@ public:
         \warning Retrieving temperature and pressure before calling this method will result in undefined behaviour (wrong measurements).
     */
     void configure();
-    void test() {
-        hbus.write(address).write(0xD0);
-        uint8_t result = 0;
-        hbus.read(address).read(result);
-        hwlib::cout << "result: " << hwlib::hex << result << "\n" << hwlib::flush;
-
-        hwlib::cout << "read_ctrl_reg reading:\t0x" << hwlib::hex << read_ctrl_reg() << "\n" << hwlib::flush;
-
-        hwlib::cout << "Dig_T1:\t" << hwlib::dec << dig_T1 << "\n" << hwlib::flush;
-        hwlib::cout << "Dig_T2:\t" << hwlib::dec << dig_T2 << "\n" << hwlib::flush;
-        hwlib::cout << "Dig_T3:\t" << hwlib::dec << dig_T3 << "\n" << hwlib::flush;
-
-        hwlib::cout << "temperature guess: " << hwlib::dec << (int32_t)getTemperature() << "\n" << hwlib::flush;
-        hwlib::cout << "temperature guess with a floating point value: " << hwlib::dec << (float)getTemperature() << "\n" << hwlib::flush;
-
-        hwlib::cout << "Testing standby time!\n" << hwlib::flush;
-         
-        hwlib::cout << "Standby reading:\t0x" << hwlib::hex << read_conf_reg() << "\n" << hwlib::flush;
-
-        hwlib::cout << "Pressure guess: " << hwlib::dec << (uint32_t)getPressure() << "\n" << hwlib::flush;
-        hwlib::cout << "Altitude guess: " << hwlib::dec << (int32_t)getAltitude(1022.7) << "\n" << hwlib::flush;
-    }
 
     /**
         \brief Get the temperature in degrees celcius .

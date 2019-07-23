@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['configure',['configure',['../classbmp280lib__herkansing.html#aca822c7f1ef89422a995adaceadee032',1,'bmp280lib_herkansing']]]
+  ['configure',['configure',['../classbmp280.html#a5d525e6ca33f2df3d829e78bf48f06a1',1,'bmp280']]]
 ];

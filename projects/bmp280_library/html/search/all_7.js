@@ -1,11 +1,7 @@
 var searchData=
 [
-  ['read',['read',['../classhwlib_1_1i2c__primitives.html#a2a8cc988531ea774d39d726f213f8585',1,'hwlib::i2c_primitives::read()'],['../classhwlib_1_1i2c__read__transaction.html#a624e7979dcf697e748955bace4cf2273',1,'hwlib::i2c_read_transaction::read(uint8_t &amp;data)'],['../classhwlib_1_1i2c__read__transaction.html#a4c886112d92dddb502cb18a18c3a385f',1,'hwlib::i2c_read_transaction::read(uint8_t data[], size_t n)'],['../classhwlib_1_1i2c__read__transaction__bmp280.html#a96d6bcfad832c1fa278305cd59d8756e',1,'hwlib::i2c_read_transaction_bmp280::read()'],['../classhwlib_1_1i2c__bus.html#ac4dd659c140ae5f8f7d6bbd48351d88f',1,'hwlib::i2c_bus::read()']]],
-  ['read_5fack',['read_ack',['../classhwlib_1_1i2c__primitives.html#adfa6c493163d397f58a3e2ba4617dbac',1,'hwlib::i2c_primitives']]],
-  ['read_5fbit',['read_bit',['../classhwlib_1_1i2c__primitives.html#a55a6e105449bcba89fd329a80a065f2c',1,'hwlib::i2c_primitives']]],
-  ['read_5fbyte',['read_byte',['../classhwlib_1_1i2c__primitives.html#a21c9843d3a7801781e576013a1e154f9',1,'hwlib::i2c_primitives::read_byte()'],['../classhwlib_1_1i2c__read__transaction.html#a404a7d9db0ddd18aaeac84b266e89f9e',1,'hwlib::i2c_read_transaction::read_byte()'],['../classhwlib_1_1i2c__read__transaction__bmp280.html#ae928d38fa75a357dee92717b3888e2e5',1,'hwlib::i2c_read_transaction_bmp280::read_byte()']]],
-  ['read_5ffrom_5fregister',['read_from_register',['../classhwlib_1_1i2c__read__transaction__bmp280.html#a1105511aec269220328b3b64bf72521a',1,'hwlib::i2c_read_transaction_bmp280']]],
-  ['read_5fpressure',['read_pressure',['../classbmp280.html#a9de10ab597caf99df7c2966452721c4d',1,'bmp280']]],
-  ['read_5ftemperature',['read_temperature',['../classbmp280.html#ae598eb1f714ba9a39896099ee157164f',1,'bmp280']]],
-  ['reset',['reset',['../classbmp280lib__herkansing.html#a66f8a01172ff3d69fa3d0e9aedf459f3',1,'bmp280lib_herkansing']]]
+  ['mode',['MODE',['../bmp280_8hpp.html#a4fa86f9d2218a1052a2f337ec17984d3',1,'bmp280.hpp']]],
+  ['ms_5f125',['MS_125',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520ae26e8b5e0fd590e49352c061edc36138',1,'bmp280.hpp']]],
+  ['ms_5f250',['MS_250',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520ab0561a44ea15033a6f17127563fc519a',1,'bmp280.hpp']]],
+  ['ms_5f500',['MS_500',['../bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520a831bd4ffa4c61f31d9f00c7d831a2f9a',1,'bmp280.hpp']]]
 ];

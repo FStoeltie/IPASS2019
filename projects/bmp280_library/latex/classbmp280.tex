@@ -2,222 +2,236 @@
 \label{classbmp280}\index{bmp280@{bmp280}}
 
 
-This library class provides an easy interface that binds the \mbox{\hyperlink{classbmp280}{bmp280}} bosch driver to hwlib, making it \textquotesingle{}plug and play\textquotesingle{}.  
+This class provides functionality to easily interface with a \mbox{\hyperlink{classbmp280}{bmp280}}. All modes (S\+L\+E\+EP, F\+O\+R\+C\+ED, S\+T\+A\+N\+D\+BY) work.  
 
 
 
 
-{\ttfamily \#include $<$bmp280lib.\+hpp$>$}
+{\ttfamily \#include $<$bmp280.\+hpp$>$}
 
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classbmp280_a8894efbfc8fd5622ab7872b2546bec5e}\label{classbmp280_a8894efbfc8fd5622ab7872b2546bec5e}} 
-{\bfseries bmp280} (\mbox{\hyperlink{classbmp280}{bmp280}} const \&)=delete
-\item 
-\mbox{\Hypertarget{classbmp280_a15f44f28857be544ca8628a65f113a5e}\label{classbmp280_a15f44f28857be544ca8628a65f113a5e}} 
-void {\bfseries operator=} (\mbox{\hyperlink{classbmp280}{bmp280}} const \&)=delete
-\item 
-\mbox{\Hypertarget{classbmp280_ae6908ebdc711f42e5f1c7981c85a728d}\label{classbmp280_ae6908ebdc711f42e5f1c7981c85a728d}} 
-void \mbox{\hyperlink{classbmp280_ae6908ebdc711f42e5f1c7981c85a728d}{Initialize}} (\mbox{\hyperlink{classhwlib_1_1i2c__bus__bit__banged__scl__sda}{hwlib\+::i2c\+\_\+bus\+\_\+bit\+\_\+banged\+\_\+scl\+\_\+sda}} \&i2c\+\_\+b, uint8\+\_\+t i2c\+\_\+addr=B\+M\+P280\+\_\+\+I2\+C\+\_\+\+A\+D\+DR)
-\begin{DoxyCompactList}\small\item\em Initializes \mbox{\hyperlink{classbmp280}{bmp280}} with all the correct parameters. Call this method before calling any others! param\mbox{[}in\mbox{]} i2c\+\_\+bus The hwlib i2c\+\_\+bus object to communicate through. param\mbox{[}in\mbox{]} i2c\+\_\+addr The i2c address of the B\+M\+P280 (0x76 or 0x77) \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}} \mbox{\hyperlink{classbmp280_ac15f0e1c589daaf1778a0f1b86620efb}{get\+\_\+bmp280\+\_\+dev\+\_\+driver}} ()
-\begin{DoxyCompactList}\small\item\em Gets the underlying \mbox{\hyperlink{classbmp280}{bmp280}} device driver from the bosch driver library. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classbmp280_abf2047614752774902d6897bf0de8c02}{set\+\_\+bmp280\+\_\+dev\+\_\+driver}} (struct \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}} bmp\+\_\+d)
-\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classbmp280}{bmp280}} device driver for modifying default settings (updates immediately to the \mbox{\hyperlink{classbmp280}{bmp280}} sensor). \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}} \mbox{\hyperlink{classbmp280_aa69aa6f655ea7a82e78da96f54aadfb8}{get\+\_\+bmp280\+\_\+conf\+\_\+driver}} ()
-\begin{DoxyCompactList}\small\item\em Gets the underlying \mbox{\hyperlink{classbmp280}{bmp280}} config from the bosch driver library. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classbmp280_ac8426d09704b2d35088d760acb10e876}{set\+\_\+bmp280\+\_\+conf\+\_\+driver}} (struct \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}} bmp\+\_\+c)
-\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classbmp280}{bmp280}} config for modifying default settings (updates immediately to the \mbox{\hyperlink{classbmp280}{bmp280}} sensor). \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classbmp280_ae598eb1f714ba9a39896099ee157164f}{read\+\_\+temperature}} ()
-\begin{DoxyCompactList}\small\item\em Reads the temperature value from the \mbox{\hyperlink{classbmp280}{bmp280}} and returns it as a double (always new read). \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classbmp280_a9de10ab597caf99df7c2966452721c4d}\label{classbmp280_a9de10ab597caf99df7c2966452721c4d}} 
-double \mbox{\hyperlink{classbmp280_a9de10ab597caf99df7c2966452721c4d}{read\+\_\+pressure}} ()
-\begin{DoxyCompactList}\small\item\em Reads the pressure value from the \mbox{\hyperlink{classbmp280}{bmp280}} and returns it as a souble (always new read). The value is expressed in pascal (Pa). \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classbmp280_a0a480dfb132b8efc68f8a9ab00c8d75b}{get\+\_\+altitude}} (double base\+\_\+pres=1013.\+15)
-\begin{DoxyCompactList}\small\item\em Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Static Public Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classbmp280_a59268d6ba91891061090635edd6fc04b}\label{classbmp280_a59268d6ba91891061090635edd6fc04b}} 
-static \mbox{\hyperlink{classbmp280}{bmp280}} \& \mbox{\hyperlink{classbmp280_a59268d6ba91891061090635edd6fc04b}{get\+Instance}} ()
-\begin{DoxyCompactList}\small\item\em Function for the singleton pattern. Gets the only \mbox{\hyperlink{classbmp280}{bmp280}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\subsection*{Friends}
-\begin{DoxyCompactItemize}
-\item 
-int8\+\_\+t \mbox{\hyperlink{classbmp280_a6edf190f34f4a642def68cfafd8d3a7f}{i2c\+\_\+reg\+\_\+write}} (uint8\+\_\+t i2c\+\_\+addr, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$reg\+\_\+data, uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em Function for writing the sensor\textquotesingle{}s registers through I2C bus. \end{DoxyCompactList}\item 
-int8\+\_\+t \mbox{\hyperlink{classbmp280_a9ea4f460cdfc82cd4c695f0bfd43bdc6}{i2c\+\_\+reg\+\_\+read}} (uint8\+\_\+t i2c\+\_\+addr, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$reg\+\_\+data, uint16\+\_\+t length)
-\begin{DoxyCompactList}\small\item\em Function for reading the sensor\textquotesingle{}s registers through I2C bus. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\mbox{\hyperlink{classbmp280_a36d36891ce38ec1d077e8c825ff99d89}{bmp280}} (\mbox{\hyperlink{classhwlib_1_1i2c__bus}{hwlib\+::i2c\+\_\+bus}} \&hbus, uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Constructor of B\+M\+P280. Requires a i2c bus to use for communication with the \mbox{\hyperlink{classbmp280}{bmp280}} and the i2c address, (usually 0x76 $\vert$ 0x77) of the B\+M\+P280. Default values that are set for the B\+M\+P280 are normal mode and oversampling x2. This constructor does not perform any read or write operations with the B\+M\+P280. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbmp280_a5d525e6ca33f2df3d829e78bf48f06a1}{configure}} ()
+\begin{DoxyCompactList}\small\item\em Configures the \mbox{\hyperlink{classbmp280}{bmp280}} by retrieving required data from the \mbox{\hyperlink{classbmp280}{bmp280}} and setting register values. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classbmp280_a7f3426799bc90f9435b22fa44a40387c}{get\+Temperature}} ()
+\begin{DoxyCompactList}\small\item\em Get the temperature in degrees celcius . Performs a read operation to the B\+M\+P280. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classbmp280_a4c2b8a1a167683a819d2653c4be37bc9}{get\+Pressure}} ()
+\begin{DoxyCompactList}\small\item\em Get the pressure in pA. Performs a read operation to the B\+M\+P280. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classbmp280_a9f477a87343ddd8a49cdd88210bd80cb}{get\+Altitude}} (double sea\+\_\+level\+\_\+pres=1013.\+15)
+\begin{DoxyCompactList}\small\item\em Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters. Performs write operations to the B\+M\+P280. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classbmp280_aa51e3a6cb1a602145e8efa2c81f9455f}\label{classbmp280_aa51e3a6cb1a602145e8efa2c81f9455f}} 
+void \mbox{\hyperlink{classbmp280_aa51e3a6cb1a602145e8efa2c81f9455f}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the B\+M\+P280 to factory default. Performs a write operation to the B\+M\+P280. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbmp280_afcbdb0160669a3d428e25bd715239fd5}{set\+Oversampling}} (\mbox{\hyperlink{bmp280_8hpp_a8eb2f33991b63046b2887939a003837f}{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}} os)
+\begin{DoxyCompactList}\small\item\em Sets the oversampling for obtaining measurements, Default is 2. Performs a read and write operation to the B\+M\+P280. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbmp280_a7304149cb12a908febd5ba9109ef2d5d}{set\+Mode}} (\mbox{\hyperlink{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3}{M\+O\+DE}} m)
+\begin{DoxyCompactList}\small\item\em Mode that the B\+M\+P280 should operate in. Default is normal mode. Performs a read and write operation to the B\+M\+P280. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbmp280_a379f05aa177d55e99bd3a098e2efced1}{set\+I\+IR}} (\mbox{\hyperlink{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40}{I\+I\+R\+\_\+\+R\+ES}} res)
+\begin{DoxyCompactList}\small\item\em Sets the filtering coefficient for pressure. Performs a read and write operation to the B\+M\+P280. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classbmp280_a9a04623f32e2b3e8e175762e8863c41e}{set\+Standby\+Time}} (\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+ME}} standby\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Set the standby time beween measurements when in normal mode. Performs a read and write operation to the B\+M\+P280. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classbmp280_ace425e5f5d6fa925613421a75dd54fef}{get\+Device\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Gets the device id that has been found for the B\+MP. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classbmp280_ab463411af32432506c42768cdf73f5f2}{get\+Errors}} ()
+\begin{DoxyCompactList}\small\item\em Returns uint8\+\_\+t that can contain error types. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-This library class provides an easy interface that binds the \mbox{\hyperlink{classbmp280}{bmp280}} bosch driver to hwlib, making it \textquotesingle{}plug and play\textquotesingle{}. 
+This class provides functionality to easily interface with a \mbox{\hyperlink{classbmp280}{bmp280}}. All modes (S\+L\+E\+EP, F\+O\+R\+C\+ED, S\+T\+A\+N\+D\+BY) work. 
 
-\begin{DoxyVersion}{Version}
-1.\+0 
-\end{DoxyVersion}
 \begin{DoxyAuthor}{Author}
 Ferdi Stoeltie 
 \end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/23-\/07 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+0.\+0 
+\end{DoxyVersion}
 
 
-\subsection{Member Function Documentation}
-\mbox{\Hypertarget{classbmp280_a0a480dfb132b8efc68f8a9ab00c8d75b}\label{classbmp280_a0a480dfb132b8efc68f8a9ab00c8d75b}} 
-\index{bmp280@{bmp280}!get\_altitude@{get\_altitude}}
-\index{get\_altitude@{get\_altitude}!bmp280@{bmp280}}
-\subsubsection{\texorpdfstring{get\_altitude()}{get\_altitude()}}
-{\footnotesize\ttfamily float bmp280\+::get\+\_\+altitude (\begin{DoxyParamCaption}\item[{double}]{base\+\_\+pres = {\ttfamily 1013.15} }\end{DoxyParamCaption})}
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbmp280_a36d36891ce38ec1d077e8c825ff99d89}\label{classbmp280_a36d36891ce38ec1d077e8c825ff99d89}} 
+\index{bmp280@{bmp280}!bmp280@{bmp280}}
+\index{bmp280@{bmp280}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{bmp280()}{bmp280()}}
+{\footnotesize\ttfamily bmp280\+::bmp280 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classhwlib_1_1i2c__bus}{hwlib\+::i2c\+\_\+bus}} \&}]{hbus,  }\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})}
 
 
 
-Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters. 
+Constructor of B\+M\+P280. Requires a i2c bus to use for communication with the \mbox{\hyperlink{classbmp280}{bmp280}} and the i2c address, (usually 0x76 $\vert$ 0x77) of the B\+M\+P280. Default values that are set for the B\+M\+P280 are normal mode and oversampling x2. This constructor does not perform any read or write operations with the B\+M\+P280. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em The} & local pressure at sea level, expressed in hectopascal (h\+Pa). \\
+\mbox{\texttt{ in}}  & {\em hwlib\+::i2c\+\_\+bus\&} & hbus The hwlib i2c bus to use. \\
+\hline
+\mbox{\texttt{ in}}  & {\em uint8\+\_\+t} & Address The i2c address for the B\+M\+P280. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classbmp280_a5d525e6ca33f2df3d829e78bf48f06a1}\label{classbmp280_a5d525e6ca33f2df3d829e78bf48f06a1}} 
+\index{bmp280@{bmp280}!configure@{configure}}
+\index{configure@{configure}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{configure()}{configure()}}
+{\footnotesize\ttfamily void bmp280\+::configure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Configures the \mbox{\hyperlink{classbmp280}{bmp280}} by retrieving required data from the \mbox{\hyperlink{classbmp280}{bmp280}} and setting register values. 
+
+Performs read and write operations to the B\+M\+P280. \begin{DoxyWarning}{Warning}
+Retrieving temperature and pressure before calling this method will result in undefined behaviour (wrong measurements). 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classbmp280_a9f477a87343ddd8a49cdd88210bd80cb}\label{classbmp280_a9f477a87343ddd8a49cdd88210bd80cb}} 
+\index{bmp280@{bmp280}!getAltitude@{getAltitude}}
+\index{getAltitude@{getAltitude}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{getAltitude()}{getAltitude()}}
+{\footnotesize\ttfamily float bmp280\+::get\+Altitude (\begin{DoxyParamCaption}\item[{double}]{sea\+\_\+level\+\_\+pres = {\ttfamily 1013.15} }\end{DoxyParamCaption})}
+
+
+
+Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters. Performs write operations to the B\+M\+P280. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sea\+\_\+level\+\_\+pres} & The local pressure at sea level, expressed in hectopascal (h\+Pa). \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 float Altitude in meters. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classbmp280_aa69aa6f655ea7a82e78da96f54aadfb8}\label{classbmp280_aa69aa6f655ea7a82e78da96f54aadfb8}} 
-\index{bmp280@{bmp280}!get\_bmp280\_conf\_driver@{get\_bmp280\_conf\_driver}}
-\index{get\_bmp280\_conf\_driver@{get\_bmp280\_conf\_driver}!bmp280@{bmp280}}
-\subsubsection{\texorpdfstring{get\_bmp280\_conf\_driver()}{get\_bmp280\_conf\_driver()}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}} bmp280\+::get\+\_\+bmp280\+\_\+conf\+\_\+driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classbmp280_ace425e5f5d6fa925613421a75dd54fef}\label{classbmp280_ace425e5f5d6fa925613421a75dd54fef}} 
+\index{bmp280@{bmp280}!getDeviceId@{getDeviceId}}
+\index{getDeviceId@{getDeviceId}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{getDeviceId()}{getDeviceId()}}
+{\footnotesize\ttfamily uint8\+\_\+t bmp280\+::get\+Device\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Gets the underlying \mbox{\hyperlink{classbmp280}{bmp280}} config from the bosch driver library. 
-
-\begin{DoxyReturn}{Returns}
-struct \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}} 
-\end{DoxyReturn}
-\mbox{\Hypertarget{classbmp280_ac15f0e1c589daaf1778a0f1b86620efb}\label{classbmp280_ac15f0e1c589daaf1778a0f1b86620efb}} 
-\index{bmp280@{bmp280}!get\_bmp280\_dev\_driver@{get\_bmp280\_dev\_driver}}
-\index{get\_bmp280\_dev\_driver@{get\_bmp280\_dev\_driver}!bmp280@{bmp280}}
-\subsubsection{\texorpdfstring{get\_bmp280\_dev\_driver()}{get\_bmp280\_dev\_driver()}}
-{\footnotesize\ttfamily struct \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}} bmp280\+::get\+\_\+bmp280\+\_\+dev\+\_\+driver (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Gets the underlying \mbox{\hyperlink{classbmp280}{bmp280}} device driver from the bosch driver library. 
+Gets the device id that has been found for the B\+MP. 
 
 \begin{DoxyReturn}{Returns}
-struct \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}} 
+uint8\+\_\+t The device id (not i2c address!) for the \mbox{\hyperlink{classbmp280}{bmp280}} at address 0x\+D0. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classbmp280_ae598eb1f714ba9a39896099ee157164f}\label{classbmp280_ae598eb1f714ba9a39896099ee157164f}} 
-\index{bmp280@{bmp280}!read\_temperature@{read\_temperature}}
-\index{read\_temperature@{read\_temperature}!bmp280@{bmp280}}
-\subsubsection{\texorpdfstring{read\_temperature()}{read\_temperature()}}
-{\footnotesize\ttfamily double bmp280\+::read\+\_\+temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classbmp280_ab463411af32432506c42768cdf73f5f2}\label{classbmp280_ab463411af32432506c42768cdf73f5f2}} 
+\index{bmp280@{bmp280}!getErrors@{getErrors}}
+\index{getErrors@{getErrors}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{getErrors()}{getErrors()}}
+{\footnotesize\ttfamily uint8\+\_\+t bmp280\+::get\+Errors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Reads the temperature value from the \mbox{\hyperlink{classbmp280}{bmp280}} and returns it as a double (always new read). 
+Returns uint8\+\_\+t that can contain error types. 
 
 \begin{DoxyReturn}{Returns}
-double Temperature value in degrees celsius. 
+uint8\+\_\+t Error types of error that have been found. 
 \end{DoxyReturn}
-\mbox{\Hypertarget{classbmp280_ac8426d09704b2d35088d760acb10e876}\label{classbmp280_ac8426d09704b2d35088d760acb10e876}} 
-\index{bmp280@{bmp280}!set\_bmp280\_conf\_driver@{set\_bmp280\_conf\_driver}}
-\index{set\_bmp280\_conf\_driver@{set\_bmp280\_conf\_driver}!bmp280@{bmp280}}
-\subsubsection{\texorpdfstring{set\_bmp280\_conf\_driver()}{set\_bmp280\_conf\_driver()}}
-{\footnotesize\ttfamily void bmp280\+::set\+\_\+bmp280\+\_\+conf\+\_\+driver (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}}}]{bmp\+\_\+c }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classbmp280_a4c2b8a1a167683a819d2653c4be37bc9}\label{classbmp280_a4c2b8a1a167683a819d2653c4be37bc9}} 
+\index{bmp280@{bmp280}!getPressure@{getPressure}}
+\index{getPressure@{getPressure}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{getPressure()}{getPressure()}}
+{\footnotesize\ttfamily uint32\+\_\+t bmp280\+::get\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
-Sets the \mbox{\hyperlink{classbmp280}{bmp280}} config for modifying default settings (updates immediately to the \mbox{\hyperlink{classbmp280}{bmp280}} sensor). 
+Get the pressure in pA. Performs a read operation to the B\+M\+P280. 
+
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t Pressure in unit of pA. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280_a7f3426799bc90f9435b22fa44a40387c}\label{classbmp280_a7f3426799bc90f9435b22fa44a40387c}} 
+\index{bmp280@{bmp280}!getTemperature@{getTemperature}}
+\index{getTemperature@{getTemperature}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{getTemperature()}{getTemperature()}}
+{\footnotesize\ttfamily float bmp280\+::get\+Temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the temperature in degrees celcius . Performs a read operation to the B\+M\+P280. 
+
+\begin{DoxyReturn}{Returns}
+float Degrees celcius of measured temperature. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280_a379f05aa177d55e99bd3a098e2efced1}\label{classbmp280_a379f05aa177d55e99bd3a098e2efced1}} 
+\index{bmp280@{bmp280}!setIIR@{setIIR}}
+\index{setIIR@{setIIR}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{setIIR()}{setIIR()}}
+{\footnotesize\ttfamily bool bmp280\+::set\+I\+IR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40}{I\+I\+R\+\_\+\+R\+ES}}}]{res }\end{DoxyParamCaption})}
+
+
+
+Sets the filtering coefficient for pressure. Performs a read and write operation to the B\+M\+P280. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em bmp\+\_\+c} & The \mbox{\hyperlink{structbmp280__config}{bmp280\+\_\+config}} that replaces the current one. \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classbmp280_abf2047614752774902d6897bf0de8c02}\label{classbmp280_abf2047614752774902d6897bf0de8c02}} 
-\index{bmp280@{bmp280}!set\_bmp280\_dev\_driver@{set\_bmp280\_dev\_driver}}
-\index{set\_bmp280\_dev\_driver@{set\_bmp280\_dev\_driver}!bmp280@{bmp280}}
-\subsubsection{\texorpdfstring{set\_bmp280\_dev\_driver()}{set\_bmp280\_dev\_driver()}}
-{\footnotesize\ttfamily void bmp280\+::set\+\_\+bmp280\+\_\+dev\+\_\+driver (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}}}]{bmp\+\_\+d }\end{DoxyParamCaption})}
-
-
-
-Sets the \mbox{\hyperlink{classbmp280}{bmp280}} device driver for modifying default settings (updates immediately to the \mbox{\hyperlink{classbmp280}{bmp280}} sensor). 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em bmp\+\_\+d} & The \mbox{\hyperlink{structbmp280__dev}{bmp280\+\_\+dev}} that replaces the current one. \\
-\hline
-\end{DoxyParams}
-
-
-\subsection{Friends And Related Function Documentation}
-\mbox{\Hypertarget{classbmp280_a9ea4f460cdfc82cd4c695f0bfd43bdc6}\label{classbmp280_a9ea4f460cdfc82cd4c695f0bfd43bdc6}} 
-\index{bmp280@{bmp280}!i2c\_reg\_read@{i2c\_reg\_read}}
-\index{i2c\_reg\_read@{i2c\_reg\_read}!bmp280@{bmp280}}
-\subsubsection{\texorpdfstring{i2c\_reg\_read}{i2c\_reg\_read}}
-{\footnotesize\ttfamily int8\+\_\+t i2c\+\_\+reg\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i2c\+\_\+addr,  }\item[{uint8\+\_\+t}]{reg\+\_\+addr,  }\item[{uint8\+\_\+t $\ast$}]{reg\+\_\+data,  }\item[{uint16\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
-
-
-
-Function for reading the sensor\textquotesingle{}s registers through I2C bus. 
-
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em i2c\+\_\+addr} & \+: Sensor I2C address. \\
-\hline
-\mbox{\texttt{ in}}  & {\em reg\+\_\+addr} & \+: Register address. \\
-\hline
-\mbox{\texttt{ out}}  & {\em reg\+\_\+data} & \+: Pointer to the data buffer to store the read data. \\
-\hline
-\mbox{\texttt{ in}}  & {\em length} & \+: No of bytes to read.\\
+\mbox{\texttt{ in}}  & {\em I\+I\+R\+\_\+\+R\+ES} & resolution of the filter. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Status of execution 
+bool Returns true when value has been set succesfully and false if failed. 
 \end{DoxyReturn}
-
-\begin{DoxyRetVals}{Return values}
-{\em 0} & -\/$>$ Success \\
-\hline
-{\em $>$0} & -\/$>$ Failure Info \\
-\hline
-\end{DoxyRetVals}
-\mbox{\Hypertarget{classbmp280_a6edf190f34f4a642def68cfafd8d3a7f}\label{classbmp280_a6edf190f34f4a642def68cfafd8d3a7f}} 
-\index{bmp280@{bmp280}!i2c\_reg\_write@{i2c\_reg\_write}}
-\index{i2c\_reg\_write@{i2c\_reg\_write}!bmp280@{bmp280}}
-\subsubsection{\texorpdfstring{i2c\_reg\_write}{i2c\_reg\_write}}
-{\footnotesize\ttfamily int8\+\_\+t i2c\+\_\+reg\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i2c\+\_\+addr,  }\item[{uint8\+\_\+t}]{reg\+\_\+addr,  }\item[{uint8\+\_\+t $\ast$}]{reg\+\_\+data,  }\item[{uint16\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+\mbox{\Hypertarget{classbmp280_a7304149cb12a908febd5ba9109ef2d5d}\label{classbmp280_a7304149cb12a908febd5ba9109ef2d5d}} 
+\index{bmp280@{bmp280}!setMode@{setMode}}
+\index{setMode@{setMode}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{setMode()}{setMode()}}
+{\footnotesize\ttfamily bool bmp280\+::set\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3}{M\+O\+DE}}}]{m }\end{DoxyParamCaption})}
 
 
 
-Function for writing the sensor\textquotesingle{}s registers through I2C bus. 
+Mode that the B\+M\+P280 should operate in. Default is normal mode. Performs a read and write operation to the B\+M\+P280. 
 
 
 \begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em i2c\+\_\+addr} & \+: sensor I2C address. \\
-\hline
-\mbox{\texttt{ in}}  & {\em reg\+\_\+addr} & \+: Register address. \\
-\hline
-\mbox{\texttt{ in}}  & {\em reg\+\_\+data} & \+: Pointer to the data buffer whose value is to be written. \\
-\hline
-\mbox{\texttt{ in}}  & {\em length} & \+: No of bytes to write.\\
+\mbox{\texttt{ in}}  & {\em M\+O\+DE} & Mode that the B\+M\+P280 should operate in. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Status of execution 
+bool Returns true when value has been set succesfully and false if failed. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280_afcbdb0160669a3d428e25bd715239fd5}\label{classbmp280_afcbdb0160669a3d428e25bd715239fd5}} 
+\index{bmp280@{bmp280}!setOversampling@{setOversampling}}
+\index{setOversampling@{setOversampling}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{setOversampling()}{setOversampling()}}
+{\footnotesize\ttfamily bool bmp280\+::set\+Oversampling (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bmp280_8hpp_a8eb2f33991b63046b2887939a003837f}{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}}}]{os }\end{DoxyParamCaption})}
 
-\begin{DoxyRetVals}{Return values}
-{\em 0} & -\/$>$ Success \\
+
+
+Sets the oversampling for obtaining measurements, Default is 2. Performs a read and write operation to the B\+M\+P280. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG} & The oversampling to use. \\
 \hline
-{\em $>$0} & -\/$>$ Failure Info \\
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true when value has been set succesfully and false if failed. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classbmp280_a9a04623f32e2b3e8e175762e8863c41e}\label{classbmp280_a9a04623f32e2b3e8e175762e8863c41e}} 
+\index{bmp280@{bmp280}!setStandbyTime@{setStandbyTime}}
+\index{setStandbyTime@{setStandbyTime}!bmp280@{bmp280}}
+\subsubsection{\texorpdfstring{setStandbyTime()}{setStandbyTime()}}
+{\footnotesize\ttfamily bool bmp280\+::set\+Standby\+Time (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+ME}}}]{standby\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Set the standby time beween measurements when in normal mode. Performs a read and write operation to the B\+M\+P280. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+ME} & standby time enum for standby time between measurements. \\
 \hline
-\end{DoxyRetVals}
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Returns true when value has been set succesfully and false if failed. 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{bmp280lib_8hpp}{bmp280lib.\+hpp}}\item 
-bmp280lib.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{bmp280_8hpp}{bmp280.\+hpp}}\item 
+bmp280.\+cpp\end{DoxyCompactItemize}

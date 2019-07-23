@@ -5,7 +5,5 @@ var searchData=
   ['read_5fbit',['read_bit',['../classhwlib_1_1i2c__primitives.html#a55a6e105449bcba89fd329a80a065f2c',1,'hwlib::i2c_primitives']]],
   ['read_5fbyte',['read_byte',['../classhwlib_1_1i2c__primitives.html#a21c9843d3a7801781e576013a1e154f9',1,'hwlib::i2c_primitives::read_byte()'],['../classhwlib_1_1i2c__read__transaction.html#a404a7d9db0ddd18aaeac84b266e89f9e',1,'hwlib::i2c_read_transaction::read_byte()'],['../classhwlib_1_1i2c__read__transaction__bmp280.html#ae928d38fa75a357dee92717b3888e2e5',1,'hwlib::i2c_read_transaction_bmp280::read_byte()']]],
   ['read_5ffrom_5fregister',['read_from_register',['../classhwlib_1_1i2c__read__transaction__bmp280.html#a1105511aec269220328b3b64bf72521a',1,'hwlib::i2c_read_transaction_bmp280']]],
-  ['read_5fpressure',['read_pressure',['../classbmp280.html#a9de10ab597caf99df7c2966452721c4d',1,'bmp280']]],
-  ['read_5ftemperature',['read_temperature',['../classbmp280.html#ae598eb1f714ba9a39896099ee157164f',1,'bmp280']]],
-  ['reset',['reset',['../classbmp280lib__herkansing.html#a66f8a01172ff3d69fa3d0e9aedf459f3',1,'bmp280lib_herkansing']]]
+  ['reset',['reset',['../classbmp280.html#aa51e3a6cb1a602145e8efa2c81f9455f',1,'bmp280']]]
 ];

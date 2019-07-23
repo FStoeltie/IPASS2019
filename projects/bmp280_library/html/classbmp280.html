@@ -63,95 +63,141 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="classbmp280-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">bmp280 Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>This library class provides an easy interface that binds the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> bosch driver to hwlib, making it 'plug and play'.  
+<p>This class provides functionality to easily interface with a <a class="el" href="classbmp280.html" title="This class provides functionality to easily interface with a bmp280. All modes (SLEEP,...">bmp280</a>. All modes (SLEEP, FORCED, STANDBY) work.  
  <a href="classbmp280.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="bmp280lib_8hpp_source.html">bmp280lib.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="bmp280_8hpp_source.html">bmp280.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8894efbfc8fd5622ab7872b2546bec5e"><td class="memItemLeft" align="right" valign="top"><a id="a8894efbfc8fd5622ab7872b2546bec5e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>bmp280</b> (<a class="el" href="classbmp280.html">bmp280</a> const &amp;)=delete</td></tr>
-<tr class="separator:a8894efbfc8fd5622ab7872b2546bec5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15f44f28857be544ca8628a65f113a5e"><td class="memItemLeft" align="right" valign="top"><a id="a15f44f28857be544ca8628a65f113a5e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="classbmp280.html">bmp280</a> const &amp;)=delete</td></tr>
-<tr class="separator:a15f44f28857be544ca8628a65f113a5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae6908ebdc711f42e5f1c7981c85a728d"><td class="memItemLeft" align="right" valign="top"><a id="ae6908ebdc711f42e5f1c7981c85a728d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#ae6908ebdc711f42e5f1c7981c85a728d">Initialize</a> (<a class="el" href="classhwlib_1_1i2c__bus__bit__banged__scl__sda.html">hwlib::i2c_bus_bit_banged_scl_sda</a> &amp;i2c_b, uint8_t i2c_addr=BMP280_I2C_ADDR)</td></tr>
-<tr class="memdesc:ae6908ebdc711f42e5f1c7981c85a728d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> with all the correct parameters. Call this method before calling any others! param[in] i2c_bus The hwlib i2c_bus object to communicate through. param[in] i2c_addr The i2c address of the BMP280 (0x76 or 0x77) <br /></td></tr>
-<tr class="separator:ae6908ebdc711f42e5f1c7981c85a728d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac15f0e1c589daaf1778a0f1b86620efb"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structbmp280__dev.html">bmp280_dev</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#ac15f0e1c589daaf1778a0f1b86620efb">get_bmp280_dev_driver</a> ()</td></tr>
-<tr class="memdesc:ac15f0e1c589daaf1778a0f1b86620efb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the underlying <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> device driver from the bosch driver library.  <a href="#ac15f0e1c589daaf1778a0f1b86620efb">More...</a><br /></td></tr>
-<tr class="separator:ac15f0e1c589daaf1778a0f1b86620efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf2047614752774902d6897bf0de8c02"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#abf2047614752774902d6897bf0de8c02">set_bmp280_dev_driver</a> (struct <a class="el" href="structbmp280__dev.html">bmp280_dev</a> bmp_d)</td></tr>
-<tr class="memdesc:abf2047614752774902d6897bf0de8c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> device driver for modifying default settings (updates immediately to the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> sensor).  <a href="#abf2047614752774902d6897bf0de8c02">More...</a><br /></td></tr>
-<tr class="separator:abf2047614752774902d6897bf0de8c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa69aa6f655ea7a82e78da96f54aadfb8"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structbmp280__config.html">bmp280_config</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#aa69aa6f655ea7a82e78da96f54aadfb8">get_bmp280_conf_driver</a> ()</td></tr>
-<tr class="memdesc:aa69aa6f655ea7a82e78da96f54aadfb8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the underlying <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> config from the bosch driver library.  <a href="#aa69aa6f655ea7a82e78da96f54aadfb8">More...</a><br /></td></tr>
-<tr class="separator:aa69aa6f655ea7a82e78da96f54aadfb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8426d09704b2d35088d760acb10e876"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#ac8426d09704b2d35088d760acb10e876">set_bmp280_conf_driver</a> (struct <a class="el" href="structbmp280__config.html">bmp280_config</a> bmp_c)</td></tr>
-<tr class="memdesc:ac8426d09704b2d35088d760acb10e876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> config for modifying default settings (updates immediately to the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> sensor).  <a href="#ac8426d09704b2d35088d760acb10e876">More...</a><br /></td></tr>
-<tr class="separator:ac8426d09704b2d35088d760acb10e876"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae598eb1f714ba9a39896099ee157164f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#ae598eb1f714ba9a39896099ee157164f">read_temperature</a> ()</td></tr>
-<tr class="memdesc:ae598eb1f714ba9a39896099ee157164f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the temperature value from the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> and returns it as a double (always new read).  <a href="#ae598eb1f714ba9a39896099ee157164f">More...</a><br /></td></tr>
-<tr class="separator:ae598eb1f714ba9a39896099ee157164f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9de10ab597caf99df7c2966452721c4d"><td class="memItemLeft" align="right" valign="top"><a id="a9de10ab597caf99df7c2966452721c4d"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a9de10ab597caf99df7c2966452721c4d">read_pressure</a> ()</td></tr>
-<tr class="memdesc:a9de10ab597caf99df7c2966452721c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the pressure value from the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> and returns it as a souble (always new read). The value is expressed in pascal (Pa). <br /></td></tr>
-<tr class="separator:a9de10ab597caf99df7c2966452721c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a480dfb132b8efc68f8a9ab00c8d75b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a0a480dfb132b8efc68f8a9ab00c8d75b">get_altitude</a> (double base_pres=1013.15)</td></tr>
-<tr class="memdesc:a0a480dfb132b8efc68f8a9ab00c8d75b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters.  <a href="#a0a480dfb132b8efc68f8a9ab00c8d75b">More...</a><br /></td></tr>
-<tr class="separator:a0a480dfb132b8efc68f8a9ab00c8d75b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a59268d6ba91891061090635edd6fc04b"><td class="memItemLeft" align="right" valign="top"><a id="a59268d6ba91891061090635edd6fc04b"></a>
-static <a class="el" href="classbmp280.html">bmp280</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a59268d6ba91891061090635edd6fc04b">getInstance</a> ()</td></tr>
-<tr class="memdesc:a59268d6ba91891061090635edd6fc04b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for the singleton pattern. Gets the only <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> instance. <br /></td></tr>
-<tr class="separator:a59268d6ba91891061090635edd6fc04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a6edf190f34f4a642def68cfafd8d3a7f"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a6edf190f34f4a642def68cfafd8d3a7f">i2c_reg_write</a> (uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint16_t length)</td></tr>
-<tr class="memdesc:a6edf190f34f4a642def68cfafd8d3a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for writing the sensor's registers through I2C bus.  <a href="#a6edf190f34f4a642def68cfafd8d3a7f">More...</a><br /></td></tr>
-<tr class="separator:a6edf190f34f4a642def68cfafd8d3a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ea4f460cdfc82cd4c695f0bfd43bdc6"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a9ea4f460cdfc82cd4c695f0bfd43bdc6">i2c_reg_read</a> (uint8_t i2c_addr, uint8_t reg_addr, uint8_t *reg_data, uint16_t length)</td></tr>
-<tr class="memdesc:a9ea4f460cdfc82cd4c695f0bfd43bdc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for reading the sensor's registers through I2C bus.  <a href="#a9ea4f460cdfc82cd4c695f0bfd43bdc6">More...</a><br /></td></tr>
-<tr class="separator:a9ea4f460cdfc82cd4c695f0bfd43bdc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36d36891ce38ec1d077e8c825ff99d89"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a36d36891ce38ec1d077e8c825ff99d89">bmp280</a> (<a class="el" href="classhwlib_1_1i2c__bus.html">hwlib::i2c_bus</a> &amp;hbus, uint8_t address)</td></tr>
+<tr class="memdesc:a36d36891ce38ec1d077e8c825ff99d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of BMP280. Requires a i2c bus to use for communication with the <a class="el" href="classbmp280.html" title="This class provides functionality to easily interface with a bmp280. All modes (SLEEP,...">bmp280</a> and the i2c address, (usually 0x76 | 0x77) of the BMP280. Default values that are set for the BMP280 are normal mode and oversampling x2. This constructor does not perform any read or write operations with the BMP280.  <a href="#a36d36891ce38ec1d077e8c825ff99d89">More...</a><br /></td></tr>
+<tr class="separator:a36d36891ce38ec1d077e8c825ff99d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d525e6ca33f2df3d829e78bf48f06a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a5d525e6ca33f2df3d829e78bf48f06a1">configure</a> ()</td></tr>
+<tr class="memdesc:a5d525e6ca33f2df3d829e78bf48f06a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the <a class="el" href="classbmp280.html" title="This class provides functionality to easily interface with a bmp280. All modes (SLEEP,...">bmp280</a> by retrieving required data from the <a class="el" href="classbmp280.html" title="This class provides functionality to easily interface with a bmp280. All modes (SLEEP,...">bmp280</a> and setting register values.  <a href="#a5d525e6ca33f2df3d829e78bf48f06a1">More...</a><br /></td></tr>
+<tr class="separator:a5d525e6ca33f2df3d829e78bf48f06a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f3426799bc90f9435b22fa44a40387c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a7f3426799bc90f9435b22fa44a40387c">getTemperature</a> ()</td></tr>
+<tr class="memdesc:a7f3426799bc90f9435b22fa44a40387c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the temperature in degrees celcius . Performs a read operation to the BMP280.  <a href="#a7f3426799bc90f9435b22fa44a40387c">More...</a><br /></td></tr>
+<tr class="separator:a7f3426799bc90f9435b22fa44a40387c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c2b8a1a167683a819d2653c4be37bc9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a4c2b8a1a167683a819d2653c4be37bc9">getPressure</a> ()</td></tr>
+<tr class="memdesc:a4c2b8a1a167683a819d2653c4be37bc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pressure in pA. Performs a read operation to the BMP280.  <a href="#a4c2b8a1a167683a819d2653c4be37bc9">More...</a><br /></td></tr>
+<tr class="separator:a4c2b8a1a167683a819d2653c4be37bc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f477a87343ddd8a49cdd88210bd80cb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a9f477a87343ddd8a49cdd88210bd80cb">getAltitude</a> (double sea_level_pres=1013.15)</td></tr>
+<tr class="memdesc:a9f477a87343ddd8a49cdd88210bd80cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters. Performs write operations to the BMP280.  <a href="#a9f477a87343ddd8a49cdd88210bd80cb">More...</a><br /></td></tr>
+<tr class="separator:a9f477a87343ddd8a49cdd88210bd80cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa51e3a6cb1a602145e8efa2c81f9455f"><td class="memItemLeft" align="right" valign="top"><a id="aa51e3a6cb1a602145e8efa2c81f9455f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#aa51e3a6cb1a602145e8efa2c81f9455f">reset</a> ()</td></tr>
+<tr class="memdesc:aa51e3a6cb1a602145e8efa2c81f9455f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the BMP280 to factory default. Performs a write operation to the BMP280. <br /></td></tr>
+<tr class="separator:aa51e3a6cb1a602145e8efa2c81f9455f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcbdb0160669a3d428e25bd715239fd5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#afcbdb0160669a3d428e25bd715239fd5">setOversampling</a> (<a class="el" href="bmp280_8hpp.html#a8eb2f33991b63046b2887939a003837f">OVERSAMPLING</a> os)</td></tr>
+<tr class="memdesc:afcbdb0160669a3d428e25bd715239fd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the oversampling for obtaining measurements, Default is 2. Performs a read and write operation to the BMP280.  <a href="#afcbdb0160669a3d428e25bd715239fd5">More...</a><br /></td></tr>
+<tr class="separator:afcbdb0160669a3d428e25bd715239fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7304149cb12a908febd5ba9109ef2d5d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a7304149cb12a908febd5ba9109ef2d5d">setMode</a> (<a class="el" href="bmp280_8hpp.html#a4fa86f9d2218a1052a2f337ec17984d3">MODE</a> m)</td></tr>
+<tr class="memdesc:a7304149cb12a908febd5ba9109ef2d5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mode that the BMP280 should operate in. Default is normal mode. Performs a read and write operation to the BMP280.  <a href="#a7304149cb12a908febd5ba9109ef2d5d">More...</a><br /></td></tr>
+<tr class="separator:a7304149cb12a908febd5ba9109ef2d5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379f05aa177d55e99bd3a098e2efced1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a379f05aa177d55e99bd3a098e2efced1">setIIR</a> (<a class="el" href="bmp280_8hpp.html#a67b0684f2b007e72879b3ec3928a4a40">IIR_RES</a> res)</td></tr>
+<tr class="memdesc:a379f05aa177d55e99bd3a098e2efced1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the filtering coefficient for pressure. Performs a read and write operation to the BMP280.  <a href="#a379f05aa177d55e99bd3a098e2efced1">More...</a><br /></td></tr>
+<tr class="separator:a379f05aa177d55e99bd3a098e2efced1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a04623f32e2b3e8e175762e8863c41e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#a9a04623f32e2b3e8e175762e8863c41e">setStandbyTime</a> (<a class="el" href="bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520">STANDBY_TIME</a> standby_time)</td></tr>
+<tr class="memdesc:a9a04623f32e2b3e8e175762e8863c41e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the standby time beween measurements when in normal mode. Performs a read and write operation to the BMP280.  <a href="#a9a04623f32e2b3e8e175762e8863c41e">More...</a><br /></td></tr>
+<tr class="separator:a9a04623f32e2b3e8e175762e8863c41e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace425e5f5d6fa925613421a75dd54fef"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#ace425e5f5d6fa925613421a75dd54fef">getDeviceId</a> ()</td></tr>
+<tr class="memdesc:ace425e5f5d6fa925613421a75dd54fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the device id that has been found for the BMP.  <a href="#ace425e5f5d6fa925613421a75dd54fef">More...</a><br /></td></tr>
+<tr class="separator:ace425e5f5d6fa925613421a75dd54fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab463411af32432506c42768cdf73f5f2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbmp280.html#ab463411af32432506c42768cdf73f5f2">getErrors</a> ()</td></tr>
+<tr class="memdesc:ab463411af32432506c42768cdf73f5f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns uint8_t that can contain error types.  <a href="#ab463411af32432506c42768cdf73f5f2">More...</a><br /></td></tr>
+<tr class="separator:ab463411af32432506c42768cdf73f5f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This library class provides an easy interface that binds the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> bosch driver to hwlib, making it 'plug and play'. </p>
-<dl class="section version"><dt>Version</dt><dd>1.0 </dd></dl>
+<div class="textblock"><p>This class provides functionality to easily interface with a <a class="el" href="classbmp280.html" title="This class provides functionality to easily interface with a bmp280. All modes (SLEEP,...">bmp280</a>. All modes (SLEEP, FORCED, STANDBY) work. </p>
 <dl class="section author"><dt>Author</dt><dd>Ferdi Stoeltie </dd></dl>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0a480dfb132b8efc68f8a9ab00c8d75b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a480dfb132b8efc68f8a9ab00c8d75b">&#9670;&nbsp;</a></span>get_altitude()</h2>
+<dl class="section date"><dt>Date</dt><dd>2019-23-07 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>1.0.0 </dd></dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a36d36891ce38ec1d077e8c825ff99d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36d36891ce38ec1d077e8c825ff99d89">&#9670;&nbsp;</a></span>bmp280()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float bmp280::get_altitude </td>
+          <td class="memname">bmp280::bmp280 </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>base_pres</em> = <code>1013.15</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classhwlib_1_1i2c__bus.html">hwlib::i2c_bus</a> &amp;&#160;</td>
+          <td class="paramname"><em>hbus</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>address</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor of BMP280. Requires a i2c bus to use for communication with the <a class="el" href="classbmp280.html" title="This class provides functionality to easily interface with a bmp280. All modes (SLEEP,...">bmp280</a> and the i2c address, (usually 0x76 | 0x77) of the BMP280. Default values that are set for the BMP280 are normal mode and oversampling x2. This constructor does not perform any read or write operations with the BMP280. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">hwlib::i2c_bus&amp;</td><td>hbus The hwlib i2c bus to use. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">uint8_t</td><td>Address The i2c address for the BMP280. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5d525e6ca33f2df3d829e78bf48f06a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d525e6ca33f2df3d829e78bf48f06a1">&#9670;&nbsp;</a></span>configure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void bmp280::configure </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters. </p>
+<p>Configures the <a class="el" href="classbmp280.html" title="This class provides functionality to easily interface with a bmp280. All modes (SLEEP,...">bmp280</a> by retrieving required data from the <a class="el" href="classbmp280.html" title="This class provides functionality to easily interface with a bmp280. All modes (SLEEP,...">bmp280</a> and setting register values. </p>
+<p>Performs read and write operations to the BMP280. </p><dl class="section warning"><dt>Warning</dt><dd>Retrieving temperature and pressure before calling this method will result in undefined behaviour (wrong measurements). </dd></dl>
+
+</div>
+</div>
+<a id="a9f477a87343ddd8a49cdd88210bd80cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f477a87343ddd8a49cdd88210bd80cb">&#9670;&nbsp;</a></span>getAltitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float bmp280::getAltitude </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>sea_level_pres</em> = <code>1013.15</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Helper method that gets the altitude based on the temperature and pressure. The return value is expressed in meters. Performs write operations to the BMP280. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">The</td><td>local pressure at sea level, expressed in hectopascal (hPa). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">sea_level_pres</td><td>The local pressure at sea level, expressed in hectopascal (hPa). </td></tr>
   </table>
   </dd>
 </dl>
@@ -159,14 +205,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="aa69aa6f655ea7a82e78da96f54aadfb8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa69aa6f655ea7a82e78da96f54aadfb8">&#9670;&nbsp;</a></span>get_bmp280_conf_driver()</h2>
+<a id="ace425e5f5d6fa925613421a75dd54fef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace425e5f5d6fa925613421a75dd54fef">&#9670;&nbsp;</a></span>getDeviceId()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="structbmp280__config.html">bmp280_config</a> bmp280::get_bmp280_conf_driver </td>
+          <td class="memname">uint8_t bmp280::getDeviceId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -174,19 +220,19 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the underlying <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> config from the bosch driver library. </p>
-<dl class="section return"><dt>Returns</dt><dd>struct <a class="el" href="structbmp280__config.html">bmp280_config</a> </dd></dl>
+<p>Gets the device id that has been found for the BMP. </p>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t The device id (not i2c address!) for the <a class="el" href="classbmp280.html" title="This class provides functionality to easily interface with a bmp280. All modes (SLEEP,...">bmp280</a> at address 0xD0. </dd></dl>
 
 </div>
 </div>
-<a id="ac15f0e1c589daaf1778a0f1b86620efb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac15f0e1c589daaf1778a0f1b86620efb">&#9670;&nbsp;</a></span>get_bmp280_dev_driver()</h2>
+<a id="ab463411af32432506c42768cdf73f5f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab463411af32432506c42768cdf73f5f2">&#9670;&nbsp;</a></span>getErrors()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="structbmp280__dev.html">bmp280_dev</a> bmp280::get_bmp280_dev_driver </td>
+          <td class="memname">uint8_t bmp280::getErrors </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -194,19 +240,19 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the underlying <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> device driver from the bosch driver library. </p>
-<dl class="section return"><dt>Returns</dt><dd>struct <a class="el" href="structbmp280__dev.html">bmp280_dev</a> </dd></dl>
+<p>Returns uint8_t that can contain error types. </p>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t Error types of error that have been found. </dd></dl>
 
 </div>
 </div>
-<a id="ae598eb1f714ba9a39896099ee157164f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae598eb1f714ba9a39896099ee157164f">&#9670;&nbsp;</a></span>read_temperature()</h2>
+<a id="a4c2b8a1a167683a819d2653c4be37bc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c2b8a1a167683a819d2653c4be37bc9">&#9670;&nbsp;</a></span>getPressure()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double bmp280::read_temperature </td>
+          <td class="memname">uint32_t bmp280::getPressure </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -214,201 +260,142 @@ Friends</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads the temperature value from the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> and returns it as a double (always new read). </p>
-<dl class="section return"><dt>Returns</dt><dd>double Temperature value in degrees celsius. </dd></dl>
+<p>Get the pressure in pA. Performs a read operation to the BMP280. </p>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t Pressure in unit of pA. </dd></dl>
 
 </div>
 </div>
-<a id="ac8426d09704b2d35088d760acb10e876"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8426d09704b2d35088d760acb10e876">&#9670;&nbsp;</a></span>set_bmp280_conf_driver()</h2>
+<a id="a7f3426799bc90f9435b22fa44a40387c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f3426799bc90f9435b22fa44a40387c">&#9670;&nbsp;</a></span>getTemperature()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void bmp280::set_bmp280_conf_driver </td>
+          <td class="memname">float bmp280::getTemperature </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structbmp280__config.html">bmp280_config</a>&#160;</td>
-          <td class="paramname"><em>bmp_c</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> config for modifying default settings (updates immediately to the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> sensor). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">bmp_c</td><td>The <a class="el" href="structbmp280__config.html">bmp280_config</a> that replaces the current one. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Get the temperature in degrees celcius . Performs a read operation to the BMP280. </p>
+<dl class="section return"><dt>Returns</dt><dd>float Degrees celcius of measured temperature. </dd></dl>
 
 </div>
 </div>
-<a id="abf2047614752774902d6897bf0de8c02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf2047614752774902d6897bf0de8c02">&#9670;&nbsp;</a></span>set_bmp280_dev_driver()</h2>
+<a id="a379f05aa177d55e99bd3a098e2efced1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a379f05aa177d55e99bd3a098e2efced1">&#9670;&nbsp;</a></span>setIIR()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void bmp280::set_bmp280_dev_driver </td>
+          <td class="memname">bool bmp280::setIIR </td>
           <td>(</td>
-          <td class="paramtype">struct <a class="el" href="structbmp280__dev.html">bmp280_dev</a>&#160;</td>
-          <td class="paramname"><em>bmp_d</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="bmp280_8hpp.html#a67b0684f2b007e72879b3ec3928a4a40">IIR_RES</a>&#160;</td>
+          <td class="paramname"><em>res</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> device driver for modifying default settings (updates immediately to the <a class="el" href="classbmp280.html" title="This library class provides an easy interface that binds the bmp280 bosch driver to hwlib,...">bmp280</a> sensor). </p>
+<p>Sets the filtering coefficient for pressure. Performs a read and write operation to the BMP280. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">bmp_d</td><td>The <a class="el" href="structbmp280__dev.html">bmp280_dev</a> that replaces the current one. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">IIR_RES</td><td>resolution of the filter. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool Returns true when value has been set succesfully and false if failed. </dd></dl>
 
 </div>
 </div>
-<h2 class="groupheader">Friends And Related Function Documentation</h2>
-<a id="a9ea4f460cdfc82cd4c695f0bfd43bdc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ea4f460cdfc82cd4c695f0bfd43bdc6">&#9670;&nbsp;</a></span>i2c_reg_read</h2>
+<a id="a7304149cb12a908febd5ba9109ef2d5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7304149cb12a908febd5ba9109ef2d5d">&#9670;&nbsp;</a></span>setMode()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t i2c_reg_read </td>
+          <td class="memname">bool bmp280::setMode </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>i2c_addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="bmp280_8hpp.html#a4fa86f9d2218a1052a2f337ec17984d3">MODE</a>&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>reg_addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>reg_data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>length</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Function for reading the sensor's registers through I2C bus. </p>
+<p>Mode that the BMP280 should operate in. Default is normal mode. Performs a read and write operation to the BMP280. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">i2c_addr</td><td>: Sensor I2C address. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">reg_addr</td><td>: Register address. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">reg_data</td><td>: Pointer to the data buffer to store the read data. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>: No of bytes to read.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">MODE</td><td>Mode that the BMP280 should operate in. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Status of execution </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>-&gt; Success </td></tr>
-    <tr><td class="paramname">&gt;0</td><td>-&gt; Failure Info </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool Returns true when value has been set succesfully and false if failed. </dd></dl>
 
 </div>
 </div>
-<a id="a6edf190f34f4a642def68cfafd8d3a7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6edf190f34f4a642def68cfafd8d3a7f">&#9670;&nbsp;</a></span>i2c_reg_write</h2>
+<a id="afcbdb0160669a3d428e25bd715239fd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcbdb0160669a3d428e25bd715239fd5">&#9670;&nbsp;</a></span>setOversampling()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t i2c_reg_write </td>
+          <td class="memname">bool bmp280::setOversampling </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>i2c_addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="bmp280_8hpp.html#a8eb2f33991b63046b2887939a003837f">OVERSAMPLING</a>&#160;</td>
+          <td class="paramname"><em>os</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>reg_addr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t *&#160;</td>
-          <td class="paramname"><em>reg_data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>length</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Function for writing the sensor's registers through I2C bus. </p>
+<p>Sets the oversampling for obtaining measurements, Default is 2. Performs a read and write operation to the BMP280. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">i2c_addr</td><td>: sensor I2C address. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">reg_addr</td><td>: Register address. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">reg_data</td><td>: Pointer to the data buffer whose value is to be written. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>: No of bytes to write.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">OVERSAMPLING</td><td>The oversampling to use. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Status of execution </dd></dl>
-<dl class="retval"><dt>Return values</dt><dd>
-  <table class="retval">
-    <tr><td class="paramname">0</td><td>-&gt; Success </td></tr>
-    <tr><td class="paramname">&gt;0</td><td>-&gt; Failure Info </td></tr>
+<dl class="section return"><dt>Returns</dt><dd>bool Returns true when value has been set succesfully and false if failed. </dd></dl>
+
+</div>
+</div>
+<a id="a9a04623f32e2b3e8e175762e8863c41e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a04623f32e2b3e8e175762e8863c41e">&#9670;&nbsp;</a></span>setStandbyTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool bmp280::setStandbyTime </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="bmp280_8hpp.html#a2db4a9862b3a2e31301ac185385d2520">STANDBY_TIME</a>&#160;</td>
+          <td class="paramname"><em>standby_time</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the standby time beween measurements when in normal mode. Performs a read and write operation to the BMP280. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">STANDBY_TIME</td><td>standby time enum for standby time between measurements. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>bool Returns true when value has been set succesfully and false if failed. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="bmp280lib_8hpp_source.html">bmp280lib.hpp</a></li>
-<li>bmp280lib.cpp</li>
+<li><a class="el" href="bmp280_8hpp_source.html">bmp280.hpp</a></li>
+<li>bmp280.cpp</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -71,14 +71,16 @@ int main( void ){
    test.test01(bmp_test);   
    test.test02(bmp_test);  
    test.test03(bmp_test);  // Does not work properly on BME280 (standby times are different)
+   bmp_test.setIIR(IIR_RES::IIR_08);
    while(1) {
       hwlib::cout << "temp is:\t" << hwlib::dec << bmp_test.getTemperature() << "\n" << hwlib::flush;
       hwlib::cout << "Pressure is:\t" << hwlib::dec << bmp_test.getPressure() << "\n" << hwlib::flush;
-/*      display 
+      hwlib::cout << "Altitude: " << hwlib::dec << bmp_test.getAltitude(1016.2) << "m\n" << hwlib::flush;
+      display 
       << "\f" << "Temp: " << bmp_test.getTemperature() 
-      << "\n" << "Pres" << bmp_test.getPressure()
-      << "\n" << "Alt" << bmp_test.getAltitude()
-      << hwlib::flush;     */
+      << "\n" << "Pres: " << bmp_test.getPressure()
+      << "\n" << "Alt:  " << bmp_test.getAltitude(1016.2)
+      << hwlib::flush;     
       hwlib::wait_ms(2000);
    }
 

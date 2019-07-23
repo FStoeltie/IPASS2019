@@ -1,0 +1,342 @@
+\hypertarget{bmp280_8hpp}{}\section{bmp280.\+hpp File Reference}
+\label{bmp280_8hpp}\index{bmp280.hpp@{bmp280.hpp}}
+{\ttfamily \#include \char`\"{}hwlib.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbmp280}{bmp280}}
+\begin{DoxyCompactList}\small\item\em This class provides functionality to easily interface with a \mbox{\hyperlink{classbmp280}{bmp280}}. All modes (S\+L\+E\+EP, F\+O\+R\+C\+ED, S\+T\+A\+N\+D\+BY) work. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+ME}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520abc9bd9188356c909b3d436d5175fc5a5}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+U\+S\+\_\+500}} = 0x00, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ae4b88748a2cd0ce4de85b39a436ba05e}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+U\+S\+\_\+62500}} = 0x20, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ae26e8b5e0fd590e49352c061edc36138}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+M\+S\+\_\+125}} = 0x40, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ab0561a44ea15033a6f17127563fc519a}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+M\+S\+\_\+250}} = 0x60, 
+\newline
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a831bd4ffa4c61f31d9f00c7d831a2f9a}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+M\+S\+\_\+500}} = 0x80, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a9f15cdedd8d76e4abb50732f5727065b}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+S\+\_\+1}} = 0x\+A0, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520aa3de00c1597600a387128a7add5b354f}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+S\+\_\+2}} = 0x\+C0, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a982f1877cdcf00febf7dbf67cc7a1229}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+S\+\_\+4}} = 0x\+E0, 
+\newline
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520abbf6c849d5c16b71472e7d0338d4a8a7}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+B\+M\+E280\+\_\+\+U\+S\+\_\+500}} = 0b00000000, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520acb506005fe069f2a7c9ba43fc2758791}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+B\+M\+E280\+\_\+\+M\+S\+\_\+10}} = 0b11000000, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520abd08985ada7a5e756c7b726f9a22bff0}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+B\+M\+E280\+\_\+\+M\+S\+\_\+20}} = 0b11100000, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a7fbb40fb4d4ef0ee5b1c4416ea1f3012}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+B\+M\+E280\+\_\+\+U\+S\+\_\+62500}} = 0b00100000, 
+\newline
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ad4def0902d5b1b321a8ad69947f4a7ee}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+B\+M\+E280\+\_\+\+M\+S\+\_\+125}} = 0b01000000, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a8f6c1b75cee6d3b7fe87222ccc6b0a24}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+B\+M\+E280\+\_\+\+M\+S\+\_\+250}} = 0b01100000, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a578e79a74587acce7f704cdabb3259a1}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+B\+M\+E280\+\_\+\+M\+S\+\_\+500}} = 0b10000000, 
+\mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a410044470df7f4f0ecf54bd42d08a66c}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+M\+E\+::\+B\+M\+E280\+\_\+\+S\+\_\+1}} = 0b10100000
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for standby time values between measurements taken by bmp280/bme280 (only when \mbox{\hyperlink{classbmp280}{bmp280}} is in normal mode). \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40}{I\+I\+R\+\_\+\+R\+ES}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a52f501e0e49036c251322fa7b6d978d5}{I\+I\+R\+\_\+\+R\+E\+S\+::\+I\+I\+R\+\_\+\+O\+FF}} = 0x00, 
+\mbox{\hyperlink{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a9b5ad2a2dd37c2e6a43b9911b496bd82}{I\+I\+R\+\_\+\+R\+E\+S\+::\+I\+I\+R\+\_\+02}} = 0b00000100, 
+\mbox{\hyperlink{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a0115fe0b355d5cc33779034b0fe81823}{I\+I\+R\+\_\+\+R\+E\+S\+::\+I\+I\+R\+\_\+04}} = 0b00001000, 
+\mbox{\hyperlink{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40af2984765014f602d021694e72c0dd3dc}{I\+I\+R\+\_\+\+R\+E\+S\+::\+I\+I\+R\+\_\+08}} = 0b00001100, 
+\newline
+\mbox{\hyperlink{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a5b486685cac3039af4c634845cb8923e}{I\+I\+R\+\_\+\+R\+E\+S\+::\+I\+I\+R\+\_\+16}} = 0b00010000
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for I\+IR resolution. used for changing rate of change of pressure measurement based on past measurements. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386}{P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386a580388119849de0445fd3aef7d551c5b}{P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+P\+R\+E\+S\+\_\+\+O\+S\+\_\+\+O\+FF}} = 0x00, 
+\mbox{\hyperlink{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386acf840c054b60da913abc6359659f3f51}{P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+P\+R\+E\+S\+\_\+\+O\+S\+\_\+01}} = 0x04, 
+\mbox{\hyperlink{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386aa25ea61a4be4187ab279923107a8cb7f}{P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+P\+R\+E\+S\+\_\+\+O\+S\+\_\+02}} = 0x08, 
+\mbox{\hyperlink{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386aa8b53b296cfc364a18ab28412dc53d5d}{P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+P\+R\+E\+S\+\_\+\+O\+S\+\_\+04}} = 0x0B, 
+\newline
+\mbox{\hyperlink{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386a71c5e628bebb6dd7b177d255cc662b19}{P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+P\+R\+E\+S\+\_\+\+O\+S\+\_\+08}} = 0x10, 
+\mbox{\hyperlink{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386aa5cb6f2eee7b953b9ffdd7471024cd80}{P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+P\+R\+E\+S\+\_\+\+O\+S\+\_\+16}} = 0x14
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for Pressure sampling setting. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2be}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}} \+: uint8\+\_\+t \{ \newline
+\mbox{\hyperlink{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2bead111c7df08d42beeadfa4bef0d4b5371}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+\+O\+FF}} = 0x00, 
+\mbox{\hyperlink{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2bea5ca125333ef12176feeeb8e4946bc6de}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+01}} = 0x20, 
+\mbox{\hyperlink{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2beadaf48f57f9d771b16cc434810e77e018}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+02}} = 0x40, 
+\mbox{\hyperlink{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2bea7e97411525b4bbe0bc7f5384b4fba8dd}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+04}} = 0x50, 
+\newline
+\mbox{\hyperlink{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2beacf36da920e2661aa4c8293906b7b481a}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+08}} = 0x80, 
+\mbox{\hyperlink{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2beaa8f46777c64bbc96f0c9c894c6b3bdef}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+::\+T\+E\+M\+P\+\_\+\+O\+S\+\_\+16}} = 0x\+A0
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for temperature sampling setting. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{bmp280_8hpp_a8eb2f33991b63046b2887939a003837f}{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}} \+: uint8\+\_\+t \{ \newline
+{\bfseries O\+V\+E\+R\+\_\+01} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+01) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+01), 
+{\bfseries O\+V\+E\+R\+\_\+02} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+02) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+02), 
+{\bfseries O\+V\+E\+R\+\_\+04} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+04) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+04), 
+{\bfseries O\+V\+E\+R\+\_\+08} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+08) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+08), 
+\newline
+{\bfseries O\+V\+E\+R\+\_\+16} = static\+\_\+cast$<$uint8\+\_\+t$>$(P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::P\+R\+E\+S\+\_\+\+O\+S\+\_\+16) $\vert$ static\+\_\+cast$<$uint8\+\_\+t$>$(T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG\+::T\+E\+M\+P\+\_\+\+O\+S\+\_\+16)
+ \}
+\begin{DoxyCompactList}\small\item\em Enum for Oversampling. Combines both temperature and pressure oversampling into a single value (mask). \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3}{M\+O\+DE}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3ab32bd403b93dc6deffdab7af55e82596}{M\+O\+D\+E\+::\+S\+L\+E\+EP}} = 0x00, 
+\mbox{\hyperlink{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3a8288e8d57c21a2bbd5b8e596ddf8484f}{M\+O\+D\+E\+::\+F\+O\+R\+C\+ED}} = 0x01, 
+\mbox{\hyperlink{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3a1e23852820b9154316c7c06e2b7ba051}{M\+O\+D\+E\+::\+N\+O\+R\+M\+AL}} = 0b00000011
+ \}
+\begin{DoxyCompactList}\small\item\em Enum to select mode for B\+M\+P280 to operate in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{bmp280_8hpp_ad02bf9b870e4716fc22e2a73d75950eb}\label{bmp280_8hpp_ad02bf9b870e4716fc22e2a73d75950eb}} 
+enum {\bfseries B\+M\+P280\+\_\+\+E\+R\+R\+OR} \+: uint8\+\_\+t \{ \newline
+{\bfseries N\+O\+\_\+\+E\+R\+R\+OR} = 0x00, 
+{\bfseries U\+N\+K\+N\+O\+W\+N\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+ID} = 0x01, 
+{\bfseries U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+R\+E\+G\+\_\+\+D\+A\+TA} = (0x01) $<$$<$ 1, 
+{\bfseries T\+E\+M\+P\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+GE} = (0x01) $<$$<$ 2, 
+\newline
+{\bfseries P\+R\+E\+S\+\_\+\+O\+U\+T\+\_\+\+O\+F\+\_\+\+R\+A\+N\+GE} = (0x01) $<$$<$ 3
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{bmp280_8hpp_a187be2b07aff016ba06c9a74afcd7b5a}\label{bmp280_8hpp_a187be2b07aff016ba06c9a74afcd7b5a}} 
+hwlib\+::ostream \& {\bfseries operator$<$$<$} (hwlib\+::ostream \&stream, const float \&f)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This file contains all the requirements to use the \mbox{\hyperlink{classbmp280}{bmp280}} class.
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019-\/22-\/07 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+v1.\+0.\+0 
+\end{DoxyVersion}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40}\label{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40}} 
+\index{bmp280.hpp@{bmp280.hpp}!IIR\_RES@{IIR\_RES}}
+\index{IIR\_RES@{IIR\_RES}!bmp280.hpp@{bmp280.hpp}}
+\subsubsection{\texorpdfstring{IIR\_RES}{IIR\_RES}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40}{I\+I\+R\+\_\+\+R\+ES}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum for I\+IR resolution. used for changing rate of change of pressure measurement based on past measurements. 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IIR\_OFF@{IIR\_OFF}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!IIR\_OFF@{IIR\_OFF}}}\mbox{\Hypertarget{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a52f501e0e49036c251322fa7b6d978d5}\label{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a52f501e0e49036c251322fa7b6d978d5}} 
+I\+I\+R\+\_\+\+O\+FF&I\+IR Res off \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IIR\_02@{IIR\_02}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!IIR\_02@{IIR\_02}}}\mbox{\Hypertarget{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a9b5ad2a2dd37c2e6a43b9911b496bd82}\label{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a9b5ad2a2dd37c2e6a43b9911b496bd82}} 
+I\+I\+R\+\_\+02&I\+IR Res x2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IIR\_04@{IIR\_04}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!IIR\_04@{IIR\_04}}}\mbox{\Hypertarget{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a0115fe0b355d5cc33779034b0fe81823}\label{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a0115fe0b355d5cc33779034b0fe81823}} 
+I\+I\+R\+\_\+04&I\+IR Res x4 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IIR\_08@{IIR\_08}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!IIR\_08@{IIR\_08}}}\mbox{\Hypertarget{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40af2984765014f602d021694e72c0dd3dc}\label{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40af2984765014f602d021694e72c0dd3dc}} 
+I\+I\+R\+\_\+08&I\+IR Res x8 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IIR\_16@{IIR\_16}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!IIR\_16@{IIR\_16}}}\mbox{\Hypertarget{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a5b486685cac3039af4c634845cb8923e}\label{bmp280_8hpp_a67b0684f2b007e72879b3ec3928a4a40a5b486685cac3039af4c634845cb8923e}} 
+I\+I\+R\+\_\+16&I\+IR Res x16 \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3}\label{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3}} 
+\index{bmp280.hpp@{bmp280.hpp}!MODE@{MODE}}
+\index{MODE@{MODE}!bmp280.hpp@{bmp280.hpp}}
+\subsubsection{\texorpdfstring{MODE}{MODE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3}{M\+O\+DE}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum to select mode for B\+M\+P280 to operate in. 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SLEEP@{SLEEP}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!SLEEP@{SLEEP}}}\mbox{\Hypertarget{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3ab32bd403b93dc6deffdab7af55e82596}\label{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3ab32bd403b93dc6deffdab7af55e82596}} 
+S\+L\+E\+EP&B\+M\+P280 in sleep mode, won\textquotesingle{}t take measurements \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FORCED@{FORCED}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!FORCED@{FORCED}}}\mbox{\Hypertarget{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3a8288e8d57c21a2bbd5b8e596ddf8484f}\label{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3a8288e8d57c21a2bbd5b8e596ddf8484f}} 
+F\+O\+R\+C\+ED&B\+M\+P280 will only take a measurement when temperature or pressure is requested \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NORMAL@{NORMAL}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!NORMAL@{NORMAL}}}\mbox{\Hypertarget{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3a1e23852820b9154316c7c06e2b7ba051}\label{bmp280_8hpp_a4fa86f9d2218a1052a2f337ec17984d3a1e23852820b9154316c7c06e2b7ba051}} 
+N\+O\+R\+M\+AL&B\+M\+P280 will run in continuous mode with a standby between every measurement \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{bmp280_8hpp_a8eb2f33991b63046b2887939a003837f}\label{bmp280_8hpp_a8eb2f33991b63046b2887939a003837f}} 
+\index{bmp280.hpp@{bmp280.hpp}!OVERSAMPLING@{OVERSAMPLING}}
+\index{OVERSAMPLING@{OVERSAMPLING}!bmp280.hpp@{bmp280.hpp}}
+\subsubsection{\texorpdfstring{OVERSAMPLING}{OVERSAMPLING}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{bmp280_8hpp_a8eb2f33991b63046b2887939a003837f}{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum for Oversampling. Combines both temperature and pressure oversampling into a single value (mask). 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\mbox{\Hypertarget{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386}\label{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386}} 
+\index{bmp280.hpp@{bmp280.hpp}!PRES\_OVERSAMPLING@{PRES\_OVERSAMPLING}}
+\index{PRES\_OVERSAMPLING@{PRES\_OVERSAMPLING}!bmp280.hpp@{bmp280.hpp}}
+\subsubsection{\texorpdfstring{PRES\_OVERSAMPLING}{PRES\_OVERSAMPLING}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386}{P\+R\+E\+S\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum for Pressure sampling setting. 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRES\_OS\_OFF@{PRES\_OS\_OFF}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!PRES\_OS\_OFF@{PRES\_OS\_OFF}}}\mbox{\Hypertarget{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386a580388119849de0445fd3aef7d551c5b}\label{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386a580388119849de0445fd3aef7d551c5b}} 
+P\+R\+E\+S\+\_\+\+O\+S\+\_\+\+O\+FF&Temperature measurement off \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRES\_OS\_01@{PRES\_OS\_01}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!PRES\_OS\_01@{PRES\_OS\_01}}}\mbox{\Hypertarget{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386acf840c054b60da913abc6359659f3f51}\label{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386acf840c054b60da913abc6359659f3f51}} 
+P\+R\+E\+S\+\_\+\+O\+S\+\_\+01&Pressure measurement 1 (2.\+62 Pa) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRES\_OS\_02@{PRES\_OS\_02}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!PRES\_OS\_02@{PRES\_OS\_02}}}\mbox{\Hypertarget{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386aa25ea61a4be4187ab279923107a8cb7f}\label{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386aa25ea61a4be4187ab279923107a8cb7f}} 
+P\+R\+E\+S\+\_\+\+O\+S\+\_\+02&Pressure measurement 2 (1.\+31 Pa) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRES\_OS\_04@{PRES\_OS\_04}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!PRES\_OS\_04@{PRES\_OS\_04}}}\mbox{\Hypertarget{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386aa8b53b296cfc364a18ab28412dc53d5d}\label{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386aa8b53b296cfc364a18ab28412dc53d5d}} 
+P\+R\+E\+S\+\_\+\+O\+S\+\_\+04&Pressure measurement 4 (0.\+66 Pa) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRES\_OS\_08@{PRES\_OS\_08}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!PRES\_OS\_08@{PRES\_OS\_08}}}\mbox{\Hypertarget{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386a71c5e628bebb6dd7b177d255cc662b19}\label{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386a71c5e628bebb6dd7b177d255cc662b19}} 
+P\+R\+E\+S\+\_\+\+O\+S\+\_\+08&Pressure measurement 8 (0.\+33 Pa) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PRES\_OS\_16@{PRES\_OS\_16}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!PRES\_OS\_16@{PRES\_OS\_16}}}\mbox{\Hypertarget{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386aa5cb6f2eee7b953b9ffdd7471024cd80}\label{bmp280_8hpp_a927fa48c5658c0d1ae6e0cf819b57386aa5cb6f2eee7b953b9ffdd7471024cd80}} 
+P\+R\+E\+S\+\_\+\+O\+S\+\_\+16&Pressure measurement 16 (0.\+16 Pa) \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520}} 
+\index{bmp280.hpp@{bmp280.hpp}!STANDBY\_TIME@{STANDBY\_TIME}}
+\index{STANDBY\_TIME@{STANDBY\_TIME}!bmp280.hpp@{bmp280.hpp}}
+\subsubsection{\texorpdfstring{STANDBY\_TIME}{STANDBY\_TIME}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520}{S\+T\+A\+N\+D\+B\+Y\+\_\+\+T\+I\+ME}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum for standby time values between measurements taken by bmp280/bme280 (only when \mbox{\hyperlink{classbmp280}{bmp280}} is in normal mode). 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{US\_500@{US\_500}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!US\_500@{US\_500}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520abc9bd9188356c909b3d436d5175fc5a5}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520abc9bd9188356c909b3d436d5175fc5a5}} 
+U\+S\+\_\+500&500 microseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{US\_62500@{US\_62500}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!US\_62500@{US\_62500}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ae4b88748a2cd0ce4de85b39a436ba05e}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ae4b88748a2cd0ce4de85b39a436ba05e}} 
+U\+S\+\_\+62500&62.\+5 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MS\_125@{MS\_125}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!MS\_125@{MS\_125}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ae26e8b5e0fd590e49352c061edc36138}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ae26e8b5e0fd590e49352c061edc36138}} 
+M\+S\+\_\+125&125 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MS\_250@{MS\_250}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!MS\_250@{MS\_250}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ab0561a44ea15033a6f17127563fc519a}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ab0561a44ea15033a6f17127563fc519a}} 
+M\+S\+\_\+250&250 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MS\_500@{MS\_500}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!MS\_500@{MS\_500}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a831bd4ffa4c61f31d9f00c7d831a2f9a}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a831bd4ffa4c61f31d9f00c7d831a2f9a}} 
+M\+S\+\_\+500&500 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_1@{S\_1}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!S\_1@{S\_1}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a9f15cdedd8d76e4abb50732f5727065b}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a9f15cdedd8d76e4abb50732f5727065b}} 
+S\+\_\+1&1 second \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_2@{S\_2}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!S\_2@{S\_2}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520aa3de00c1597600a387128a7add5b354f}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520aa3de00c1597600a387128a7add5b354f}} 
+S\+\_\+2&2 seconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{S\_4@{S\_4}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!S\_4@{S\_4}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a982f1877cdcf00febf7dbf67cc7a1229}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a982f1877cdcf00febf7dbf67cc7a1229}} 
+S\+\_\+4&4 seconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BME280\_US\_500@{BME280\_US\_500}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!BME280\_US\_500@{BME280\_US\_500}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520abbf6c849d5c16b71472e7d0338d4a8a7}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520abbf6c849d5c16b71472e7d0338d4a8a7}} 
+B\+M\+E280\+\_\+\+U\+S\+\_\+500&B\+M\+E280 500 microseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BME280\_MS\_10@{BME280\_MS\_10}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!BME280\_MS\_10@{BME280\_MS\_10}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520acb506005fe069f2a7c9ba43fc2758791}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520acb506005fe069f2a7c9ba43fc2758791}} 
+B\+M\+E280\+\_\+\+M\+S\+\_\+10&B\+M\+E280 10 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BME280\_MS\_20@{BME280\_MS\_20}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!BME280\_MS\_20@{BME280\_MS\_20}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520abd08985ada7a5e756c7b726f9a22bff0}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520abd08985ada7a5e756c7b726f9a22bff0}} 
+B\+M\+E280\+\_\+\+M\+S\+\_\+20&B\+M\+E280 20 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BME280\_US\_62500@{BME280\_US\_62500}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!BME280\_US\_62500@{BME280\_US\_62500}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a7fbb40fb4d4ef0ee5b1c4416ea1f3012}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a7fbb40fb4d4ef0ee5b1c4416ea1f3012}} 
+B\+M\+E280\+\_\+\+U\+S\+\_\+62500&B\+M\+E280 62.\+5 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BME280\_MS\_125@{BME280\_MS\_125}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!BME280\_MS\_125@{BME280\_MS\_125}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ad4def0902d5b1b321a8ad69947f4a7ee}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520ad4def0902d5b1b321a8ad69947f4a7ee}} 
+B\+M\+E280\+\_\+\+M\+S\+\_\+125&B\+M\+E280 125 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BME280\_MS\_250@{BME280\_MS\_250}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!BME280\_MS\_250@{BME280\_MS\_250}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a8f6c1b75cee6d3b7fe87222ccc6b0a24}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a8f6c1b75cee6d3b7fe87222ccc6b0a24}} 
+B\+M\+E280\+\_\+\+M\+S\+\_\+250&B\+M\+E280 250 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BME280\_MS\_500@{BME280\_MS\_500}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!BME280\_MS\_500@{BME280\_MS\_500}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a578e79a74587acce7f704cdabb3259a1}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a578e79a74587acce7f704cdabb3259a1}} 
+B\+M\+E280\+\_\+\+M\+S\+\_\+500&B\+M\+E280 500 milliseconds \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BME280\_S\_1@{BME280\_S\_1}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!BME280\_S\_1@{BME280\_S\_1}}}\mbox{\Hypertarget{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a410044470df7f4f0ecf54bd42d08a66c}\label{bmp280_8hpp_a2db4a9862b3a2e31301ac185385d2520a410044470df7f4f0ecf54bd42d08a66c}} 
+B\+M\+E280\+\_\+\+S\+\_\+1&B\+M\+E280 1 second \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2be}\label{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2be}} 
+\index{bmp280.hpp@{bmp280.hpp}!TEMP\_OVERSAMPLING@{TEMP\_OVERSAMPLING}}
+\index{TEMP\_OVERSAMPLING@{TEMP\_OVERSAMPLING}!bmp280.hpp@{bmp280.hpp}}
+\subsubsection{\texorpdfstring{TEMP\_OVERSAMPLING}{TEMP\_OVERSAMPLING}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2be}{T\+E\+M\+P\+\_\+\+O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+NG}} \+: uint8\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Enum for temperature sampling setting. 
+
+\begin{DoxyAuthor}{Author}
+Ferdi Stoeltie 
+\end{DoxyAuthor}
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_OFF@{TEMP\_OS\_OFF}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!TEMP\_OS\_OFF@{TEMP\_OS\_OFF}}}\mbox{\Hypertarget{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2bead111c7df08d42beeadfa4bef0d4b5371}\label{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2bead111c7df08d42beeadfa4bef0d4b5371}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+\+O\+FF&Temperature measurement off \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_01@{TEMP\_OS\_01}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!TEMP\_OS\_01@{TEMP\_OS\_01}}}\mbox{\Hypertarget{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2bea5ca125333ef12176feeeb8e4946bc6de}\label{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2bea5ca125333ef12176feeeb8e4946bc6de}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+01&Temperature measurement 1 (0.\+00050 Degrees Celcius) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_02@{TEMP\_OS\_02}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!TEMP\_OS\_02@{TEMP\_OS\_02}}}\mbox{\Hypertarget{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2beadaf48f57f9d771b16cc434810e77e018}\label{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2beadaf48f57f9d771b16cc434810e77e018}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+02&Temperature measurement 2 (0.\+00025 Degrees Celcius) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_04@{TEMP\_OS\_04}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!TEMP\_OS\_04@{TEMP\_OS\_04}}}\mbox{\Hypertarget{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2bea7e97411525b4bbe0bc7f5384b4fba8dd}\label{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2bea7e97411525b4bbe0bc7f5384b4fba8dd}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+04&Temperature measurement 4 (0.\+00012 Degrees Celcius) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_08@{TEMP\_OS\_08}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!TEMP\_OS\_08@{TEMP\_OS\_08}}}\mbox{\Hypertarget{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2beacf36da920e2661aa4c8293906b7b481a}\label{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2beacf36da920e2661aa4c8293906b7b481a}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+08&Temperature measurement 8 (0.\+00006 Degrees Celcius) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TEMP\_OS\_16@{TEMP\_OS\_16}!bmp280.hpp@{bmp280.hpp}}\index{bmp280.hpp@{bmp280.hpp}!TEMP\_OS\_16@{TEMP\_OS\_16}}}\mbox{\Hypertarget{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2beaa8f46777c64bbc96f0c9c894c6b3bdef}\label{bmp280_8hpp_a5a8e2b39306e8386e576cea10f95d2beaa8f46777c64bbc96f0c9c894c6b3bdef}} 
+T\+E\+M\+P\+\_\+\+O\+S\+\_\+16&Temperature measurement 16 (0.\+00003 Degrees Celcius) \\
+\hline
+
+\end{DoxyEnumFields}
