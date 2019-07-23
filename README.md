@@ -10,7 +10,24 @@ Bmptk and hwlib.
 BME280 or BMP280.
 
 ## How to use
-The library is fairly easy to use. It provides functionality
+The library is fairly easy to use.<br/>
+```
+   // hwlib functionality
+   auto scl           = hwlib::target::pin_oc{ hwlib::target::pins::scl };
+   auto sda           = hwlib::target::pin_oc{ hwlib::target::pins::sda };
+   auto i2c_bus       = hwlib::i2c_bus_bit_banged_scl_sda( scl, sda );
+   
+   //bmp280 functionality
+   bmp280 bmpInstance(i2c_bus, 0x76);
+   bmpInstance.getTemperature(); // get temperature as degrees celcius float.
+   bmpInstance.getPressure();    // get pressure in Pa.
+   bmpInstance.getAltitude();    // get altitude in meters.
+   bmpInstance.setMode(MODE);    // set bmp mode.
+   bmpInstance.setIIR(IIR_RES);  // set iir resolution for pressure.
+   bmpInstance.setOversampling(OVERSAMPLING);   // set oversampling of measurements.
+   bmpInstance.setStandbyTime(STANDBY_TIME);    // set standby time in normal mode.
+   bmpInstance.getErrors();      // Get possible errors.
+   ```
 ## Changes made
 ## Result
 ## Resources
