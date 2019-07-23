@@ -164,7 +164,7 @@ uint8_t bmp280::read_dev_id_reg()  {
 uint8_t bmp280::getDeviceId() {
     return device_id;
 }
-
+// Code from datasheet Bosch
 // Returns temperature in DegC, resolution is 0.01 DegC. Output value of “5123” equals 51.23 DegC.
 int32_t bmp280::bmp280_compensate_T_int32(int32_t adc_T)    {
     int32_t var1, var2, T;
@@ -174,7 +174,7 @@ int32_t bmp280::bmp280_compensate_T_int32(int32_t adc_T)    {
     T = (t_fine * 5 + 128) >> 8;
     return T;
 }
-
+// Code from datasheet Bosch
 // Returns pressure in Pa as unsigned 32 bit integer. Output value of “96386” equals 96386 Pa = 963.86 hPa
 uint32_t bmp280::bmp280_compensate_P_int32(int32_t adc_P)
 {
