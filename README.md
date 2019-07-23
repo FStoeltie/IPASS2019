@@ -19,6 +19,7 @@ The library is fairly easy to use.<br/>
    
    //bmp280 functionality
    bmp280 bmpInstance(i2c_bus, 0x76);
+   bmpInstance.configure()       // configures bmp280 settings. Required before calling any other methods.
    bmpInstance.getTemperature(); // get temperature as degrees celcius float.
    bmpInstance.getPressure();    // get pressure in Pa.
    bmpInstance.getAltitude();    // get altitude in meters.
