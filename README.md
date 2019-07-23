@@ -17,7 +17,7 @@ The library is fairly easy to use.<br/>
    auto sda           = hwlib::target::pin_oc{ hwlib::target::pins::sda };
    auto i2c_bus       = hwlib::i2c_bus_bit_banged_scl_sda( scl, sda );
    
-   //bmp280 functionality
+   // bmp280 functionality
    bmp280 bmpInstance(i2c_bus, 0x76);
    bmpInstance.configure()       // configures bmp280 settings. Required before calling any other methods.
    bmpInstance.getTemperature(); // get temperature as degrees celcius float.
