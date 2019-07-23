@@ -4,7 +4,7 @@ bmp280::bmp280(hwlib::i2c_bus& hbus, uint8_t address) :
 hbus(hbus),
 address(address)
 {
-    control_measurement_data = static_cast<uint8_t>(OVERSAMPLING::OVER_02) | static_cast<uint8_t>(MODE::FORCED);
+    control_measurement_data = static_cast<uint8_t>(OVERSAMPLING::OVER_04) | static_cast<uint8_t>(MODE::NORMAL);
 }
 void bmp280::configure()    {
     device_id = read_dev_id_reg();
@@ -15,7 +15,7 @@ void bmp280::configure()    {
         error |= static_cast<uint8_t>(BMP280_ERROR::UNKNOWN_DEVICE_ID);
     }
     retrieveCalibrationData();
-    setMode(MODE::FORCED);
+    setMode(MODE::NORMAL);
     if (control_measurement_data != read_ctrl_reg())   {
         error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
     }
@@ -23,7 +23,7 @@ void bmp280::configure()    {
     if (config_data != read_conf_reg())   {
         error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
     }
-    setIIR(IIR_RES::IIR_02);
+    setIIR(IIR_RES::IIR_OFF);
     if (config_data != read_conf_reg())   {
         error |= static_cast<uint8_t>(BMP280_ERROR::UNEXPECTED_REG_DATA);
     }
@@ -44,7 +44,6 @@ float bmp280::getTemperature()   {
     }
     hbus.write(address).write(REG_PRES_DATA);
     uint8_t result_data[6];
-    
     hbus.read(address).read(result_data, 6);
     int32_t raw_temp = (((int32_t) result_data[3] << 12) | ((int32_t) result_data[4] << 4) | (int32_t) result_data[5] >> 4) << (0 - 0);
     int32_t temp_result = bmp280_compensate_T_int32(raw_temp);
@@ -81,7 +80,7 @@ void bmp280::retrieveCalibrationData()  {
     dig_P6 = (int16_t) readCalibrationRegister(REG_DIG_P6);
     dig_P7 = (int16_t) readCalibrationRegister(REG_DIG_P7);
     dig_P8 = (int16_t) readCalibrationRegister(REG_DIG_P8);
-    dig_P9 = (int16_t) readCalibrationRegister(REG_DIG_P8);
+    dig_P9 = (int16_t) readCalibrationRegister(REG_DIG_P9);
 }
 
 uint16_t bmp280::readCalibrationRegister(const uint8_t reg_address)   {
@@ -95,7 +94,10 @@ uint16_t bmp280::readCalibrationRegister(const uint8_t reg_address)   {
 void bmp280::reset()   {
     uint8_t resetData[2] = {REG_RESET_BMP, RESET_VALUE};
     hbus.write(address).write(resetData, 2);
+    hwlib::cout << "read_ctrl_reg reading:\t0x" << hwlib::hex << read_ctrl_reg() << "\n" << hwlib::flush;
+    hwlib::cout << "Standby reading:\t0x" << hwlib::hex << read_conf_reg() << "\n" << hwlib::flush;
 }
+
 bool bmp280::setOversampling(OVERSAMPLING os)  {
     uint8_t cast_os = static_cast<uint8_t>(os);
     control_measurement_data = (control_measurement_data & ~cast_os) | cast_os;
@@ -111,9 +113,9 @@ bool bmp280::setMode(MODE m)  {
 bool bmp280::setStandbyTime(STANDBY_TIME standby_time)   {
     uint8_t cast_st = static_cast<uint8_t>(standby_time);
     config_data = (config_data & ~cast_st) | cast_st;
-/*    hwlib::cout << "standby value: " << hwlib::hex << config_data << "\n" << hwlib::flush;*/
     return set_reg(REG_CONFIG, config_data);
 }
+
 bool bmp280::setIIR(IIR_RES res)   {
     uint8_t cast_res = static_cast<uint8_t>(res);
     config_data = (config_data & ~cast_res) | cast_res;
@@ -131,9 +133,11 @@ bool bmp280::set_reg(uint8_t reg, uint8_t val) {
     }
     return true;
 }
+
 uint8_t bmp280::getErrors() {
     return static_cast<uint8_t>(error);
 }
+
 uint8_t bmp280::read_conf_reg()   {
     hbus.write(address).write(REG_CONFIG);
     uint8_t standby_time = 0;
@@ -147,12 +151,14 @@ uint8_t bmp280::read_ctrl_reg()  {
     hbus.read(address).read(ctrl_measurement);
     return ctrl_measurement;
 }
+
 uint8_t bmp280::read_dev_id_reg()  {
     hbus.write(address).write(REG_DEVICE_ID);
     uint8_t device_id = 0;
     hbus.read(address).read(device_id);
     return device_id;
 }
+
 uint8_t bmp280::getDeviceId() {
     return device_id;
 }

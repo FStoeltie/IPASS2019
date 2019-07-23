@@ -66,7 +66,7 @@ static constexpr uint8_t STANDBY_TIME_4_S = 0x07;
 
 /**
     \enum STANDBY_TIME
-    \brief Enum for standby time values between measurements taken by bmp280 
+    \brief Enum for standby time values between measurements taken by bmp280/bme280 
     (only when bmp280 is in normal mode).
     \author Ferdi Stoeltie
 */
@@ -79,6 +79,16 @@ enum class STANDBY_TIME : uint8_t{
     S_1 = 0xA0, /**< 1 second */
     S_2 = 0xC0, /**< 2 seconds */
     S_4 = 0xE0, /**< 4 seconds */
+
+    BME280_US_500   = 0b00000000, /**< BME280 500 microseconds */
+    BME280_MS_10    = 0b11000000, /**< BME280 10 milliseconds */
+    BME280_MS_20    = 0b11100000, /**< BME280 20 milliseconds */
+    BME280_US_62500 = 0b00100000, /**< BME280 62.5 milliseconds */
+    BME280_MS_125   = 0b01000000, /**< BME280 125 milliseconds */
+    BME280_MS_250   = 0b01100000, /**< BME280 250 milliseconds */
+    BME280_MS_500   = 0b10000000, /**< BME280 500 milliseconds */
+    BME280_S_1      = 0b10100000, /**< BME280 1 second */
+
 };
 
 /**
@@ -88,10 +98,10 @@ enum class STANDBY_TIME : uint8_t{
 */
 enum class IIR_RES : uint8_t{
     IIR_OFF = 0x00, /**< IIR Res off */
-    IIR_02 = 0x02,  /**< IIR Res x2 */
-    IIR_04 = 0x04,  /**< IIR Res x4 */
-    IIR_08 = 0x08,  /**< IIR Res x8 */
-    IIR_16 = 0x10,  /**< IIR Res x16 */
+    IIR_02 = 0b00000100,  /**< IIR Res x2 */
+    IIR_04 = 0b00001000,  /**< IIR Res x4 */
+    IIR_08 = 0b00001100,  /**< IIR Res x8 */
+    IIR_16 = 0b00010000,  /**< IIR Res x16 */
 };
 
 /**
@@ -166,8 +176,10 @@ inline hwlib::ostream & operator<< ( hwlib::ostream & stream, const float & f ) 
 }
 
 /**
-    \brief  I am dead <3
+    \brief  This class provides functionality to easily interface with a bmp280.
+            All modes (SLEEP, FORCED, STANDBY) work.
     \author Ferdi Stoeltie
+    \date 2019-23-07
 */
 class bmp280 {
 public:
@@ -204,7 +216,7 @@ public:
         hwlib::cout << "temperature guess with a floating point value: " << hwlib::dec << (float)getTemperature() << "\n" << hwlib::flush;
 
         hwlib::cout << "Testing standby time!\n" << hwlib::flush;
-        
+         
         hwlib::cout << "Standby reading:\t0x" << hwlib::hex << read_conf_reg() << "\n" << hwlib::flush;
 
         hwlib::cout << "Pressure guess: " << hwlib::dec << (uint32_t)getPressure() << "\n" << hwlib::flush;
@@ -283,13 +295,7 @@ public:
     */
     uint8_t getErrors();
 private:
-/*    std::array<uint8_t, 6> readBurstPresTempRegisters() {
-        hbus.write(address).write(REG_PRESSURE_DATA);
-        uint8_t result_data[6];
-        hbus.read(address).read(result_data, 6);
-        std::array<uint8_t, 6> r_value = std::array<uint8_t, 6>();
-        return 
-    }*/
+    // Helper function for setting registers and validating if set
     bool set_reg(uint8_t reg, uint8_t val);
     // Reads control register data
     uint8_t read_ctrl_reg();
