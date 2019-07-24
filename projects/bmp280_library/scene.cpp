@@ -78,30 +78,47 @@ void GraphicsObjectSquare::rotatePoint(hwlib::xy& xyp, hwlib::xy pivot)    {
 }
 
 GraphScene::GraphScene(hwlib::glcd_oled& window, hwlib::xy startPoint, unsigned int width, unsigned int height) : GraphicsObject(window), startPoint(startPoint), 
-    x_axis(startPoint,hwlib::xy(startPoint.x + width, startPoint.y), window.foreground),
-    y_axis(startPoint,hwlib::xy(startPoint.x, startPoint.y + height), window.foreground),
+    x_axis(hwlib::xy(0, height - 2), hwlib::xy(width, height - 2)),
+    y_axis(hwlib::xy(1, height), hwlib::xy(1, 0)),
     width(width),
     height(height){
-        setScale(2);
+        //setScale(2);
 }
 
 void GraphScene::draw() {
     window.clear();
+    //hwlib::xy(0, 62);
+    //hwlib::line(hwlib::xy(0, height - 2), hwlib::xy(width, height - 2)).draw(window);
+    //hwlib::line(hwlib::xy(5, 64), hwlib::xy(5, 0)).draw(window);
     x_axis.draw( window );
-    for(uint8_t i = 1; i < points; i++) {
+/*    for(uint8_t i = 1; i < points; i++) {
          hwlib::line(hwlib::xy(pArray[i - 1].x * everyValue, pArray[i - 1].y * everyValue), 
             hwlib::xy(pArray[i].x * everyValue, pArray[i].y * everyValue)).draw(window);
+    }*/
+/*    for (uint8_t i = 1; i < points; i++)    {
+        hwlib::line(hwlib::xy(pArray[i - 1]).x * everyValue)
+    }*/
+    // needs range
+    for(uint8_t i = 1; i < 20; i++) {
+        hwlib::line(hwlib::xy((i-1) * width / 20, height - (pArrayValues[i-1] - min) * (height / my_range)), 
+                    hwlib::xy((i) * width / 20, height - (pArrayValues[i] - min) * (height / my_range))).draw(window);
     }
     y_axis.draw( window );
     window.flush(); 
-
 }
 
 void GraphScene::push_back(float value)  {
-    for(uint8_t i = 0; i < points - 1; i++) {
+/*    for(uint8_t i = 0; i < points - 1; i++) {
+        pArray[i] = hwlib::xy(60/points * i, pArray[i + 1].y);
+    }*/
+/*    for(uint8_t i = 0; i < points - 1; i++) {
         pArray[i] = hwlib::xy(60/points * i, pArray[i + 1].y);
     }
-    pArray[points - 1] = hwlib::xy(60/points * (points - 1), (int)((value - 20) * range_scale));
+    pArray[points - 1] = hwlib::xy(60/points * (points -  1), (int)((value - 20) * range_scale));*/
+    for(uint8_t i = 1; i < 20; i++) {
+        pArrayValues[i - 1] = pArrayValues[i];
+    } 
+    pArrayValues[19] = value;
 }
 
 void GraphScene::setScale(const float scale)   {
@@ -123,4 +140,6 @@ void GraphScene::setScale(const float scale)   {
 
 void GraphScene::set_range_scale(int min, int max)  {
     range_scale = 30 / (max - min);
+    my_range = max - min;
+    this->min = min;
 }

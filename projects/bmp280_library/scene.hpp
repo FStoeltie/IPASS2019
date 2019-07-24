@@ -9,7 +9,6 @@
 #include "hwlib.hpp"
 #include <algorithm>
 #include <cmath>
-
 #ifndef __SCENE_HPP__
 #define __SCENE_HPP__
 constexpr double pi() { return std::atan(1)*4; }
@@ -140,15 +139,17 @@ protected:
 private:
     const uint8_t points = 10;
     int range_scale = 1;
-    int min = 20;
+    int min = 28;
     hwlib::xy pArray[10] = {hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0),
                             hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0), hwlib::xy(0, 0)};
+    uint8_t pArrayValues[20] = {0};
     hwlib::xy startPoint;
     hwlib::line x_axis;
     hwlib::line y_axis;
     unsigned int width; 
     unsigned int height;
     unsigned int everyValue = 1;
+    uint8_t my_range = 5;
 };
 
 #endif // __SCENE_HPP__
